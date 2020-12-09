@@ -58,6 +58,14 @@ struct DoToggle: View {
                  至于像UISwitch中修改多个颜色的功能，也是自定义ToggleStyle实现的，
                  具体需求需要编码。
                  */
+                Toggle(isOn:$isOn){
+                    Text("飞行模式")
+                }
+                .toggleStyle(MyRectangleToggleStyle(
+                    width: 100,
+                    offColor: .green,
+                    thumColor: .orange
+                ))
             }
         }
     }
@@ -104,8 +112,55 @@ struct DoToggle: View {
 //                .border(Color.purple)
         }
     }
+    
+    //: 接下来我们快速的创建一个方形的开关
+    struct MyRectangleToggleStyle: ToggleStyle {
+        
+        var width: CGFloat = 50.0
+        var cornerRadius: CGFloat = 4.0
+        
+        var onColor = Color.red
+        var offColor = Color.gray
+        var thumColor = Color.white
+        
+        func makeBody(configuration: Configuration) -> some View {
+            
+            let alignment = configuration.isOn ?
+                Alignment.trailing :
+                Alignment.leading
+            
+            let toggleColor = configuration.isOn ?
+                onColor: offColor
+            
+            return HStack {
+                
+                configuration.label
+
+                Spacer()
+                
+                ZStack(alignment: alignment) {
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .frame(width: width, height: width / 3)
+                        .foregroundColor(toggleColor)
+                    
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .frame(width: width * 0.45, height: width * 0.25)
+                        .padding(4)
+                        .foregroundColor(thumColor)
+                }
+                .onTapGesture {
+                    withAnimation {
+                        configuration.isOn.toggle()
+                    }
+                }
+            }
+            .padding(10)
+            .background(Color.gray)
+        }
+    }
 }
 
+//: https://zhuanlan.zhihu.com/p/149836622
 struct DoToggle_Previews: PreviewProvider {
     static var previews: some View {
         DoToggle()

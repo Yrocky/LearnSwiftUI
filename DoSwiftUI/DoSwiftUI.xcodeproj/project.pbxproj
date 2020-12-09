@@ -15,6 +15,7 @@
 		32A8073C2580AAE20008358B /* DoText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8073B2580AAE20008358B /* DoText.swift */; };
 		32A8073F2580BC180008358B /* DoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8073E2580BC180008358B /* DoStepper.swift */; };
 		32A807422580CC150008358B /* DoToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A807412580CC150008358B /* DoToggle.swift */; };
+		32A807452580EEFC0008358B /* DoSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A807442580EEFC0008358B /* DoSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		32A8073B2580AAE20008358B /* DoText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoText.swift; sourceTree = "<group>"; };
 		32A8073E2580BC180008358B /* DoStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoStepper.swift; sourceTree = "<group>"; };
 		32A807412580CC150008358B /* DoToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoToggle.swift; sourceTree = "<group>"; };
+		32A807442580EEFC0008358B /* DoSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				323545C525809AE9003A9828 /* Basic.swift */,
 				32A8073B2580AAE20008358B /* DoText.swift */,
 				32A8073E2580BC180008358B /* DoStepper.swift */,
+				32A807442580EEFC0008358B /* DoSlider.swift */,
 				32A807412580CC150008358B /* DoToggle.swift */,
 			);
 			path = Basic;
@@ -161,6 +164,7 @@
 				32A807422580CC150008358B /* DoToggle.swift in Sources */,
 				323545B725809A6A003A9828 /* ContentView.swift in Sources */,
 				323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */,
+				32A807452580EEFC0008358B /* DoSlider.swift in Sources */,
 				32A8073F2580BC180008358B /* DoStepper.swift in Sources */,
 				323545C625809AE9003A9828 /* Basic.swift in Sources */,
 				32A8073C2580AAE20008358B /* DoText.swift in Sources */,
