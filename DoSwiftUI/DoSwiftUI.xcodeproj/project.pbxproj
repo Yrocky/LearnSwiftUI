@@ -12,10 +12,13 @@
 		323545B925809A6D003A9828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323545B825809A6D003A9828 /* Assets.xcassets */; };
 		323545BC25809A6D003A9828 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323545BB25809A6D003A9828 /* Preview Assets.xcassets */; };
 		323545C625809AE9003A9828 /* Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323545C525809AE9003A9828 /* Basic.swift */; };
+		32A553B02580FDA20036F4A9 /* DoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A553AF2580FDA20036F4A9 /* DoImage.swift */; };
 		32A8073C2580AAE20008358B /* DoText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8073B2580AAE20008358B /* DoText.swift */; };
 		32A8073F2580BC180008358B /* DoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8073E2580BC180008358B /* DoStepper.swift */; };
 		32A807422580CC150008358B /* DoToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A807412580CC150008358B /* DoToggle.swift */; };
 		32A807452580EEFC0008358B /* DoSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A807442580EEFC0008358B /* DoSlider.swift */; };
+		32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA3F25885575008A0B4A /* DoTextField.swift */; };
+		32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA4225886AE0008A0B4A /* DoGradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +29,13 @@
 		323545BB25809A6D003A9828 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		323545BD25809A6D003A9828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		323545C525809AE9003A9828 /* Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basic.swift; sourceTree = "<group>"; };
+		32A553AF2580FDA20036F4A9 /* DoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoImage.swift; sourceTree = "<group>"; };
 		32A8073B2580AAE20008358B /* DoText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoText.swift; sourceTree = "<group>"; };
 		32A8073E2580BC180008358B /* DoStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoStepper.swift; sourceTree = "<group>"; };
 		32A807412580CC150008358B /* DoToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoToggle.swift; sourceTree = "<group>"; };
 		32A807442580EEFC0008358B /* DoSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSlider.swift; sourceTree = "<group>"; };
+		32D4EA3F25885575008A0B4A /* DoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTextField.swift; sourceTree = "<group>"; };
+		32D4EA4225886AE0008A0B4A /* DoGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +91,12 @@
 			children = (
 				323545C525809AE9003A9828 /* Basic.swift */,
 				32A8073B2580AAE20008358B /* DoText.swift */,
+				32A553AF2580FDA20036F4A9 /* DoImage.swift */,
 				32A8073E2580BC180008358B /* DoStepper.swift */,
 				32A807442580EEFC0008358B /* DoSlider.swift */,
 				32A807412580CC150008358B /* DoToggle.swift */,
+				32D4EA3F25885575008A0B4A /* DoTextField.swift */,
+				32D4EA4225886AE0008A0B4A /* DoGradient.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -161,12 +170,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */,
 				32A807422580CC150008358B /* DoToggle.swift in Sources */,
 				323545B725809A6A003A9828 /* ContentView.swift in Sources */,
 				323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */,
 				32A807452580EEFC0008358B /* DoSlider.swift in Sources */,
 				32A8073F2580BC180008358B /* DoStepper.swift in Sources */,
+				32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */,
 				323545C625809AE9003A9828 /* Basic.swift in Sources */,
+				32A553B02580FDA20036F4A9 /* DoImage.swift in Sources */,
 				32A8073C2580AAE20008358B /* DoText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
