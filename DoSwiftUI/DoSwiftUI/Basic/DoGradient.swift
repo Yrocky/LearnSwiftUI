@@ -29,7 +29,8 @@ struct DoGradient: View {
                 Text("Hello")
                     .background(LinearGradient(gradient: Gradient(colors: [.red, .orange]), startPoint: .leading
                                                     , endPoint: .trailing))
-            }.frame(width: 300, height: 100)
+            }
+            .frame(width: 300, height: 100)
         }
     }
 }

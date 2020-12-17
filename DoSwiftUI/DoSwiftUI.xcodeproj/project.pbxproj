@@ -19,6 +19,10 @@
 		32A807452580EEFC0008358B /* DoSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A807442580EEFC0008358B /* DoSlider.swift */; };
 		32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA3F25885575008A0B4A /* DoTextField.swift */; };
 		32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA4225886AE0008A0B4A /* DoGradient.swift */; };
+		32D4EA6F258AF202008A0B4A /* DoPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA6E258AF202008A0B4A /* DoPreference.swift */; };
+		32D4EA72258B0325008A0B4A /* DoCoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA71258B0325008A0B4A /* DoCoordinateSpace.swift */; };
+		32D4EA75258B4495008A0B4A /* DoGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA74258B4492008A0B4A /* DoGroupBox.swift */; };
+		32D4EA78258B49B8008A0B4A /* DoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA77258B49B8008A0B4A /* DoLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		32A807442580EEFC0008358B /* DoSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSlider.swift; sourceTree = "<group>"; };
 		32D4EA3F25885575008A0B4A /* DoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTextField.swift; sourceTree = "<group>"; };
 		32D4EA4225886AE0008A0B4A /* DoGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGradient.swift; sourceTree = "<group>"; };
+		32D4EA6E258AF202008A0B4A /* DoPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoPreference.swift; sourceTree = "<group>"; };
+		32D4EA71258B0325008A0B4A /* DoCoordinateSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoCoordinateSpace.swift; sourceTree = "<group>"; };
+		32D4EA74258B4492008A0B4A /* DoGroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGroupBox.swift; sourceTree = "<group>"; };
+		32D4EA77258B49B8008A0B4A /* DoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,10 @@
 				32A807412580CC150008358B /* DoToggle.swift */,
 				32D4EA3F25885575008A0B4A /* DoTextField.swift */,
 				32D4EA4225886AE0008A0B4A /* DoGradient.swift */,
+				32D4EA6E258AF202008A0B4A /* DoPreference.swift */,
+				32D4EA71258B0325008A0B4A /* DoCoordinateSpace.swift */,
+				32D4EA74258B4492008A0B4A /* DoGroupBox.swift */,
+				32D4EA77258B49B8008A0B4A /* DoLabel.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -171,9 +183,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */,
+				32D4EA72258B0325008A0B4A /* DoCoordinateSpace.swift in Sources */,
 				32A807422580CC150008358B /* DoToggle.swift in Sources */,
+				32D4EA78258B49B8008A0B4A /* DoLabel.swift in Sources */,
 				323545B725809A6A003A9828 /* ContentView.swift in Sources */,
 				323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */,
+				32D4EA75258B4495008A0B4A /* DoGroupBox.swift in Sources */,
+				32D4EA6F258AF202008A0B4A /* DoPreference.swift in Sources */,
 				32A807452580EEFC0008358B /* DoSlider.swift in Sources */,
 				32A8073F2580BC180008358B /* DoStepper.swift in Sources */,
 				32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */,
