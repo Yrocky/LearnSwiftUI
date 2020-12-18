@@ -19,55 +19,83 @@ struct DoToggle: View {
              由于Toggle、Stepper、Slider这些控件基本上都是在表单中使用，
              所以swiftUI中默认都会以行来表示。
              */
-            Toggle(isOn: $isOn) {
-                Text("Open Location")
-            }
-            .background(Color.pink)
-            .padding(10)
+            doTextToggle
             
-            /*:
-             便捷的使用字符串来创建一个Toggle，内部会转化为Text，
-             和UISwitch所不同的是，Toggle并没有提供改变状态的事件回调，
-             这是由于其可变的属性（isOn）已经具备响应性了，并不需要
-             */
-            Toggle("Show Rank Info", isOn:$isOn)
+            doStringToggle
             
-            /*:
-             swiftUI对开关控件的自定义接口开放程度比UIKit高得多，
-             我们可以通过`ToggleStyle`来自定义样式。
-             
-             swiftUI默认的左边一个Label、右边一个开关的样式，
-             就是使用的`TitleOnlyLabelStyle`。
-             
-             `ToggleStyle`是一个协议，我们需要创建具体的类型来设置样式，
-             另外系统内置开关的样式是使用了`SwitchToggleStyle`结构体，
-             通过这个style，我们可以修改开关的颜色，仅此而已，因为系统只开放了这一个接口。
-             
-             */
-            VStack {
-                Toggle("Light mode", isOn: $isOn)
-                    .toggleStyle(SwitchToggleStyle(tint: .red))
-                
-                /*:
-                 我们自定义一个遵守`ToggleStyle`协议的类型，来实现一个单选开关
-                 */
-                Toggle("Dark mode", isOn: $isOn)
-                    .toggleStyle(MyToggleStyle(onColor: .orange, offColor: .yellow))
-                
-                /*:
-                 至于像UISwitch中修改多个颜色的功能，也是自定义ToggleStyle实现的，
-                 具体需求需要编码。
-                 */
-                Toggle(isOn:$isOn){
-                    Text("飞行模式")
-                }
-                .toggleStyle(MyRectangleToggleStyle(
-                    width: 100,
-                    offColor: .green,
-                    thumColor: .orange
-                ))
-            }
+            doSystemToggleStyle
+            
+            doMyToggleStyle
+            
+            doMyRectangleToggleStyle
         }
+    }
+    
+    var doTextToggle: some View {
+        Toggle(isOn: $isOn) {
+            Text("Open Location")
+        }
+        .background(Color.pink)
+        .padding(10)
+    }
+    
+    var doStringToggle: some View {
+        /*:
+         便捷的使用字符串来创建一个Toggle，内部会转化为Text，
+         和UISwitch所不同的是，Toggle并没有提供改变状态的事件回调，
+         这是由于其可变的属性（isOn）已经具备响应性了，并不需要
+         */
+        Toggle("Show Rank Info", isOn:$isOn)
+    }
+    
+    var doSystemToggleStyle: some View {
+        /*:
+         swiftUI对开关控件的自定义接口开放程度比UIKit高得多，
+         我们可以通过`ToggleStyle`来自定义样式。
+         
+         swiftUI默认的左边一个Label、右边一个开关的样式，
+         就是使用的`TitleOnlyLabelStyle`。
+         
+         `ToggleStyle`是一个协议，我们需要创建具体的类型来设置样式，
+         
+         */
+        VStack {
+            
+            Toggle("Default style", isOn: $isOn)
+                .toggleStyle(DefaultToggleStyle())
+
+            /*:
+             另外通过`SwitchToggleStyle`，我们可以修改开关的颜色，
+             仅此而已，因为系统只开放了这一个接口。
+             */
+            Toggle("Switch toggle style", isOn: $isOn)
+                .toggleStyle(SwitchToggleStyle(tint: .red))
+        }
+    }
+    
+    var doMyToggleStyle: some View {
+        
+        /*:
+         我们自定义一个遵守`ToggleStyle`协议的类型，来实现一个单选开关
+         */
+        Toggle("Dark mode", isOn: $isOn)
+            .toggleStyle(MyToggleStyle(onColor: .orange, offColor: .yellow))
+        
+    }
+    
+    var doMyRectangleToggleStyle: some View {
+        /*:
+         至于像UISwitch中修改多个颜色的功能，也是自定义ToggleStyle实现的，
+         具体需求需要编码。
+         */
+        Toggle(isOn:$isOn){
+            Text("飞行模式")
+        }
+        .toggleStyle(MyRectangleToggleStyle(
+            width: 100,
+            offColor: .green,
+            thumColor: .orange
+        ))
     }
     
     /*:

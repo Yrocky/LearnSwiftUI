@@ -13,60 +13,85 @@ struct DoTextField: View {
     @State var password: String = ""
     var body: some View {
         VStack{
-            HStack{
-                /*:
-                 `TextField`类似于UIKit中的`UITextField`控件，
-                 在最新版的TextField中，简化了设置`placehold`，
-                 可以直接使用第一个参数来设置placehold。
-                 */
-                Text("登录名：")
-                TextField("your login name", text: $name)
-            }
-            .padding()
-            HStack {
-                /*:
-                 TextField还提供了输入框内容修改以及点击完成的事件回调。
-                 */
-                Text("登录名：")
-                TextField("User name", text: $name) { (changed) in
-                    print("user name did changed:\(changed)")
-                } onCommit: {
-                    print("commit")
-                }
-            }
-            .padding()
             
-            VStack{
-                /*:
-                 我们可以使用`TextFieldStyle`来为TextField设置样式，
-                 TextFieldStyle是一个协议，目前siwftUI提供的样式有：
-                 * DefaultTextFieldStyle
-                 * PlainTextFieldStyle
-                 * RoundedBorderTextFieldStyle
-                 * SquareBorderTextFieldStyle(只支持macOS)
-                 三种。
-                 */
-                TextField("DefaultTextFieldStyle", text: $password)
-                    .textFieldStyle(DefaultTextFieldStyle())
-                    .padding()
-                TextField("DefaultTextFieldStyle", text: $password)
-                    .textFieldStyle(PlainTextFieldStyle())
-                    .padding()
-                TextField("DefaultTextFieldStyle", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                TextField("SquareBorderTextFieldStyle", text: $password)
-                    .textFieldStyle(LeftAndRightViewTextFieldStyle())
-                    .padding()
-            }
+            doNormalTextField
+            
+            doActionTextField
+            
+            doSystemTextFieldStyle
+            
             /*:
              不过遗憾的是，swiftUI并没有为我们提供leftView、rightView、clearView等功能视图，
              我们可以使用已有的内容来模拟出来对应的效果。
+             
+             第一种是使用自定义TextFieldStyle来实现
              */
+            doCustomTextFieldStyle
             
+            /*:
+             另一种是自定义View
+             */
             MyTextField("placehold")
             
         }
+    }
+    
+    var doNormalTextField: some View {
+        HStack{
+            /*:
+             `TextField`类似于UIKit中的`UITextField`控件，
+             在最新版的TextField中，简化了设置`placehold`，
+             可以直接使用第一个参数来设置placehold。
+             */
+            Text("登录名：")
+            TextField("your login name", text: $name)
+        }
+        .padding()
+    }
+    
+    var doActionTextField: some View {
+        HStack {
+            /*:
+             TextField还提供了输入框内容修改以及点击完成的事件回调。
+             */
+            Text("登录名：")
+            TextField("User name", text: $name) { (changed) in
+                print("user name did changed:\(changed)")
+            } onCommit: {
+                print("commit")
+            }
+        }
+        .padding()
+    }
+    
+    var doSystemTextFieldStyle: some View {
+        VStack{
+            /*:
+             我们可以使用`TextFieldStyle`来为TextField设置样式，
+             TextFieldStyle是一个协议，目前siwftUI提供的样式有：
+             * DefaultTextFieldStyle
+             * PlainTextFieldStyle
+             * RoundedBorderTextFieldStyle
+             * SquareBorderTextFieldStyle(只支持macOS)
+             三种。
+             */
+            TextField("DefaultTextFieldStyle", text: $password)
+                .textFieldStyle(DefaultTextFieldStyle())
+                .padding()
+            TextField("DefaultTextFieldStyle", text: $password)
+                .textFieldStyle(PlainTextFieldStyle())
+                .padding()
+            TextField("DefaultTextFieldStyle", text: $password)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+        }
+    }
+    
+    var doCustomTextFieldStyle: some View {
+        
+        TextField("LeftAndRightViewTextFieldStyle", text: $password)
+            .textFieldStyle(LeftAndRightViewTextFieldStyle())
+            .padding()
     }
 }
 

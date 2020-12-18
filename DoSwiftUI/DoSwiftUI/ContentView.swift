@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var list = [
+        "DoText","DoImage","DoStepper","DoSlider",
+        "DoText","DoImage","DoText","DoImage",
+    ]
+    
     var body: some View {
-//        List(["b","a"]){
-            Text("Hello, world!")
-                .padding()
-//        }
+        ScrollView{
+            ForEach(0..<list.count) { index in
+                GroupBox(
+                    label: Text(list[index])
+                        .font(.system(size: 17))
+                        .foregroundColor(.pink)
+                ) {
+                }
+            }
+        }
+        .padding()
     }
 }
 

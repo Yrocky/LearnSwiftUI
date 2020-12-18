@@ -13,35 +13,70 @@ struct DoSlider: View {
     
     var body: some View {
         VStack{
-            /*:
-             `Slider`是swiftUI中用来表示滑竿的控件，功能上等同于UIKit的UISlider，
-             和Stepper类似，Slider也具备`当前值`、`范围`两个重要的属性，
-             同时也有滑动的事件回调。
-             */
+            
+            doSlider
+            
+            doCustomLabelSlider
+            
+            doMinAndMaxLabelSlider
+            
+            doFullSlider
+            
+            doStepSlider
+        }
+        
+        /*:
+         不过Slider并没有Toggle那样自定义样式接口，
+         swiftUI中并不存在一个SliderStyle的协议让我们自定义样式。
+         */
+    }
+    
+    var doSlider: some View {
+        /*:
+         `Slider`是swiftUI中用来表示滑竿的控件，功能上等同于UIKit的UISlider，
+         和Stepper类似，Slider也具备`当前值`、`范围`两个重要的属性，
+         同时也有滑动的事件回调。
+         */
+        VStack{
+            
             Text("current value:\(value)")
+            
             Slider(value: $value, in: 0...1)
                 .padding()
-            
-            /*:
-             貌似创建自定义的Label并不会生效
-             */
-            Slider(value: $value, in: 0...10) {
-                //: 不生效
-                Text("current: \(value)")
-            }
-            .padding()
-            
-            /*:
-             我们还可以为滑竿设置最小值的视图，以及最大值的视图，可以是任意的View
-             */
-            Slider(
-                value: $value,
-                minimumValueLabel: Text("0"),
-                maximumValueLabel: Text("1")) {
-                //: 依然，不生效
-                Text("current: \(value)")
-            }
-            .padding()
+                //: 为Slider设置`foregroundColor`并不会生效
+//                .foregroundColor(.orange)
+                //: 需要为其设置`accentColor`才可以改变颜色，类似于UIKit中的tintColor
+                .accentColor(.orange)
+        }
+    }
+    
+    var doCustomLabelSlider: some View {
+        /*:
+         貌似创建自定义的Label并不会生效
+         */
+        Slider(value: $value, in: 0...10) {
+            //: 不生效
+            Text("current: \(value)")
+        }
+        .padding()
+    }
+    
+    var doMinAndMaxLabelSlider: some View {
+        /*:
+         我们还可以为滑竿设置最小值的视图，以及最大值的视图，可以是任意的View
+         */
+        Slider(
+            value: $value,
+            minimumValueLabel: Text("0"),
+            maximumValueLabel: Text("1")) {
+            //: 依然，不生效
+            Text("current: \(value)")
+        }
+        .padding()
+    }
+    
+    var doFullSlider: some View {
+        VStack{
             
             /*:
              得益于swift 5.0之后提供的FunctionBuilder功能，我们可以在这里写变量。
@@ -64,24 +99,21 @@ struct DoSlider: View {
                 Text("current: \(value)")
             }
             .padding()
-            
-            /*:
-             Slider也具备设置步长
-             */
-            Slider(
-                value: $value,
-                in: 0...1,
-                step: 0.2) {
-                //: 依然，不生效
-                Text("Slider value:\(value)")
-            }
-            .padding()
         }
-        
+    }
+    
+    var doStepSlider: some View {
         /*:
-         不过Slider并没有Toggle那样自定义样式接口，
-         swiftUI中并不存在一个SliderStyle的协议让我们自定义样式。
+         Slider也具备设置步长
          */
+        Slider(
+            value: $value,
+            in: 0...1,
+            step: 0.2) {
+            //: 依然，不生效
+            Text("Slider value:\(value)")
+        }
+        .padding()
     }
 }
 
