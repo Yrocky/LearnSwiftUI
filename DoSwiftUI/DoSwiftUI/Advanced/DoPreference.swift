@@ -13,6 +13,12 @@ struct DoPreference: View {
     @State var rects = [CGRect.zero]
         
     var body: some View {
+        
+        doMonthView
+        
+    }
+    
+    var doMonthView: some View {
         ZStack(alignment: .topLeading){
             RoundedRectangle(cornerRadius: 5)
                 .fill(Color.orange)

@@ -21,6 +21,8 @@ struct DoStack: View {
             doHStack
             
             doZStack
+            
+            doFuncationBuilder
         }
         .background(Color.red)
     }
@@ -52,14 +54,22 @@ struct DoStack: View {
 //                    .opacity(0.3)
                 .frame(height: 100)
             Text("This is a message.")
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: 80)
                 .fill(Color.yellow)
-                .opacity(0.3)
+//                .opacity(0.3)
                 .frame(height: 120)
         }
         .border(Color.gray)
         .padding()
         .border(Color.white)
+    }
+    var doFuncationBuilder: some View {
+        VStack{
+            /*:
+             在swift5.1中，我们可以省略具有返回值方法的`return`关键字，
+             
+             */
+        }
     }
 }
 

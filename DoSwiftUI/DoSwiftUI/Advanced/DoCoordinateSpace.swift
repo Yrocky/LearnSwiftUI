@@ -10,42 +10,68 @@ import SwiftUI
 struct DoCoordinateSpace: View {
     var body: some View {
         VStack{
-            /*:
-             swiftUI会给我们的子View一个合适的范围来显示，
-             一般来说我们不需要对要展示的View进行位置的修改。
-             比如，下面的VStack中有Text和Rectangle两个子View，
-             由于Text会使用内部的文本撑起一个size，
-             所以在VStack中其余的空间就是Rectangle的最终显示尺寸。
-             
-             如果我们不想使用这个尺寸或者根据swiftUI建议的尺寸做一个修改，
-             我们就需要用到`GeometryReader`，
-             在他的初始化的回调中可以通过`GeometryProxy`来获取父View给的建议尺寸。
-             */
-            VStack(alignment: .leading, spacing: 0){
-                Text("Hello world~")
-                    .padding()
-                    .background(Color.red)
-                
-                MyRectangle()
-            }
-            .frame(width: 300, height: 200)
-            .border(Color.gray, width: 1)
             
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Fetch super view rect with coordinateSpace")
-                    .padding(4)
-                    .font(.system(size: 17))
-                    .background(Color.orange)
-                HStack(alignment: .center, spacing: 10){
-                    MyKernelView()
-                    MyKernelView()
-                }
-                .coordinateSpace(name: MyKernelView.SuperView.two)
-            }
-            .coordinateSpace(name: MyKernelView.SuperView.one)
-            .frame(width: 300, height: 150)
-            .border(Color.black, width: 0.5)
+            doCustomSize
+            
+            doGlobalCoordinateSpace
+            
+            doCustomCoordinateSpace
         }
+    }
+    
+    var doCustomSize: some View {
+        /*:
+         swiftUI会给我们的子View一个合适的范围来显示，
+         一般来说我们不需要对要展示的View进行位置的修改。
+         比如，下面的VStack中有Text和Rectangle两个子View，
+         由于Text会使用内部的文本撑起一个size，
+         所以在VStack中其余的空间就是Rectangle的最终显示尺寸。
+         
+         如果我们不想使用这个尺寸或者根据swiftUI建议的尺寸做一个修改，
+         我们就需要用到`GeometryReader`，
+         在他的初始化的回调中可以通过`GeometryProxy`来获取父View给的建议尺寸。
+         */
+        VStack(alignment: .leading, spacing: 0){
+            Text("Hello world~")
+                .padding()
+                .background(Color.red)
+            
+            MyRectangle()
+        }
+        .frame(width: 300, height: 150)
+        .border(Color.gray, width: 1)
+    }
+    
+    var doGlobalCoordinateSpace: some View {
+        
+        VStack{
+            /*:
+             通过CoordinateSpace，我们拿到
+             */
+            
+            Rectangle()
+                .fill(Color.blue)
+                //: 通过这个modifer，可以设置一个坐标系统，
+                .coordinateSpace(name: CoordinateSpace.global)
+        }
+    }
+    
+    var doCustomCoordinateSpace: some View {
+        
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Fetch super view rect with coordinateSpace")
+                .padding(4)
+                .font(.system(size: 17))
+                .background(Color.orange)
+            HStack(alignment: .center, spacing: 10){
+                MyKernelView()
+                MyKernelView()
+            }
+            .coordinateSpace(name: MyKernelView.SuperView.two)
+        }
+        .coordinateSpace(name: MyKernelView.SuperView.one)
+        .frame(width: 300, height: 150)
+        .border(Color.black, width: 0.5)
     }
     
     struct MyRectangle: View {
