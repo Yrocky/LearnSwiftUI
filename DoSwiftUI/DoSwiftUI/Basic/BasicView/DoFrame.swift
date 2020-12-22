@@ -45,6 +45,8 @@ struct DoFrame: View {
         }
     }
     
+    @State var frameAlignment = Alignment.center
+    
     var doSetupAlignment: some View {
         
         VStack(alignment: .center, spacing:10) {
@@ -54,32 +56,18 @@ struct DoFrame: View {
              通过设置这个，可以决定View在给定的尺寸中的位置，
              一共有9个位置，下面一一列举一下，绿色是设置的固定尺寸，红色是Text文本的尺寸。
              */
-            HStack(alignment: .center, spacing: 10) {
-                
-                createCard(with: "topLeading", alignment: .topLeading)
-                createCard(with: "top", alignment: .top)
-                createCard(with: "topTrailing", alignment: .topTrailing)
-            }
-            HStack(alignment: .center, spacing: 10) {
-                
-                createCard(with: "leading", alignment: .leading)
-                createCard(with: "center", alignment: .center)
-                createCard(with: "trailing", alignment: .trailing)
-            }
-            HStack(alignment: .center, spacing: 10) {
-                
-                createCard(with: "bottomLeading", alignment: .bottomLeading)
-                createCard(with: "bottom", alignment: .bottom)
-                createCard(with: "bottomTrailing", alignment: .bottomTrailing)
+            Text("Hello world~")
+                .background(Color.red)
+                .frame(width:200, height: 100, alignment: frameAlignment)
+                .background(Color.green)
+        }
+        .frame(width: 400)
+        .padding()
+        .onTapGesture {
+            withAnimation {
+                frameAlignment.change()
             }
         }
-    }
-    
-    func createCard(with title: String, alignment: Alignment = .center) -> some View {
-        Text(title)
-            .background(Color.red)
-            .frame(width:130, height: 50, alignment: alignment)
-            .background(Color.green)
     }
     
     @State var superViewWidth: CGFloat = 140.0
@@ -140,6 +128,30 @@ struct DoFrame: View {
     }
 }
 
+extension Alignment {
+    
+    mutating func change(){
+        if self == .topLeading {
+            self = .top
+        } else if self == .top {
+            self = .topTrailing
+        } else if self == .topTrailing {
+            self = .leading
+        } else if self == .leading {
+            self = .center
+        } else if self == .center {
+            self = .trailing
+        } else if self == .trailing {
+            self = .bottomLeading
+        } else if self == .bottomLeading {
+            self = .bottom
+        } else if self == .bottom {
+            self = .bottomTrailing
+        } else if self == .bottomTrailing {
+            self = .topLeading
+        }
+    }
+}
 struct DoFrame_Previews: PreviewProvider {
     static var previews: some View {
         DoFrame()

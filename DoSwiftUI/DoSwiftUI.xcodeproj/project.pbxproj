@@ -37,6 +37,8 @@
 		32D4EAA825904129008A0B4A /* DoEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAA725904129008A0B4A /* DoEnvironment.swift */; };
 		32D4EAAC259042F3008A0B4A /* DoForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAAB259042F3008A0B4A /* DoForEach.swift */; };
 		32D4EAAF2590788E008A0B4A /* DoOutlineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAAE2590788E008A0B4A /* DoOutlineGroup.swift */; };
+		32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */; };
+		32D4EAB82591CA4A008A0B4A /* DoAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		32D4EAA725904129008A0B4A /* DoEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoEnvironment.swift; sourceTree = "<group>"; };
 		32D4EAAB259042F3008A0B4A /* DoForEach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoForEach.swift; sourceTree = "<group>"; };
 		32D4EAAE2590788E008A0B4A /* DoOutlineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoOutlineGroup.swift; sourceTree = "<group>"; };
+		32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoEmpty.swift; sourceTree = "<group>"; };
+		32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAlignment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 				32D4EA94258C9D03008A0B4A /* DoStateAndBinding.swift */,
 				32D4EAA725904129008A0B4A /* DoEnvironment.swift */,
 				32D4EA6E258AF202008A0B4A /* DoPreference.swift */,
+				32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */,
 				32D4EA71258B0325008A0B4A /* DoCoordinateSpace.swift */,
 				32D4EA88258C4F91008A0B4A /* DoAnimation.swift */,
 			);
@@ -156,6 +161,7 @@
 				32A807412580CC150008358B /* DoToggle.swift */,
 				32D4EA3F25885575008A0B4A /* DoTextField.swift */,
 				32D4EA7A258B8B19008A0B4A /* DoScrollView.swift */,
+				32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */,
 				32D4EAB22590802C008A0B4A /* 2.0 */,
 				32D4EA4225886AE0008A0B4A /* DoGradient.swift */,
 				32D4EA8B258C87DE008A0B4A /* DoFrame.swift */,
@@ -266,6 +272,7 @@
 			files = (
 				32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */,
 				32D4EA7E258C4E73008A0B4A /* DoStack.swift in Sources */,
+				32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */,
 				32D4EA72258B0325008A0B4A /* DoCoordinateSpace.swift in Sources */,
 				32D4EA89258C4F91008A0B4A /* DoAnimation.swift in Sources */,
 				32A807422580CC150008358B /* DoToggle.swift in Sources */,
@@ -283,6 +290,7 @@
 				32A807452580EEFC0008358B /* DoSlider.swift in Sources */,
 				32D4EA92258C9668008A0B4A /* DoFixedSize.swift in Sources */,
 				32A8073F2580BC180008358B /* DoStepper.swift in Sources */,
+				32D4EAB82591CA4A008A0B4A /* DoAlignment.swift in Sources */,
 				32D4EAA825904129008A0B4A /* DoEnvironment.swift in Sources */,
 				32D4EA84258C4EC0008A0B4A /* DoGroup.swift in Sources */,
 				32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */,
