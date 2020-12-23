@@ -9,13 +9,29 @@ import SwiftUI
 
 struct DoSafeArea: View {
     
-    @State var currentEdge = 0
-    
+    @State var state = 0
+
     var body: some View {
         
-//        doBasic
-        
-        doIgnoresSafeArea
+        ZStack(alignment: .bottom) {
+            
+            Group{
+                
+                if state == 0 {
+                    
+                    doBasic
+                } else if state == 1 {
+                    
+                    doIgnoresSafeArea
+                }
+            }
+            
+            MySegmentControl(
+                titles: ["none","ignore"],
+                currentPage: $state.animation()
+            )
+            .zIndex(100)
+        }
     }
     
     var doBasic: some View {
@@ -29,6 +45,8 @@ struct DoSafeArea: View {
             .background(Color.gray.opacity(0.2))
     }
     
+    @State var currentEdge = 0
+
     var doIgnoresSafeArea: some View {
         
         /*:
@@ -81,8 +99,6 @@ struct DoSafeArea: View {
         
         return "Hello world!"
     }
-    
-    
 }
 
 struct DoSafeArea_Previews: PreviewProvider {

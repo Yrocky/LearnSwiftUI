@@ -11,7 +11,7 @@ import SwiftUI
 struct DoSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            DoShape()
+            DoSafeArea()
         }
     }
 }
