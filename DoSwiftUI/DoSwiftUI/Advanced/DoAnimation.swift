@@ -84,7 +84,7 @@ struct DoAnimation: View {
             Button(action: {
                 self.titleVisible.toggle()
             }, label: {
-                Text("2 Tap me and then show or hide label")
+                Text("Tap me ,No animation")
             })
             
             if !titleVisible {

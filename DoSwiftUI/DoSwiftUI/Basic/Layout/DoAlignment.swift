@@ -312,7 +312,6 @@ struct DoAlignment: View {
                 .alignmentGuide(.center, computeValue: { dimension in
                     let venterOffsetValue = dimension[HorizontalAlignment.center]
                     let offset = self.direction.offset(with: venterOffsetValue)
-                    print("offset:\(offset),\(venterOffsetValue)")
                     return offset
                 })
         }
@@ -330,6 +329,10 @@ extension HorizontalAlignment {
             self = .leading
         }
     }
+    
+    func needChange(with other: HorizontalAlignment) -> Bool {
+        self != other
+    }
 }
 
 extension VerticalAlignment {
@@ -342,6 +345,10 @@ extension VerticalAlignment {
         } else {
             self = .top
         }
+    }
+    
+    func needChange(with other: VerticalAlignment) -> Bool {
+        self != other
     }
 }
 

@@ -130,7 +130,7 @@ struct DoFrame: View {
 
 extension Alignment {
     
-    mutating func change(){
+    mutating func change() {
         if self == .topLeading {
             self = .top
         } else if self == .top {

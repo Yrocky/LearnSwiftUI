@@ -39,6 +39,13 @@
 		32D4EAAF2590788E008A0B4A /* DoOutlineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAAE2590788E008A0B4A /* DoOutlineGroup.swift */; };
 		32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */; };
 		32D4EAB82591CA4A008A0B4A /* DoAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */; };
+		32D4EABB2592E55B008A0B4A /* DoGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EABA2592E55B008A0B4A /* DoGeometryReader.swift */; };
+		32D4EABE2592E8DF008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EABD2592E8DE008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift */; };
+		32D4EAC12592EA8B008A0B4A /* DoSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAC02592EA8B008A0B4A /* DoSafeArea.swift */; };
+		32D4EAC42592EE79008A0B4A /* MySegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAC32592EE79008A0B4A /* MySegmentControl.swift */; };
+		32D4EAC72592F600008A0B4A /* DoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAC62592F600008A0B4A /* DoLayout.swift */; };
+		32D4EACA2592F776008A0B4A /* DoLayoutPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAC92592F776008A0B4A /* DoLayoutPriority.swift */; };
+		32D4EACD2592F7F4008A0B4A /* DoSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EACC2592F7F4008A0B4A /* DoSpacer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +83,13 @@
 		32D4EAAE2590788E008A0B4A /* DoOutlineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoOutlineGroup.swift; sourceTree = "<group>"; };
 		32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoEmpty.swift; sourceTree = "<group>"; };
 		32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAlignment.swift; sourceTree = "<group>"; };
+		32D4EABA2592E55B008A0B4A /* DoGeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGeometryReader.swift; sourceTree = "<group>"; };
+		32D4EABD2592E8DE008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoObservedObject_StateObject_EnvironmentObject.swift; sourceTree = "<group>"; };
+		32D4EAC02592EA8B008A0B4A /* DoSafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSafeArea.swift; sourceTree = "<group>"; };
+		32D4EAC32592EE79008A0B4A /* MySegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySegmentControl.swift; sourceTree = "<group>"; };
+		32D4EAC62592F600008A0B4A /* DoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoLayout.swift; sourceTree = "<group>"; };
+		32D4EAC92592F776008A0B4A /* DoLayoutPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoLayoutPriority.swift; sourceTree = "<group>"; };
+		32D4EACC2592F7F4008A0B4A /* DoSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSpacer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				323545B425809A6A003A9828 /* DoSwiftUIApp.swift */,
-				323545B625809A6A003A9828 /* ContentView.swift */,
 				323545C425809AD8003A9828 /* Basic */,
 				32D4EA86258C4F0D008A0B4A /* Advanced */,
+				32D4EAD125931A27008A0B4A /* Helper */,
 				323545B825809A6D003A9828 /* Assets.xcassets */,
 				323545BD25809A6D003A9828 /* Info.plist */,
 				323545BA25809A6D003A9828 /* Preview Content */,
@@ -131,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				323545C525809AE9003A9828 /* Basic.swift */,
-				32D4EA9F258CA5A9008A0B4A /* BasicView */,
+				32D4EA9F258CA5A9008A0B4A /* View */,
 				32D4EAA0258CA5FA008A0B4A /* Layout */,
 				32D4EAA3258CA647008A0B4A /* Shape */,
 			);
@@ -144,14 +158,16 @@
 				32D4EA94258C9D03008A0B4A /* DoStateAndBinding.swift */,
 				32D4EAA725904129008A0B4A /* DoEnvironment.swift */,
 				32D4EA6E258AF202008A0B4A /* DoPreference.swift */,
-				32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */,
 				32D4EA71258B0325008A0B4A /* DoCoordinateSpace.swift */,
 				32D4EA88258C4F91008A0B4A /* DoAnimation.swift */,
+				32D4EAC62592F600008A0B4A /* DoLayout.swift */,
+				32D4EABA2592E55B008A0B4A /* DoGeometryReader.swift */,
+				32D4EABD2592E8DE008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift */,
 			);
 			path = Advanced;
 			sourceTree = "<group>";
 		};
-		32D4EA9F258CA5A9008A0B4A /* BasicView */ = {
+		32D4EA9F258CA5A9008A0B4A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				32A8073B2580AAE20008358B /* DoText.swift */,
@@ -162,13 +178,11 @@
 				32D4EA3F25885575008A0B4A /* DoTextField.swift */,
 				32D4EA7A258B8B19008A0B4A /* DoScrollView.swift */,
 				32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */,
-				32D4EAB22590802C008A0B4A /* 2.0 */,
 				32D4EA4225886AE0008A0B4A /* DoGradient.swift */,
-				32D4EA8B258C87DE008A0B4A /* DoFrame.swift */,
-				32D4EA91258C9668008A0B4A /* DoFixedSize.swift */,
 				32D4EA74258B4492008A0B4A /* DoGroupBox.swift */,
+				32D4EAB22590802C008A0B4A /* 2.0 */,
 			);
-			path = BasicView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		32D4EAA0258CA5FA008A0B4A /* Layout */ = {
@@ -176,8 +190,14 @@
 			children = (
 				32D4EA7D258C4E72008A0B4A /* DoStack.swift */,
 				32D4EA80258C4E82008A0B4A /* DoLazyStack.swift */,
+				32D4EA8B258C87DE008A0B4A /* DoFrame.swift */,
+				32D4EA91258C9668008A0B4A /* DoFixedSize.swift */,
 				32D4EA83258C4EBF008A0B4A /* DoGroup.swift */,
 				32D4EAAB259042F3008A0B4A /* DoForEach.swift */,
+				32D4EACC2592F7F4008A0B4A /* DoSpacer.swift */,
+				32D4EAC02592EA8B008A0B4A /* DoSafeArea.swift */,
+				32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */,
+				32D4EAC92592F776008A0B4A /* DoLayoutPriority.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -199,6 +219,15 @@
 				32D4EAAE2590788E008A0B4A /* DoOutlineGroup.swift */,
 			);
 			path = 2.0;
+			sourceTree = "<group>";
+		};
+		32D4EAD125931A27008A0B4A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				323545B625809A6A003A9828 /* ContentView.swift */,
+				32D4EAC32592EE79008A0B4A /* MySegmentControl.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,12 +303,16 @@
 				32D4EA7E258C4E73008A0B4A /* DoStack.swift in Sources */,
 				32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */,
 				32D4EA72258B0325008A0B4A /* DoCoordinateSpace.swift in Sources */,
+				32D4EACA2592F776008A0B4A /* DoLayoutPriority.swift in Sources */,
 				32D4EA89258C4F91008A0B4A /* DoAnimation.swift in Sources */,
 				32A807422580CC150008358B /* DoToggle.swift in Sources */,
+				32D4EABB2592E55B008A0B4A /* DoGeometryReader.swift in Sources */,
 				32D4EA78258B49B8008A0B4A /* DoLabel.swift in Sources */,
 				32D4EA8C258C87DE008A0B4A /* DoFrame.swift in Sources */,
 				32D4EAAF2590788E008A0B4A /* DoOutlineGroup.swift in Sources */,
 				323545B725809A6A003A9828 /* ContentView.swift in Sources */,
+				32D4EACD2592F7F4008A0B4A /* DoSpacer.swift in Sources */,
+				32D4EAC42592EE79008A0B4A /* MySegmentControl.swift in Sources */,
 				32D4EA9C258CA571008A0B4A /* DoShape.swift in Sources */,
 				323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */,
 				32D4EA75258B4495008A0B4A /* DoGroupBox.swift in Sources */,
@@ -287,10 +320,13 @@
 				32D4EA8F258C961D008A0B4A /* DoBackgroundAndOverlay.swift in Sources */,
 				32D4EA95258C9D03008A0B4A /* DoStateAndBinding.swift in Sources */,
 				32D4EA81258C4E82008A0B4A /* DoLazyStack.swift in Sources */,
+				32D4EAC72592F600008A0B4A /* DoLayout.swift in Sources */,
 				32A807452580EEFC0008358B /* DoSlider.swift in Sources */,
 				32D4EA92258C9668008A0B4A /* DoFixedSize.swift in Sources */,
 				32A8073F2580BC180008358B /* DoStepper.swift in Sources */,
+				32D4EABE2592E8DF008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift in Sources */,
 				32D4EAB82591CA4A008A0B4A /* DoAlignment.swift in Sources */,
+				32D4EAC12592EA8B008A0B4A /* DoSafeArea.swift in Sources */,
 				32D4EAA825904129008A0B4A /* DoEnvironment.swift in Sources */,
 				32D4EA84258C4EC0008A0B4A /* DoGroup.swift in Sources */,
 				32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */,
