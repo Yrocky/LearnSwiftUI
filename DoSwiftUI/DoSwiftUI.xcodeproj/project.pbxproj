@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32282C5425932B4B00B30971 /* DoStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32282C5325932B4B00B30971 /* DoStroke.swift */; };
+		32282C5725932E2100B30971 /* DoBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32282C5625932E2100B30971 /* DoBorder.swift */; };
+		32282C5A25932E3900B30971 /* DoStrokeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32282C5925932E3900B30971 /* DoStrokeBorder.swift */; };
+		32282C5D25932E4200B30971 /* DoFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32282C5C25932E4200B30971 /* DoFill.swift */; };
 		323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323545B425809A6A003A9828 /* DoSwiftUIApp.swift */; };
 		323545B725809A6A003A9828 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323545B625809A6A003A9828 /* ContentView.swift */; };
 		323545B925809A6D003A9828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323545B825809A6D003A9828 /* Assets.xcassets */; };
@@ -49,6 +53,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32282C5325932B4B00B30971 /* DoStroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoStroke.swift; sourceTree = "<group>"; };
+		32282C5625932E2100B30971 /* DoBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoBorder.swift; sourceTree = "<group>"; };
+		32282C5925932E3900B30971 /* DoStrokeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoStrokeBorder.swift; sourceTree = "<group>"; };
+		32282C5C25932E4200B30971 /* DoFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoFill.swift; sourceTree = "<group>"; };
 		323545B125809A6A003A9828 /* DoSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		323545B425809A6A003A9828 /* DoSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSwiftUIApp.swift; sourceTree = "<group>"; };
 		323545B625809A6A003A9828 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -205,6 +213,10 @@
 		32D4EAA3258CA647008A0B4A /* Shape */ = {
 			isa = PBXGroup;
 			children = (
+				32282C5C25932E4200B30971 /* DoFill.swift */,
+				32282C5325932B4B00B30971 /* DoStroke.swift */,
+				32282C5625932E2100B30971 /* DoBorder.swift */,
+				32282C5925932E3900B30971 /* DoStrokeBorder.swift */,
 				32D4EA9B258CA571008A0B4A /* DoShape.swift */,
 				32D4EA98258CA115008A0B4A /* DoRectangle.swift */,
 				32D4EA8E258C961D008A0B4A /* DoBackgroundAndOverlay.swift */,
@@ -299,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32282C5A25932E3900B30971 /* DoStrokeBorder.swift in Sources */,
 				32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */,
 				32D4EA7E258C4E73008A0B4A /* DoStack.swift in Sources */,
 				32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */,
@@ -313,6 +326,7 @@
 				323545B725809A6A003A9828 /* ContentView.swift in Sources */,
 				32D4EACD2592F7F4008A0B4A /* DoSpacer.swift in Sources */,
 				32D4EAC42592EE79008A0B4A /* MySegmentControl.swift in Sources */,
+				32282C5425932B4B00B30971 /* DoStroke.swift in Sources */,
 				32D4EA9C258CA571008A0B4A /* DoShape.swift in Sources */,
 				323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */,
 				32D4EA75258B4495008A0B4A /* DoGroupBox.swift in Sources */,
@@ -332,10 +346,12 @@
 				32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */,
 				323545C625809AE9003A9828 /* Basic.swift in Sources */,
 				32D4EA99258CA115008A0B4A /* DoRectangle.swift in Sources */,
+				32282C5725932E2100B30971 /* DoBorder.swift in Sources */,
 				32A553B02580FDA20036F4A9 /* DoImage.swift in Sources */,
 				32D4EA7B258B8B1B008A0B4A /* DoScrollView.swift in Sources */,
 				32D4EAAC259042F3008A0B4A /* DoForEach.swift in Sources */,
 				32A8073C2580AAE20008358B /* DoText.swift in Sources */,
+				32282C5D25932E4200B30971 /* DoFill.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
