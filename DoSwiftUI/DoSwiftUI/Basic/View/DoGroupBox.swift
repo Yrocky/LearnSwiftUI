@@ -17,7 +17,7 @@ struct DoGroupBox: View {
          而config是`GroupBoxStyleConfiguration`类型，
          提供两个内部的View：Label、Content，分别对应GroupBox中的label和content。
          */
-        VStack{
+        ExampleContainterView("GroupBox") {
             
             doBasic
             
@@ -35,14 +35,16 @@ struct DoGroupBox: View {
          另外，swiftUI已经为我们设置了圆角，
          以及默认的背景颜色（systemGroupedBackground）。
          */
-        GroupBox(
-            label: Text("Label")
-                .font(.system(size: 24))
-                .foregroundColor(.orange)
-        ) {
-            Text("Content")
+        VExampleView("基础用法") {
+            
+            GroupBox(
+                label: Text("Label")
+                    .font(.system(size: 24))
+                    .foregroundColor(.orange)
+            ) {
+                Text("Content")
+            }
         }
-        .padding()
     }
     
     var doOnlyContent: some View {
@@ -50,8 +52,11 @@ struct DoGroupBox: View {
          另外会发现，只有content的时候默认的GroupBox尺寸会比较小，
          这很好理解，因为没有了label在水平和垂直方向上的尺寸拓展。
          */
-        GroupBox{
-            Text("Content")
+        VExampleView("只显示 content ") {
+            
+            GroupBox{
+                Text("Content")
+            }
         }
     }
     
@@ -60,15 +65,17 @@ struct DoGroupBox: View {
          GroupBox也为我们提供了自定义样式的`GroupBoxStyle`协议，
          通过这个协议我们可以创建独特的卡片。
          */
-        GroupBox(
-            label: Text("Label")
-                .font(.system(size: 29))
-                .foregroundColor(.pink)
-        ) {
-            Text("Content")
+        VExampleView("使用自定义的 GroupBoxStyle ") {
+            
+            GroupBox(
+                label: Text("Label")
+                    .font(.system(size: 29))
+                    .foregroundColor(.pink)
+            ) {
+                Text("Content")
+            }
+            .groupBoxStyle(HomeworkBoxStyle(colors: [.blue, .orange, .green]))
         }
-        .padding()
-        .groupBoxStyle(HomeworkBoxStyle(colors: [.blue, .orange, .green]))
     }
     
     var doGroupBoxInScrollView: some View {
@@ -76,20 +83,24 @@ struct DoGroupBox: View {
          默认GroupBox是在水平方向上撑满屏幕，但是如果放在一个ScrollView+HStack的容器中，
          GroupBox的宽度就由label和content来撑起，两者取最宽的值。
          */
-        ScrollView(.horizontal){
-            /*:
-             虽然我们指定了ScrollView为水平方向滑动，
-             但是由于其内部是按照垂直方向添加子View的，
-             因此，如果不使用LazyHStack来布局，就会按照默认的垂直排列子View。
-             */
-            LazyHStack{
-                ForEach(1..<10){
-                    /*:
-                     并且由于HStack的影响，GroupBox默认的label、content居左将会变成`居中`显示。
-                     */
-                    GroupBox(label: Text("\($0)Label").border(Color.red)) {
-                        Text("This is a looooong content")
-                            .border(Color.orange)
+        
+        VExampleView("在 ScrollView 中使用 GroupBox ") {
+            
+            ScrollView(.horizontal){
+                /*:
+                 虽然我们指定了ScrollView为水平方向滑动，
+                 但是由于其内部是按照垂直方向添加子View的，
+                 因此，如果不使用LazyHStack来布局，就会按照默认的垂直排列子View。
+                 */
+                LazyHStack{
+                    ForEach(1..<10){
+                        /*:
+                         并且由于HStack的影响，GroupBox默认的label、content居左将会变成`居中`显示。
+                         */
+                        GroupBox(label: Text("\($0)Label").border(Color.red)) {
+                            Text("This is a looooong content")
+                                .border(Color.orange)
+                        }
                     }
                 }
             }

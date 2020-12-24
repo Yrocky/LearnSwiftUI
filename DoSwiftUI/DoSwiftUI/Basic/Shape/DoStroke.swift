@@ -13,9 +13,12 @@ struct DoStroke: View {
         
         VStack(spacing: 10){
         
-            doStroke
-            
-            doStrokeStyle
+            ExampleContainterView("stroke") {
+                
+                doStroke
+                
+                doStrokeStyle
+            }
         }
     }
     
@@ -41,57 +44,50 @@ struct DoStroke: View {
          
          */
         
-        ScrollView(.horizontal){
+        HScrollExampleView("在各种内置 Shape 上的基本用法") {
             
-            HStack(spacing: 10){
-                
-                Rectangle()
-                    //: 调用第四个方法
-                    .stroke()
-                    .fill(Color.red.opacity(0.2))
-                    .frame(width: 100, height: 50)
-                
-                Circle()
-                    //: 调用第二个方法
-                    .stroke(Color.green.opacity(0.2))
-                    //: 下面这个方法不可以调用，因为返回的是some View，其不具备fill函数
-                    //.fill(Color.green)
-                    .frame(width:50, height: 50)
-                
-                Capsule()
-                    //: 调用第二个方法
-                    .stroke(Color.blue.opacity(0.2), lineWidth: 2)
-                    //: 同上
-                    //.fill(Color.green)
-                    .frame(width:100, height: 50)
-                
-                Capsule()
-                    //: 调用第四个方法
-                    .stroke(lineWidth: 3)
-                    //: 由于在stroke中没有设置content，所以这里会使用fill的颜色
-                    .fill(Color.pink.opacity(0.2))
-                    .frame(width:100, height: 50)
-                
-                Capsule()
-                    //: 调用第一个方法
-                    .stroke(
-                        Color.purple.opacity(0.2),
-                        style: strokeStyle
-                    )
-                    .frame(width: 100, height: 50)
-                
-                Capsule()
-                    //: 调用第三个方法
-                    .stroke(style: strokeStyle)
-                    //: 由于在stroke中没有设置content，只设置了style，所以这里会使用fill的颜色
-                    .fill(Color.purple.opacity(0.2))
-                    .frame(width: 100, height: 50)
-            }
-            .padding()
+            Rectangle()
+                //: 调用第四个方法
+                .stroke()
+                .fill(Color.red.opacity(0.2))
+                .frame(width: 100, height: 50)
+            
+            Circle()
+                //: 调用第二个方法
+                .stroke(Color.green.opacity(0.2))
+                //: 下面这个方法不可以调用，因为返回的是some View，其不具备fill函数
+                //.fill(Color.green)
+                .frame(width:50, height: 50)
+            
+            Capsule()
+                //: 调用第二个方法
+                .stroke(Color.blue.opacity(0.2), lineWidth: 2)
+                //: 同上
+                //.fill(Color.green)
+                .frame(width:100, height: 50)
+            
+            Capsule()
+                //: 调用第四个方法
+                .stroke(lineWidth: 3)
+                //: 由于在stroke中没有设置content，所以这里会使用fill的颜色
+                .fill(Color.pink.opacity(0.2))
+                .frame(width:100, height: 50)
+            
+            Capsule()
+                //: 调用第一个方法
+                .stroke(
+                    Color.purple.opacity(0.2),
+                    style: strokeStyle
+                )
+                .frame(width: 100, height: 50)
+            
+            Capsule()
+                //: 调用第三个方法
+                .stroke(style: strokeStyle)
+                //: 由于在stroke中没有设置content，只设置了style，所以这里会使用fill的颜色
+                .fill(Color.purple.opacity(0.2))
+                .frame(width: 100, height: 50)
         }
-        .frame(width: 300, height: 100)
-        .border(Color.gray.opacity(0.2))
-        
     }
     
     var strokeStyle: StrokeStyle{
@@ -108,39 +104,34 @@ struct DoStroke: View {
     
     var doStrokeStyle: some View {
         
-        ScrollView(.horizontal){
+        HScrollExampleView("StrokeStyle") {
 
-            HStack{
-                /*:
-                 在fill部分我们已经了解了ShapStyle，现在来了解一下`StrokeStyle`，
-                 通过这个结构体我们可以决定描边线条的样式，包括但不限于：线宽、拐角链接方式、虚线等等。
-                 
-                 下面我们不仅设置了stroke还设置了broder，最后结果我们拥有了两个`描边`，一个是虚线一个是实线，
-                 虚线是为Shape添加的描边，而实线则是为View添加的描边。
-                 */
-                Rectangle()
-                    .stroke(style:
-                                StrokeStyle(
-                                    lineWidth:4,
-                                    lineCap: .round,
-                                    dash: [5,10])
-                    )
-                    .border(Color.orange, width: 2)
-                    .frame(width: 100, height: 70)
-                
-                Rectangle()
-                    .stroke(style:
-                                StrokeStyle(
-                                    lineWidth:4,
-                                    lineCap: .square,
-                                    dash: [5,10])
-                    )
-                    .frame(width: 100, height: 70)
-            }
-            .padding()
+            /*:
+             在fill部分我们已经了解了ShapStyle，现在来了解一下`StrokeStyle`，
+             通过这个结构体我们可以决定描边线条的样式，包括但不限于：线宽、拐角链接方式、虚线等等。
+             
+             下面我们不仅设置了stroke还设置了broder，最后结果我们拥有了两个`描边`，一个是虚线一个是实线，
+             虚线是为Shape添加的描边，而实线则是为View添加的描边。
+             */
+            Rectangle()
+                .stroke(style:
+                            StrokeStyle(
+                                lineWidth:4,
+                                lineCap: .round,
+                                dash: [5,10])
+                )
+                .border(Color.orange, width: 2)
+                .frame(width: 100, height: 70)
+            
+            Rectangle()
+                .stroke(style:
+                            StrokeStyle(
+                                lineWidth:4,
+                                lineCap: .square,
+                                dash: [5,10])
+                )
+                .frame(width: 100, height: 70)
         }
-        .frame(width: 300, height: 100)
-        .border(Color.gray.opacity(0.2))
     }
 }
 

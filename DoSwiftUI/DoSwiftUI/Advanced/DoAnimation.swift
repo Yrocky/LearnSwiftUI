@@ -14,21 +14,17 @@ struct DoAnimation: View {
     
     var body: some View {
         
-        VStack{
+        ExampleContainterView("Animation"){
             
-            Group{
-                
-                doWithAnimation_1
-                
-                doWithAnimation_2
-                
-                doWithAnimation_3
-                
-                doWithTransaction
-                
-                doTransition_1
-            }
-            .border(Color.green)
+            doWithAnimation_1
+            
+            doWithAnimation_2
+            
+            doWithAnimation_3
+            
+            doWithTransaction
+            
+            doTransition_1
         }
     }
     
@@ -46,7 +42,7 @@ struct DoAnimation: View {
          通过下面的例子能发现，使用withAnimation包裹的转换引起的动画等级比较高，
          具体到对应的子View再单独设置了效果也没有用
          */
-        VStack{
+        VExampleView("在 withAnimation 触发 State 的改变") {
             
             if titleVisible {
                 Text("Hello world~")
@@ -71,7 +67,7 @@ struct DoAnimation: View {
     
     var doWithAnimation_2: some View {
 
-        VStack{
+        VExampleView("只使用 animation 不会有动画效果") {
             /*:
              在这个例子中，我们在`titleVisible`发生改变的时候不包裹动画，
              只在View中使用`animation(:)`，会发现，并没有预想中的动画效果出现。
@@ -97,7 +93,7 @@ struct DoAnimation: View {
     
     var doWithAnimation_3: some View {
         
-        VStack{
+        VExampleView("Binding 使用 animation") {
             /*:
              在这个例子中，我们使用另一种动画方式，在将状态绑定到Toggle的时候，
              为其添加一个`animation`，这样在状态发生变化的时候就会执行一个隐式的动画。
@@ -118,7 +114,8 @@ struct DoAnimation: View {
     
     var doWithTransaction: some View {
 
-        VStack{
+        VExampleView("在 withTransaction 内触发 State 的改变") {
+            
             /*:
              在这个例子中，我们在`titleVisible`发生改变的时候不包裹动画，
              只在View中使用`animation(:)`，会发现，并没有预想中的动画效果出现。
@@ -154,7 +151,7 @@ struct DoAnimation: View {
          当然swiftUI也允许我们使用不对称的效果，比如消失的效果是缩放到0.5，
          而出现则是移动位移，使用`.asymmetric(:,:)`指明出现、隐藏的效果即可。
          */
-        VStack{
+        VExampleView("系统内置的 transition 类型", height: 150) {
             
             Toggle(isOn: $transitionFlag.animation(), label: {
                 Text("Tap me and then show or hide label")

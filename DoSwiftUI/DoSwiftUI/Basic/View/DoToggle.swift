@@ -12,7 +12,8 @@ struct DoToggle: View {
     @State var isOn = true
     
     var body: some View {
-        VStack{
+        
+        ExampleContainterView("Toggle") {
             /*:
              Toggle在swiftUI中用来表示开关控件，其属性也具备响应性，
              因此需要使用`@State`来修饰。同时还支持使用一个自定义的View来展示内容，
@@ -32,11 +33,13 @@ struct DoToggle: View {
     }
     
     var doTextToggle: some View {
-        Toggle(isOn: $isOn) {
-            Text("Open Location")
+        
+        VExampleView("基础用法") {
+            Toggle(isOn: $isOn) {
+                Text("Open Location")
+            }
+            .background(Color.orange)
         }
-        .background(Color.pink)
-        .padding(10)
     }
     
     var doStringToggle: some View {
@@ -45,7 +48,9 @@ struct DoToggle: View {
          和UISwitch所不同的是，Toggle并没有提供改变状态的事件回调，
          这是由于其可变的属性（isOn）已经具备响应性了，并不需要
          */
-        Toggle("Show Rank Info", isOn:$isOn)
+        VExampleView("使用 String 作为 label 进行显示") {
+            Toggle("Show Rank Info", isOn:$isOn)
+        }
     }
     
     var doSystemToggleStyle: some View {
@@ -59,7 +64,7 @@ struct DoToggle: View {
          `ToggleStyle`是一个协议，我们需要创建具体的类型来设置样式，
          
          */
-        VStack {
+        VExampleView("系统内置的 ToggleStyle ") {
             
             Toggle("Default style", isOn: $isOn)
                 .toggleStyle(DefaultToggleStyle())
@@ -78,9 +83,11 @@ struct DoToggle: View {
         /*:
          我们自定义一个遵守`ToggleStyle`协议的类型，来实现一个单选开关
          */
-        Toggle("Dark mode", isOn: $isOn)
-            .toggleStyle(MyToggleStyle(onColor: .orange, offColor: .yellow))
-        
+        VExampleView("自定义 ToggleStyle，不显示 label") {
+            
+            Toggle("Dark mode", isOn: $isOn)
+                .toggleStyle(MyToggleStyle(onColor: .orange, offColor: .yellow))
+        }
     }
     
     var doMyRectangleToggleStyle: some View {
@@ -88,14 +95,18 @@ struct DoToggle: View {
          至于像UISwitch中修改多个颜色的功能，也是自定义ToggleStyle实现的，
          具体需求需要编码。
          */
-        Toggle(isOn:$isOn){
-            Text("飞行模式")
+        
+        VExampleView("自定义特殊风格的 ToggleStyle ") {
+            
+            Toggle(isOn:$isOn){
+                Text("飞行模式")
+            }
+            .toggleStyle(MyRectangleToggleStyle(
+                width: 100,
+                offColor: .green,
+                thumColor: .orange
+            ))
         }
-        .toggleStyle(MyRectangleToggleStyle(
-            width: 100,
-            offColor: .green,
-            thumColor: .orange
-        ))
     }
     
     /*:

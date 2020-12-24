@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DoCoordinateSpace: View {
     var body: some View {
-        VStack{
+        
+        ExampleContainterView("CoordinateSpace"){
             
             doCustomSize
             
@@ -31,20 +32,22 @@ struct DoCoordinateSpace: View {
          我们就需要用到`GeometryReader`，
          在他的初始化的回调中可以通过`GeometryProxy`来获取父View给的建议尺寸。
          */
-        VStack(alignment: .leading, spacing: 0){
-            Text("Hello world~")
-                .padding()
-                .background(Color.red)
-            
-            MyRectangle()
+        VExampleView("子 View 不使用父 View 建议的尺寸", height: 100) {
+
+            VStack(alignment: .leading, spacing: 0){
+                
+                Text("Hello world~")
+                    .padding()
+                    .background(Color.red)
+                
+                MyRectangle()
+            }
         }
-        .frame(width: 300, height: 150)
-        .border(Color.gray, width: 1)
     }
     
     var doGlobalCoordinateSpace: some View {
         
-        VStack{
+        VExampleView("global") {
             /*:
              通过CoordinateSpace，我们拿到
              */
@@ -58,20 +61,21 @@ struct DoCoordinateSpace: View {
     
     var doCustomCoordinateSpace: some View {
         
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Fetch super view rect with coordinateSpace")
-                .padding(4)
-                .font(.system(size: 17))
-                .background(Color.orange)
-            HStack(alignment: .center, spacing: 10){
-                MyKernelView()
-                MyKernelView()
+        VExampleView("Custom CoordinateSpace", height: 100) {
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Fetch super view rect with coordinateSpace")
+                    .padding(4)
+                    .font(.system(size: 17))
+                    .background(Color.orange)
+                HStack(alignment: .center, spacing: 10){
+                    MyKernelView()
+                    MyKernelView()
+                }
+                .coordinateSpace(name: MyKernelView.SuperView.two)
             }
-            .coordinateSpace(name: MyKernelView.SuperView.two)
+            .coordinateSpace(name: MyKernelView.SuperView.one)
         }
-        .coordinateSpace(name: MyKernelView.SuperView.one)
-        .frame(width: 300, height: 150)
-        .border(Color.black, width: 0.5)
     }
     
     struct MyRectangle: View {

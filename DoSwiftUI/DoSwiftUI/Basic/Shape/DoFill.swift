@@ -10,11 +10,14 @@ import SwiftUI
 struct DoFill: View {
     var body: some View {
         
-        doBasic
-        
-        doShapeStyle
-        
-        doFillStyle
+        ExampleContainterView("fill") {
+            
+            doBasic
+            
+            doShapeStyle
+            
+            doFillStyle
+        }
     }
     
     var doBasic: some View {
@@ -28,7 +31,7 @@ struct DoFill: View {
          func fill<S>(_ content: S, style: FillStyle = FillStyle()) -> some View where S : ShapeStyle
          ```
          */
-        HStack{
+        HExampleView("基本用法"){
         
             Rectangle()
                 .fill()

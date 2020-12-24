@@ -12,7 +12,8 @@ struct DoTextField: View {
     @State var name: String = ""
     @State var password: String = ""
     var body: some View {
-        VStack{
+        
+        ExampleContainterView("TextField") {
             
             doNormalTextField
             
@@ -31,13 +32,15 @@ struct DoTextField: View {
             /*:
              另一种是自定义View
              */
-            MyTextField("placehold")
-            
+            VExampleView("实现一个自定义的 TextField") {
+                
+                MyTextField("placehold")
+            }
         }
     }
     
     var doNormalTextField: some View {
-        HStack{
+        HExampleView("基础用法"){
             /*:
              `TextField`类似于UIKit中的`UITextField`控件，
              在最新版的TextField中，简化了设置`placehold`，
@@ -46,11 +49,10 @@ struct DoTextField: View {
             Text("登录名：")
             TextField("your login name", text: $name)
         }
-        .padding()
     }
     
     var doActionTextField: some View {
-        HStack {
+        HExampleView("action、onCommit 事件的捕获") {
             /*:
              TextField还提供了输入框内容修改以及点击完成的事件回调。
              */
@@ -65,7 +67,8 @@ struct DoTextField: View {
     }
     
     var doSystemTextFieldStyle: some View {
-        VStack{
+        
+        VExampleView("系统内置的 TextFieldStyle"){
             /*:
              我们可以使用`TextFieldStyle`来为TextField设置样式，
              TextFieldStyle是一个协议，目前siwftUI提供的样式有：
@@ -77,21 +80,22 @@ struct DoTextField: View {
              */
             TextField("DefaultTextFieldStyle", text: $password)
                 .textFieldStyle(DefaultTextFieldStyle())
-                .padding()
-            TextField("DefaultTextFieldStyle", text: $password)
+            
+            TextField("PlainTextFieldStyle", text: $password)
                 .textFieldStyle(PlainTextFieldStyle())
-                .padding()
-            TextField("DefaultTextFieldStyle", text: $password)
+            
+            TextField("RoundedBorderTextFieldStyle", text: $password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
         }
     }
     
     var doCustomTextFieldStyle: some View {
         
-        TextField("LeftAndRightViewTextFieldStyle", text: $password)
-            .textFieldStyle(LeftAndRightViewTextFieldStyle())
-            .padding()
+        VExampleView("自定义 TextFieldStyle") {
+            
+            TextField("LeftAndRightViewTextFieldStyle", text: $password)
+                .textFieldStyle(LeftAndRightViewTextFieldStyle())
+        }
     }
 }
 

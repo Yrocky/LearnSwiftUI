@@ -12,7 +12,8 @@ struct DoSlider: View {
     @State var value = 0.4
     
     var body: some View {
-        VStack{
+        
+        ExampleContainterView("Slider"){
             
             doSlider
             
@@ -20,9 +21,9 @@ struct DoSlider: View {
             
             doMinAndMaxLabelSlider
             
-            doFullSlider
-            
             doStepSlider
+            
+            doFullSlider
         }
         
         /*:
@@ -37,7 +38,7 @@ struct DoSlider: View {
          和Stepper类似，Slider也具备`当前值`、`范围`两个重要的属性，
          同时也有滑动的事件回调。
          */
-        VStack{
+        VExampleView("基础用法") {
             
             Text("current value:\(value)")
             
@@ -54,29 +55,50 @@ struct DoSlider: View {
         /*:
          貌似创建自定义的Label并不会生效
          */
-        Slider(value: $value, in: 0...10) {
-            //: 不生效
-            Text("current: \(value)")
+        VExampleView("设置 range、label，但是 label 不生效") {
+            
+            Slider(value: $value, in: 0...10) {
+                //: 不生效
+                Text("current: \(value)")
+            }
         }
-        .padding()
     }
     
     var doMinAndMaxLabelSlider: some View {
         /*:
          我们还可以为滑竿设置最小值的视图，以及最大值的视图，可以是任意的View
          */
-        Slider(
-            value: $value,
-            minimumValueLabel: Text("0"),
-            maximumValueLabel: Text("1")) {
-            //: 依然，不生效
-            Text("current: \(value)")
+        VExampleView("设置 minimum、maximumValueLabel ") {
+        
+            Slider(
+                value: $value,
+                minimumValueLabel: Text("0"),
+                maximumValueLabel: Text("1")) {
+                //: 依然，不生效
+                Text("current: \(value)")
+            }
         }
-        .padding()
+    }
+    
+    var doStepSlider: some View {
+        /*:
+         Slider也具备设置步长
+         */
+        VExampleView("设置 step ") {
+            
+            Slider(
+                value: $value,
+                in: 0...1,
+                step: 0.2) {
+                //: 依然，不生效
+                Text("Slider value:\(value)")
+            }
+        }
     }
     
     var doFullSlider: some View {
-        VStack{
+        
+        VExampleView("range、step、minimum、maximumValueLabel、label") {
             
             /*:
              得益于swift 5.0之后提供的FunctionBuilder功能，我们可以在这里写变量。
@@ -89,6 +111,7 @@ struct DoSlider: View {
             let maxLabel = Image(systemName: "sun.max.fill")
                 .resizable()
                 .frame(width: 40, height: 40)
+            
             Slider(
                 value: $value,
                 in: 0...1,
@@ -98,23 +121,9 @@ struct DoSlider: View {
                 //: 依然，不生效
                 Text("current: \(value)")
             }
-            .padding()
         }
     }
     
-    var doStepSlider: some View {
-        /*:
-         Slider也具备设置步长
-         */
-        Slider(
-            value: $value,
-            in: 0...1,
-            step: 0.2) {
-            //: 依然，不生效
-            Text("Slider value:\(value)")
-        }
-        .padding()
-    }
 }
 
 struct DoSlider_Previews: PreviewProvider {

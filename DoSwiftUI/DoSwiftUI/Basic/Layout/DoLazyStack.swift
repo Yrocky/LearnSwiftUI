@@ -10,7 +10,7 @@ import SwiftUI
 struct DoLazyStack: View {
     
     var body: some View {
-        VStack{
+        ExampleContainterView("Lazy*Stack"){
             
             doBasic
             
@@ -18,10 +18,13 @@ struct DoLazyStack: View {
     }
     
     var doBasic: some View {
-        ScrollView(.horizontal){
-            LazyVStack{
-                ForEach(0..<120){ _ in
-                    contentView
+        
+        VExampleView("LazyHStack") {
+            ScrollView(.horizontal){
+                LazyHStack{
+                    ForEach(0..<120){ _ in
+                        contentView
+                    }
                 }
             }
         }

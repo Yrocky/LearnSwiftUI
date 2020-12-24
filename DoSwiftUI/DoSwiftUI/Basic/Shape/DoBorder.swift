@@ -10,7 +10,7 @@ import SwiftUI
 struct DoBorder: View {
     var body: some View {
         
-        VStack(spacing: 10) {
+        ExampleContainterView("border") {
             
             doInColor
             
@@ -36,20 +36,26 @@ struct DoBorder: View {
          而stroke则是和Shape有概念上关联的，它是组成Shape的一部分，另外部分是fill以及path。
          
          */
-        Rectangle()
-            .fill(Color.clear)
-            .border(Color.orange.opacity(0.2))
-            .frame(width: 100, height: 70)
+        VExampleView("使用 Color") {
+            
+            Rectangle()
+                .fill(Color.clear)
+                .border(Color.orange.opacity(0.2))
+                .frame(width: 100, height: 70)
+        }
     }
     
     var doInGradientColor: some View {
         /*:
          为View设置渐变描边比UIKit中的实现简单的多了。
          */
-        Rectangle()
-            .fill(Color.clear)
-            .border(LinearGradient(gradient: Gradient(colors: [.green,.orange]), startPoint: .topLeading, endPoint: .bottomTrailing))
-            .frame(width: 100, height: 70)
+        VExampleView("使用 Gradient") {
+            
+            Rectangle()
+                .fill(Color.clear)
+                .border(LinearGradient(gradient: Gradient(colors: [.green,.orange]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                .frame(width: 100, height: 70)
+        }
     }
     
     var doBorderWithPadding: some View {
@@ -57,12 +63,15 @@ struct DoBorder: View {
         /*:
          
          */
-        Text("Hello world")
-            .border(Color.red)
-            .padding()
-            .border(Color.green)
-            .frame(width: 200, height: 100)
-            .border(Color.orange)
+        VExampleView("border 通常用于测试 View 的尺寸") {
+            
+            Text("Hello world")
+                .border(Color.red)
+                .padding()
+                .border(Color.green)
+                .frame(width: 200, height: 100)
+                .border(Color.orange)
+        }
     }
 }
 

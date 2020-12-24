@@ -17,8 +17,7 @@ struct DoLabel: View {
          swiftUI在iOS14.0之后提供了一个新的View：Label，
          区别于Text，Label除了可以展示文本，还可以展示图片。
          */
-        VStack(alignment: .center, spacing: 10) {
-            
+        ExampleContainterView("Label") {
             
             doBasic
             
@@ -37,7 +36,10 @@ struct DoLabel: View {
         /*:
          系统是基于最常见的用户界面推出的这个组件，图片可以是Image，也可以直接使用`SF Symbols`，图片默认居左，文字居右。
          */
-        Label("Hello world", systemImage: "lock.fill")
+        VExampleView("基础用法") {
+        
+            Label("Hello world", systemImage: "lock.fill")
+        }
     }
     
     var doSystemLabelStyle: some View {
@@ -48,15 +50,23 @@ struct DoLabel: View {
          * IconOnlyLabelStyle，只展示图片
          */
         
+        
         VStack{
-            
-            Label("你好，世界", systemImage: "lock.open")
-                .labelStyle(DefaultLabelStyle())
-            
-            if showIcon {
+        
+            VExampleView("DefaultLabelStyle") {
+                
+                Label("你好，世界", systemImage: "lock.open")
+                    .labelStyle(DefaultLabelStyle())
+            }
+
+            VExampleView("IconOnlyLabelStyle") {
+                
                 Label("请解锁", systemImage: "lock.applewatch")
                     .labelStyle(IconOnlyLabelStyle())
-            } else {
+            }
+
+            VExampleView("TitleOnlyLabelStyle") {
+                
                 Label("请解锁", systemImage: "lock.applewatch")
                     .labelStyle(TitleOnlyLabelStyle())
             }
@@ -67,7 +77,7 @@ struct DoLabel: View {
         /*:
          在swiftUI中，如果有style，那么我们就可以自定义style，LabelStyle也不例外。
          */
-        VStack{
+        VExampleView("自定义 LabelStyle ") {
             Label("欢迎进入中土世界", systemImage: "map.fill")
             Label("欢迎离开中土世界", systemImage: "map")
         }
@@ -80,31 +90,34 @@ struct DoLabel: View {
          所以，我们也可以使用一组View，可以是任意的View，
          因此我们可以有下面这样奇怪的组合来组成一个Label。
          */
-        Label{
-            VStack(alignment: .leading, spacing: 4) {
-                Text("魔法世界")
-                    .font(.system(size: 18))
-                    .foregroundColor(.blue)
-                Toggle(isOn: $showIcon) {
-                    Text("Entry")
+        VExampleView("使用任意 View 魔改 title、icon ") {
+            
+            Label{
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("魔法世界")
+                        .font(.system(size: 18))
+                        .foregroundColor(.blue)
+                    Toggle(isOn: $showIcon) {
+                        Text("Entry")
+                    }
+                    .labelsHidden()
                 }
-                .labelsHidden()
+                .background(Color.pink)
+                .cornerRadius(10)
+            } icon: {
+                HStack{
+                    Text("leading")
+                    Circle()
+                        .fill(Color.orange)
+                        .frame(width: 40, height: 40, alignment: .center)
+                    Text("training")
+                }
+                .background(Color.green)
+                .cornerRadius(10)
             }
-            .background(Color.pink)
-            .cornerRadius(10)
-        } icon: {
-            HStack{
-                Text("leading")
-                Circle()
-                    .fill(Color.orange)
-                    .frame(width: 40, height: 40, alignment: .center)
-                Text("training")
-            }
-            .background(Color.green)
-            .cornerRadius(10)
+            .padding()
+            .border(Color.red, width: 1)
         }
-        .padding()
-        .border(Color.red, width: 1)
     }
     
     struct MyLabelStyle: LabelStyle {

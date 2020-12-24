@@ -10,16 +10,18 @@ import SwiftUI
 struct DoEmpty: View {
     var body: some View {
 
-        doInCondition
-        
-        doInMarco
-        
+        ExampleContainterView("EmptyView") {
+            
+            doInCondition
+            
+            doInMarco
+        }
     }
     
     @State var condition = true
     var doInCondition: some View {
         
-        HStack{
+        HExampleView("在条件判断中使用") {
 
             /*:
              我们知道在swiftUI中，所有UI都是根据结构体来创建的，
@@ -46,16 +48,21 @@ struct DoEmpty: View {
                     .background(Color.red)
             }
         }
-        .frame(width:400, height: 100)
-        .background(Color.gray.opacity(0.2))
     }
     
     var doInMarco: some View {
         /*:
          我们可以在宏中应用EmptyView。
          */
+        VExampleView("结合 DEBUG 宏使用") {
+            
+            viewWithMarco
+        }
+    }
+    
+    var viewWithMarco: some View {
         #if DEBUG
-        return Text("Hello World <DEBUG>")
+        return Text("Hello World <只会在DEBUG下出现>")
         #else
         return EmptyView()
         #endif

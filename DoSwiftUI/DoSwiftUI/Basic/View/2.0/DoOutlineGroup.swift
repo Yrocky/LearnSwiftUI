@@ -39,19 +39,25 @@ struct DoOutlineGroup: View {
     //: https://swiftwithmajid.com/2020/09/02/displaying-recursive-data-using-outlinegroup-in-swiftui/
     var body: some View {
         
-        VStack{
+        ExampleContainterView("OutlineGroup"){
             
-            OutlineGroup(tree, id: \.value, children: \.children) {
-                Text($0.value)
-                    .font(.system(size: 20))
-                    .foregroundColor(.orange)
+            VExampleView("基本使用") {
+                
+                OutlineGroup(tree, id: \.value, children: \.children) {
+                    Text($0.value)
+                        .font(.system(size: 20))
+                        .foregroundColor(.orange)
+                }
             }
             
-            List(tree, id: \.value, children: \.children) {
-                Text($0.value)
-                    .font(.system(size: 18))
-                    .foregroundColor(.blue)
-            }.listStyle(SidebarListStyle())
+            VExampleView("和 List 做对比", height: 200) {
+                
+                List(tree, id: \.value, children: \.children) {
+                    Text($0.value)
+                        .font(.system(size: 18))
+                        .foregroundColor(.blue)
+                }.listStyle(SidebarListStyle())
+            }
         }
     }
     

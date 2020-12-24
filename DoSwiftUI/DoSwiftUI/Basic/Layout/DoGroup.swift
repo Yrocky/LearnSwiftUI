@@ -11,17 +11,23 @@ struct DoGroup: View {
     
     var body: some View {
         
-        doBasic
-        
-        doDiffWithStack
-        
-        doGroupWithOptional
-        
-        doGroupWithSwitch
+        ExampleContainterView("Group") {
+            
+            doBasic_1
+            
+            doBasic_2
+            
+            doDiffWithStack
+            
+            doGroupWithOptional
+            
+            doGroupWithSwitch
+        }
     }
     
-    var doBasic: some View {
-        VStack{
+    var doBasic_1: some View {
+        
+        VExampleView("相同类型的 View 成组"){
             /*:
              使用Group可以将View分成组，但是他有最大15个的限制，
              和各种Stack不同，Group并没有特殊的显示逻辑，仅仅是将View成组。
@@ -35,6 +41,13 @@ struct DoGroup: View {
             .border(Color.orange, width: 1)
             .padding()
             .border(Color.gray, width: 1)
+            
+        }
+    }
+    
+    var doBasic_2: some View {
+        
+        VExampleView("不同类型的 View 成组") {
             
             /*:
              任意类型的View都可以被添加到Group中
@@ -53,7 +66,8 @@ struct DoGroup: View {
     
     var doDiffWithStack: some View {
         
-        VStack{
+        VExampleView("Group 和 Stack 的区别", spacing: 0) {
+            
             /*:
              作用在Group上的modifer会依次作用到内部的View，
              并且在视图层次结构中也并不会存在Group所对应的视图。
@@ -96,7 +110,7 @@ struct DoGroup: View {
     
     var doGroupWithOptional: some View {
         
-        HStack{
+        HExampleView("在 Group 中使用 Optional 类型") {
             /*:
              在使用一些可选类型来构建UI的时候，我们可能只需要在`为非nil的分支`中返回一个View，比如下面这样：
              ```swift
@@ -144,7 +158,6 @@ struct DoGroup: View {
                 Text("Tap me!")
             })
         }
-        .padding()
     }
 
     enum Language {
@@ -165,9 +178,9 @@ struct DoGroup: View {
     
     var doGroupWithSwitch: some View {
         
-        HStack(spacing: 10) {
+        HExampleView("在 Group 中使用 switch") {
             
-            Text("You used language is:")
+            Text("You language is:")
             /*:
              同样的，在Group中也可以使用`switch-case`语法，
              */

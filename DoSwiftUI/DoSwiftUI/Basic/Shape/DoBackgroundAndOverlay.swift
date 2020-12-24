@@ -10,7 +10,7 @@ import SwiftUI
 struct DoBackgroundAndOverlay: View {
     
     var body: some View {
-        VStack{
+        ExampleContainterView("Background&Overlay"){
             
             doBackcgroundBasic
             
@@ -28,22 +28,32 @@ struct DoBackgroundAndOverlay: View {
          `.background`这个modifer接收任意的View，
          平常我们会用Color的实例来为背景填充纯色，当然也可以使用诸如Gradient、Rectangle等等。
          */
-        VStack(alignment: .leading, spacing: 10){
+        VStack(){
             
-            Text("Use Color as background")
-                .background(Color.orange)
+            VExampleView("使用 Color 作为 background") {
             
-            Text("Use LinearGradient as background")
-                .background(linearGradient)
+                Text("Use Color as background")
+                    .background(Color.orange)
+            }
             
-            Text("Use Rectangle as background")
-                .background(rectangle)
+            VExampleView("使用 Gradient 作为 background") {
+                Text("Use LinearGradient as background")
+                    .background(linearGradient)
+            }
             
-            Text("Use Image as background")
-                .background(image)
-                .clipped()
+            VExampleView("使用 Rectangle 作为 background") {
+                
+                Text("Use Rectangle as background")
+                    .background(rectangle)
+            }
+            
+            VExampleView("使用 Image 作为 background", height: 80) {
+                Text("Use Image as background")
+                    .frame(height: 80)
+                    .background(image)
+                    .clipped()
+            }
         }
-        .padding()
     }
     
     var linearGradient: LinearGradient {
@@ -65,35 +75,32 @@ struct DoBackgroundAndOverlay: View {
     
     var doBackcgroundAlignmentBasic: some View {
         
-        ScrollView(.horizontal){
+        HScrollExampleView("background 中的 alignment") {
             
-            HStack(alignment: .center, spacing: 10){
+            Group{
                 
-                Group{
-                    
-                    /*:
-                     在设置background的时候还可以设置`alignment`，用来指明背景要如何对齐。
-                     但貌似没有什么作用
-                     */
-                    Text("setup background with alignment")
-                        .background(linearGradient, alignment: .center)
-                    
-                    Text("setup background with alignment")
-                        .background(linearGradient, alignment: .topLeading)
-                    
-                    Text("setup background with aignment")
-                        .background(Image(systemName: "car.2").foregroundColor(.orange),
-                                    alignment: .leading)
-                    
-                    Text("setup background with aignment")
-                        .background(Image(systemName: "car.2").foregroundColor(.orange),
-                                    alignment: .topLeading)
-                }
-                .frame(height: 80)
-                .border(Color.gray)
-                .padding()
-                .border(Color.green)
+                /*:
+                 在设置background的时候还可以设置`alignment`，用来指明背景要如何对齐。
+                 但貌似没有什么作用
+                 */
+                Text("setup background with alignment")
+                    .background(linearGradient, alignment: .center)
+                
+                Text("setup background with alignment")
+                    .background(linearGradient, alignment: .topLeading)
+                
+                Text("setup background with aignment")
+                    .background(Image(systemName: "car.2").foregroundColor(.orange),
+                                alignment: .leading)
+                
+                Text("setup background with aignment")
+                    .background(Image(systemName: "car.2").foregroundColor(.orange),
+                                alignment: .topLeading)
             }
+            .frame(height: 80)
+            .border(Color.gray)
+            .padding()
+            .border(Color.green)
         }
     }
     
@@ -101,11 +108,11 @@ struct DoBackgroundAndOverlay: View {
     
     var doOverlayBasic: some View {
         
-        VStack(alignment: .center, spacing: 10){
+        VExampleView("overlay") {
             /*:
              和background相反，`overlay`是为View添加一个前置视图，它并不会
              */
-            Text("setup overlay")
+            Text("you can change slider value")
                 .overlay(overlay)
             
             Slider(value: $overlayProgress, in: 0...1)

@@ -11,20 +11,23 @@ struct DoSpacer: View {
     
     var body: some View {
         
-        doBasic
-        
-        doBasic_2
-        
-        doDynamicViewSize
-        
-        doSpacerFrameValue
-        
-        doSpacerMinLengthValue
+        ExampleContainterView("Spacer") {
+            
+            doBasic
+            
+            doBasic_2
+            
+            doDynamicViewSize
+            
+            doSpacerFrameValue
+            
+            doSpacerMinLengthValue
+        }
     }
     
     var doBasic: some View {
             
-        HStack{
+        HExampleView("使用 Spacer 撑起剩余空间", height: 80) {
             
             /*:
              我们知道在swiftUI的布局中，默认会将子View居中显示，
@@ -38,15 +41,13 @@ struct DoSpacer: View {
             
             Spacer()
                 .background(Color.red.opacity(0.2))
-            
         }
-        .frame(width: 300, height: 100)
-        .border(Color.gray.opacity(0.2))
+        .frame(width: 300)
     }
     
     var doBasic_2: some View {
     
-        HStack{
+        HExampleView("使用 Spacer 撑起剩余空间", height: 80) {
             
             /*:
              如果父View在根据已有子View计算出对应的尺寸之后还有剩余，
@@ -62,17 +63,15 @@ struct DoSpacer: View {
             Rectangle()
                 .fill(Color.blue.opacity(0.2))
                 .frame(width: 100)
-            
         }
-        .frame(width: 300, height: 100)
-        .border(Color.gray.opacity(0.2))
+        .frame(width: 300)
     }
     
     @State var addSpacer = true
     
     var doDynamicViewSize: some View {
     
-        HStack(spacing: 0){
+        HExampleView("动态的添加 Spacer ", height: 80) {
     
             /*:
              以上是在子View固定尺寸之后有剩余空间，Spacer的表现，
@@ -99,8 +98,7 @@ struct DoSpacer: View {
                 .border(Color.blue.opacity(0.2))
             
         }
-        .frame(width: 300, height: 100)
-        .border(Color.gray.opacity(0.2))
+        .frame(width: 300)
         .onTapGesture {
             withAnimation {
                 self.addSpacer.toggle()
@@ -110,43 +108,43 @@ struct DoSpacer: View {
     
     var doSpacerFrameValue: some View {
         
-        ZStack {
-    
-            Rectangle()
-                .fill(Color.clear)
-                .frame(width: 200)
-                .border(Color.green)
-                .zIndex(2)
+        VExampleView("使用 Spacer 做间隔，但还是成组居中", width: 300, height: 80) {
             
-            HStack {
-                
-                /*:
-                 首先我们使用`frame`来设置具体的尺寸，设置之后该区域就不会被安排放置View，
-                 新增加的View将会在区域之后进行放置。
-                 */
-                Rectangle()
-                    .fill(Color.orange.opacity(0.2))
-                    .frame(width: 30)
-                
-                Spacer()
-                    .frame(width: 70)
+            ZStack {
                 
                 Rectangle()
-                    .fill(Color.blue.opacity(0.2))
-                    .frame(width: 100)
+                    .fill(Color.clear)
+                    .frame(width: 200)
+                    .border(Color.green)
+                    .zIndex(100)
                 
+                HStack {
+                    
+                    /*:
+                     首先我们使用`frame`来设置具体的尺寸，设置之后该区域就不会被安排放置View，
+                     新增加的View将会在区域之后进行放置。
+                     */
+                    Rectangle()
+                        .fill(Color.orange.opacity(0.2))
+                        .frame(width: 30)
+                    
+                    Spacer()
+                        .frame(width: 70)
+                    
+                    Rectangle()
+                        .fill(Color.blue.opacity(0.2))
+                        .frame(width: 100)
+                    
+                }
             }
-            .frame(width: 300, height: 100)
-            .border(Color.gray.opacity(0.2))
         }
-        .frame(width: 300, height: 100)
     }
     
     @State var rightViewWidth: CGFloat = 70
     
     var doSpacerMinLengthValue: some View {
         
-        VStack{
+        VExampleView("为 Spacer 设置 minLength"){
             
             HStack {
                 

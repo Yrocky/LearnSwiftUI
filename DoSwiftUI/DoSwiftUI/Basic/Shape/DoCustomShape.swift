@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct DoRectangle: View {
+struct DoCustomShape: View {
     var body: some View {
-        VStack{
+        
+        ExampleContainterView("CustomShape"){
             
-            doBasic
+            doTriangle
         }
     }
     
-    var doBasic: some View {
+    var doTriangle: some View {
         
         /*:
          通过`Rectangle`我们可以创建一个矩形，在表现上，它属于几何学，
@@ -24,7 +25,7 @@ struct DoRectangle: View {
          Rectangle遵守`Shape`协议
          */
         
-        VStack{
+        VExampleView("Triangle") {
             
             Rectangle()
                 .fill(Color.blue)
@@ -40,8 +41,8 @@ struct DoRectangle: View {
     }
 }
 
-struct DoRectangle_Previews: PreviewProvider {
+struct DoCustomShape_Previews: PreviewProvider {
     static var previews: some View {
-        DoRectangle()
+        DoCustomShape()
     }
 }

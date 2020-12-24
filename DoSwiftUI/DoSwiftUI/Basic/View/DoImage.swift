@@ -10,7 +10,8 @@ import SwiftUI
 struct DoImage: View {
     
     var body: some View {
-        VStack {
+        
+        ExampleContainterView("Image") {
             
             doSystemImage
             
@@ -33,14 +34,27 @@ struct DoImage: View {
          在swiftUI中，我们可以使用Image来展示一张图片，
          同时系统提供了一套基于SF字体的图片，
          */
-        Image(systemName: "sun.min")
+        HExampleView("加载 SF-Symbols 提供的图片"){
+            
+            Image(systemName: "cloud.fog.fill")
+            
+            Image(systemName: "sun.min")
+                .foregroundColor(.red)
+            
+            Image(systemName: "moon.circle.fill")
+            
+            Image(systemName: "sun.dust.fill")
+        }
     }
     
     var doSetupFrame: some View {
         
-        Image("the_Great_Wall")
-            .resizable()
-            .frame(width: 100, height: 200)
+        VExampleView("为 Image 设置 frame "){
+            
+            Image("the_Great_Wall")
+                .resizable()
+                .frame(width: 100, height: 200)
+        }
     }
     
     var doUIImage: some View {
@@ -49,9 +63,12 @@ struct DoImage: View {
          Image除了可以加载bundle、SF中的图片，
          就还可以加载CGImage、UIImage
          */
-        Image("icon_map_location")
-            .resizable()
-            .frame(width: 400, height: 200)
+        VExampleView("使用 resizable 重新为 Image 设置尺寸"){
+            
+            Image("icon_map_location")
+                .resizable()
+                .frame(width: 400, height: 200)
+        }
     }
 }
 

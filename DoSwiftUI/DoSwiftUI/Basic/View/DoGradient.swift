@@ -10,45 +10,53 @@ import SwiftUI
 struct DoGradient: View {
     
     var body: some View {
-        VStack{
+        
+        ExampleContainterView("Gradient"){
             /*:
              swiftUI提供了3种渐变效果：
              * LinearGradient，线性渐变
              * RadialGradient，
              */
-            HStack{
-                
-                doLinearGradient
-                
-                doRadialGradient
-                
-                doLinearGradientAsBackground
-            }
-            .frame(width: 300, height: 100)
+            doLinearGradient
+            
+            doRadialGradient
+            
+            doLinearGradientAsBackground
         }
     }
     
     var doLinearGradient: some View {
-        LinearGradient(gradient: Gradient(colors: [.red, .orange]),
-                       startPoint: .leading,
-                       endPoint: .trailing)
-            .padding()
+        
+        VExampleView("LinearGradient", height: 80) {
+        
+            LinearGradient(gradient: Gradient(colors: [.red, .orange]),
+                           startPoint: .leading,
+                           endPoint: .trailing)
+        }
     }
     
     var doRadialGradient: some View {
-        RadialGradient(
-            gradient: Gradient(colors: [.red, .blue, .green]),
-            center: .center,
-            startRadius: 5,
-            endRadius: 90
-        )
+        
+        VExampleView("RadialGradient", height: 80) {
+            
+            RadialGradient(
+                gradient: Gradient(colors: [.red, .blue, .green]),
+                center: .center,
+                startRadius: 5,
+                endRadius: 90
+            )
+        }
     }
     
     var doLinearGradientAsBackground: some View {
-        Text("Hello")
-            .background(LinearGradient(gradient: Gradient(colors: [.red, .orange]),
-                                       startPoint: .leading,
-                                       endPoint: .trailing))
+        VExampleView("将 LinearGradient 用于 background", height: 40) {
+            
+            Text("Hello")
+                .padding()
+                .background(LinearGradient(gradient: Gradient(colors: [.red, .orange]),
+                                           startPoint: .leading,
+                                           endPoint: .trailing))
+        }
     }
     
 }

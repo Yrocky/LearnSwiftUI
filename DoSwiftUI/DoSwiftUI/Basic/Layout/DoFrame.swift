@@ -11,7 +11,7 @@ struct DoFrame: View {
     
     var body: some View {
         
-        VStack{
+        ExampleContainterView("frame"){
             
             doBasic
             
@@ -23,7 +23,7 @@ struct DoFrame: View {
     
     var doBasic: some View {
         
-        HStack(alignment: .top, spacing:10) {
+        HExampleView("固定宽高，固定宽，固定高") {
             /*:
              可以设置具体的宽高，如果不设置默认使用系统提供的大小
              */
@@ -49,7 +49,7 @@ struct DoFrame: View {
     
     var doSetupAlignment: some View {
         
-        VStack(alignment: .center, spacing:10) {
+        VExampleView("设置 alignment，点击色块转换 alignment") {
             
             /*:
              在设置frame的时候还有第三个参数：`alignment`，
@@ -61,8 +61,6 @@ struct DoFrame: View {
                 .frame(width:200, height: 100, alignment: frameAlignment)
                 .background(Color.green)
         }
-        .frame(width: 400)
-        .padding()
         .onTapGesture {
             withAnimation {
                 frameAlignment.change()
@@ -75,7 +73,8 @@ struct DoFrame: View {
     
     var doMinIdealMaxFrame: some View {
         //: https://developer.apple.com/documentation/swiftui/view/frame(minwidth:idealwidth:maxwidth:minheight:idealheight:maxheight:alignment:)
-        VStack{
+        
+        VExampleView("min、ideal、max 和 alignment") {
             /*:
              除了设置固定尺寸，还可以为View设置一个范围内，
              这样可以保证View的宽高不会无限增长或者缩小，
@@ -121,10 +120,7 @@ struct DoFrame: View {
                 .accentColor(.orange)
             
             TextField("输入文字", text: $flexSizeText)
-            
         }
-        .padding()
-        .border(Color.gray)
     }
 }
 

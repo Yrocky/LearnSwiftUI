@@ -12,7 +12,8 @@ struct DoText: View {
     @State var text = ""
     
     var body: some View {
-        VStack {
+        
+        ExampleContainterView("Text") {
             
             doBasicText
             
@@ -35,7 +36,10 @@ struct DoText: View {
     }
     
     var doBasicText: some View {
-        Text("Hello, World!")
+        
+        VExampleView("基础用法"){
+            Text("Hello, World!")
+        }
     }
     
     var doTextCase: some View {
@@ -44,8 +48,10 @@ struct DoText: View {
          .uppercase，将文本全部转成大写
          .lowercase，将文本全部转成小写
          */
-        HStack {
+        HExampleView("使用 textCase 进行大小写转换"){
+            
             Text("Hello").textCase(.uppercase)
+            
             Text("Hello").textCase(.lowercase)
         }
     }
@@ -56,9 +62,11 @@ struct DoText: View {
          同时还可以使用变种方法来设置击穿线的颜色、作用与否，
          这里的active并不是一个Bind属性，也就是说这个不具备响应式的功能。
          */
-        HStack{
+        HExampleView("使用 strikethrough 设置击穿线"){
+            
             Text("World")
                 .strikethrough()
+            
             Text("swiftUI")
                 .strikethrough(true, color: .orange)
         }
@@ -68,7 +76,7 @@ struct DoText: View {
         /*:
          使用`underline`实现下划线，下划线的功能和特性与击穿线类似
          */
-        HStack {
+        HExampleView("使用 underline 设置下划线") {
             Text("MMM")
                 .underline()
             Text("ABC")
@@ -83,11 +91,19 @@ struct DoText: View {
          
          如果对一个Text同时使用了这两个修饰符，结果将会是忽略掉kerning，而使用tracking。
          */
-        HStack{
-            Text("AAA").kerning(3)
-            Text("AAA").kerning(-3)
-            Text("BBB").tracking(3)
-            Text("BBB").tracking(-3)
+        HExampleView("使用 kerning 和 tracking 设置文本间隔"){
+            
+            Group{
+                Text("AAA").kerning(3)
+                Text("AAA").kerning(-3)
+            }
+            .foregroundColor(.green)
+            
+            Group{
+                Text("AAA").tracking(3)
+                Text("AAA").tracking(-3)
+            }
+            .foregroundColor(.orange)
         }
     }
     
@@ -97,13 +113,15 @@ struct DoText: View {
          正数向上偏移
          负数向下偏移
          */
-        HStack(alignment: .top, spacing: 10) {
+        HExampleView("使用 baselineOffset 调整文本的基线偏移量") {
             
             Text("Hello")
                 .border(Color.red)
+            
             Text("Hello")
                 .baselineOffset(10)
                 .border(Color.red)
+            
             Text("World")
                 .baselineOffset(-6)
                 .border(Color.red)
@@ -118,8 +136,10 @@ struct DoText: View {
          
          设置了最大行数之后，如果文本超出行数，将以`...`显示
          */
-        VStack{
+        VExampleView("lineLimit、truncationMode、lineSpacing"){
+            
             let longText = "Use this initializer to create a stepper that increments or decrements a binding to value by the step size you provide within the given bounds. By setting the bounds, you ensure that the value never goes below or above the lowest or highest value, respectively."
+            
             //: 最大行数
             Text(longText)
                 .padding()

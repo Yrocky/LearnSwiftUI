@@ -11,22 +11,21 @@ struct DoShape: View {
     
     var body: some View {
         
-        ScrollView(.vertical) {
-    
-            VStack{
-                
-                doBasicBuildInShap
-                
-                doRotatedShape
-                
-                doContainerRelativeShape
-                
-                doScaledShape
-                
-                doOffsetShape
-                
-                doTransformedShape
-            }
+        ExampleContainterView("Shape") {
+            
+            doBasicBuildInShap
+            
+            doRotatedShape
+            
+            doContainerRelativeShape
+            
+            doScaledShape
+            
+            doOffsetShape
+            
+            doTransformedShape
+            
+            doInsettableShape
         }
     }
     
@@ -37,46 +36,37 @@ struct DoShape: View {
         
         VStack{
             
-            ScrollView(.horizontal, showsIndicators: false) {
+            HScrollExampleView("系统内置的 Shape 类型") {
                 
-                HStack {
-                    /*:
-                     swiftUI内置了一些形状，都是常用的几何形状，比如
-                     * Rectangle，矩形
-                     * RoundedRectangle，圆角矩形，可以设置圆角大小
-                     * Circle，圆形，swiftUI会选取宽、高的最小值作为直径来绘制圆形
-                     * Ellipse，椭圆形
-                     * Capsule，直译为胶囊，在2D上，它的四个角都是1/4圆，圆的直径为宽、高中的最小值
-                     */
-                    Rectangle()
-                        .makupFill(with: .red, width: width, height: height)
-                    
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .makupFill(with: .orange, width: width, height: height)
-                    
-                    Circle()
-                        .makupFill(with: .green, width: width, height: height)
-                    
-                    Ellipse()
-                        .makupFill(with: .blue, width: width, height: height)
-                    
-                    Capsule()
-                        .makupFill(with: .pink, width: width, height: height)
-                }
-                .padding()
+                /*:
+                 swiftUI内置了一些形状，都是常用的几何形状，比如
+                 * Rectangle，矩形
+                 * RoundedRectangle，圆角矩形，可以设置圆角大小
+                 * Circle，圆形，swiftUI会选取宽、高的最小值作为直径来绘制圆形
+                 * Ellipse，椭圆形
+                 * Capsule，直译为胶囊，在2D上，它的四个角都是1/4圆，圆的直径为宽、高中的最小值
+                 */
+                Rectangle()
+                    .makupFill(with: .red, width: width, height: height)
+                
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .makupFill(with: .orange, width: width, height: height)
+                
+                Circle()
+                    .makupFill(with: .green, width: width, height: height)
+                
+                Ellipse()
+                    .makupFill(with: .blue, width: width, height: height)
+                
+                Capsule()
+                    .makupFill(with: .pink, width: width, height: height)
             }
-            .frame(width: 300, height: 100)
-            .border(Color.gray.opacity(0.2))
             
-            Slider(value: $width, in: 50...100){
-                Text("width")
-            }
-            .padding()
+            Text("width")
+            Slider(value: $width, in: 50...100)
             
-            Slider(value: $height, in: 50...100) {
-                Text("height")
-            }
-            .padding()
+            Text("height")
+            Slider(value: $height, in: 50...100)
         }
     }
     
@@ -84,7 +74,7 @@ struct DoShape: View {
     
     var doRotatedShape: some View {
         
-        VStack{
+        VExampleView("RotatedShape") {
             /*:
              `RotatedShape`可以将原Shape进行旋转，
              通过设置`angle`来决定旋转的角度，
@@ -96,7 +86,7 @@ struct DoShape: View {
                 angle: Angle.degrees(angleDegrees),
                 anchor: .topLeading
             )
-            .makupStroke(with: .orange)
+            .makupStroke(with: .blue)
             
             RotatedShape(
                 shape: Rectangle(),
@@ -126,7 +116,7 @@ struct DoShape: View {
     
     var doScaledShape: some View {
         
-        VStack{
+        VExampleView("ScaledShape") {
             
             ScaledShape(
                 shape: Ellipse(),
@@ -148,7 +138,7 @@ struct DoShape: View {
     
     var doOffsetShape: some View {
         
-        VStack{
+        VExampleView("OffsetShape") {
             
             OffsetShape(
                 shape: Rectangle(),
@@ -169,11 +159,82 @@ struct DoShape: View {
         /*:
          `TransformedShape`可以将原Shape根据`CGAffineTransform`进行转换，是以上几种转换的核心方法。
          */
-        TransformedShape(
-            shape: Rectangle(),
-            transform: CGAffineTransform(scaleX: widthSacle, y: heightSacle)
-        )
-        .makupStroke(with: .blue)
+        VExampleView("TransformedShape") {
+            
+            TransformedShape(
+                shape: Rectangle(),
+                transform: CGAffineTransform(scaleX: widthSacle, y: heightSacle)
+            )
+            .makupStroke(with: .blue)
+            .frame(width: 100, height: 70)
+        }
+    }
+    
+    
+    var doInsettableShape: some View {
+        
+        /*:
+         遵守`InsettableShape`协议的Shape将具备装饰功能，也就是为Shape进行描边、填充等设置，
+         在`fill`和`stroke`部分我们已经知道，可以通过`ShapeStyle协议`和`StrokeStyle类型`来完成对一个Shape的填充和描边任务，所以这个协议中的主要方法可以看做是fill和stroke的结合：
+         
+         ```swift
+         func strokeBorder<S>(_ content: S, style: StrokeStyle, antialiased: Bool = true) -> some View where S : ShapeStyle
+         
+         func strokeBorder(style: StrokeStyle, antialiased: Bool = true) -> some View
+         
+         func strokeBorder<S>(_ content: S, lineWidth: CGFloat = 1, antialiased: Bool = true) -> some View where S : ShapeStyle
+         
+         func strokeBorder(lineWidth: CGFloat = 1, antialiased: Bool = true) -> some View
+         ```
+         
+         另外，在协议内部还有一个方法`inset(by:)`，通过该方法可以对Shape进行对应维度上尺度的调整。
+         比如下面示例中，对Rectangle调用`inset(by: -10)`将会在原始宽、高的基础上增加10单位，
+         而调用`inset(by: 10)`将会减少10单位，其他Shape作用一样，只不过是调整的维度不同。
+         
+         ```swift
+         /// Returns `self` inset by `amount`.
+         func inset(by amount: CGFloat) -> Self.InsetShape
+         ```
+         */
+        
+        HExampleView("InsettableShape"){
+    
+            ZStack{
+                
+                Rectangle()
+                    .inset(by: -10)
+                    .fill(Color.blue)
+                    .frame(width: 80, height: 50)
+                
+                Rectangle()
+                    .fill(Color.red)
+                    .frame(width: 80, height: 50)
+                
+                Rectangle()
+                    .inset(by: 10)
+                    .fill(Color.green)
+                    .frame(width: 80, height: 50)
+            }
+            .padding()
+            
+            ZStack{
+                
+                Circle()
+                    .inset(by: -10)
+                    .fill(Color.blue)
+                    .frame(width: 80, height: 80)
+                
+                Circle()
+                    .fill(Color.red)
+                    .frame(width: 80, height: 80)
+                
+                Circle()
+                    .inset(by: 10)
+                    .fill(Color.green)
+                    .frame(width: 80, height: 80)
+            }
+            .padding()
+        }
     }
 }
 
@@ -189,8 +250,8 @@ fileprivate extension Shape {
         self.fill(color)
             .frame(width: width, height: height)
     }
-    
 }
+
 struct DoShape_Previews: PreviewProvider {
     static var previews: some View {
         DoShape()
