@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3218D2D2259749B400667F45 /* DoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3218D2D1259749B400667F45 /* DoSection.swift */; };
 		32282C5425932B4B00B30971 /* DoStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32282C5325932B4B00B30971 /* DoStroke.swift */; };
 		32282C5725932E2100B30971 /* DoBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32282C5625932E2100B30971 /* DoBorder.swift */; };
 		32282C5A25932E3900B30971 /* DoStrokeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32282C5925932E3900B30971 /* DoStrokeBorder.swift */; };
@@ -23,6 +24,11 @@
 		3264C40D25958988002D31F6 /* DoNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264C40C25958988002D31F6 /* DoNavigationView.swift */; };
 		32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EEA2595F3FE00AC8D96 /* DoList_2.swift */; };
 		32942EEE2595F41A00AC8D96 /* DoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EED2595F41A00AC8D96 /* DoGrid.swift */; };
+		32942EF22597138200AC8D96 /* DoTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EF12597138200AC8D96 /* DoTextEditor.swift */; };
+		32942EF5259719B300AC8D96 /* DoSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EF4259719B300AC8D96 /* DoSecureField.swift */; };
+		32942EF825971DA200AC8D96 /* DoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EF725971DA200AC8D96 /* DoPicker.swift */; };
+		32942EFB25972CD100AC8D96 /* DoActionSheetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EFA25972CD100AC8D96 /* DoActionSheetAlert.swift */; };
+		32942EFE25973C1400AC8D96 /* DoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EFD25973C1400AC8D96 /* DoColor.swift */; };
 		32A553B02580FDA20036F4A9 /* DoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A553AF2580FDA20036F4A9 /* DoImage.swift */; };
 		32A8073C2580AAE20008358B /* DoText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8073B2580AAE20008358B /* DoText.swift */; };
 		32A8073F2580BC180008358B /* DoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8073E2580BC180008358B /* DoStepper.swift */; };
@@ -61,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3218D2D1259749B400667F45 /* DoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSection.swift; sourceTree = "<group>"; };
 		32282C5325932B4B00B30971 /* DoStroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoStroke.swift; sourceTree = "<group>"; };
 		32282C5625932E2100B30971 /* DoBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoBorder.swift; sourceTree = "<group>"; };
 		32282C5925932E3900B30971 /* DoStrokeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoStrokeBorder.swift; sourceTree = "<group>"; };
@@ -79,6 +86,11 @@
 		3264C40C25958988002D31F6 /* DoNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNavigationView.swift; sourceTree = "<group>"; };
 		32942EEA2595F3FE00AC8D96 /* DoList_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoList_2.swift; sourceTree = "<group>"; };
 		32942EED2595F41A00AC8D96 /* DoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGrid.swift; sourceTree = "<group>"; };
+		32942EF12597138200AC8D96 /* DoTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTextEditor.swift; sourceTree = "<group>"; };
+		32942EF4259719B300AC8D96 /* DoSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSecureField.swift; sourceTree = "<group>"; };
+		32942EF725971DA200AC8D96 /* DoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoPicker.swift; sourceTree = "<group>"; };
+		32942EFA25972CD100AC8D96 /* DoActionSheetAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoActionSheetAlert.swift; sourceTree = "<group>"; };
+		32942EFD25973C1400AC8D96 /* DoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoColor.swift; sourceTree = "<group>"; };
 		32A553AF2580FDA20036F4A9 /* DoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoImage.swift; sourceTree = "<group>"; };
 		32A8073B2580AAE20008358B /* DoText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoText.swift; sourceTree = "<group>"; };
 		32A8073E2580BC180008358B /* DoStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoStepper.swift; sourceTree = "<group>"; };
@@ -192,6 +204,7 @@
 				32BBA6AD2595DE280001F244 /* DoDisclosureGroup.swift */,
 				3264C40925958960002D31F6 /* DoList.swift */,
 				32942EEA2595F3FE00AC8D96 /* DoList_2.swift */,
+				3218D2D1259749B400667F45 /* DoSection.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -220,6 +233,10 @@
 				32D4EA77258B49B8008A0B4A /* DoLabel.swift */,
 				32A807442580EEFC0008358B /* DoSlider.swift */,
 				32A807412580CC150008358B /* DoToggle.swift */,
+				32942EFA25972CD100AC8D96 /* DoActionSheetAlert.swift */,
+				32942EF12597138200AC8D96 /* DoTextEditor.swift */,
+				32942EF4259719B300AC8D96 /* DoSecureField.swift */,
+				32942EF725971DA200AC8D96 /* DoPicker.swift */,
 				32282C642594466700B30971 /* DoProgressView.swift */,
 				32D4EA3F25885575008A0B4A /* DoTextField.swift */,
 				32D4EA7A258B8B19008A0B4A /* DoScrollView.swift */,
@@ -254,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				32282C5C25932E4200B30971 /* DoFill.swift */,
+				32942EFD25973C1400AC8D96 /* DoColor.swift */,
 				32282C5325932B4B00B30971 /* DoStroke.swift */,
 				32282C5625932E2100B30971 /* DoBorder.swift */,
 				32282C5925932E3900B30971 /* DoStrokeBorder.swift */,
@@ -345,6 +363,7 @@
 			files = (
 				32282C5A25932E3900B30971 /* DoStrokeBorder.swift in Sources */,
 				32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */,
+				32942EFE25973C1400AC8D96 /* DoColor.swift in Sources */,
 				32D4EA7E258C4E73008A0B4A /* DoStack.swift in Sources */,
 				32282C6C25946FB500B30971 /* ExampleView.swift in Sources */,
 				32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */,
@@ -362,6 +381,7 @@
 				32D4EACD2592F7F4008A0B4A /* DoSpacer.swift in Sources */,
 				32282C652594466700B30971 /* DoProgressView.swift in Sources */,
 				32D4EAC42592EE79008A0B4A /* MySegmentControl.swift in Sources */,
+				32942EFB25972CD100AC8D96 /* DoActionSheetAlert.swift in Sources */,
 				32282C5425932B4B00B30971 /* DoStroke.swift in Sources */,
 				3264C40A25958960002D31F6 /* DoList.swift in Sources */,
 				32D4EA9C258CA571008A0B4A /* DoShape.swift in Sources */,
@@ -375,6 +395,8 @@
 				32A807452580EEFC0008358B /* DoSlider.swift in Sources */,
 				32D4EA92258C9668008A0B4A /* DoFixedSize.swift in Sources */,
 				32A8073F2580BC180008358B /* DoStepper.swift in Sources */,
+				3218D2D2259749B400667F45 /* DoSection.swift in Sources */,
+				32942EF22597138200AC8D96 /* DoTextEditor.swift in Sources */,
 				32D4EABE2592E8DF008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift in Sources */,
 				32D4EAB82591CA4A008A0B4A /* DoAlignment.swift in Sources */,
 				32D4EAC12592EA8B008A0B4A /* DoSafeArea.swift in Sources */,
@@ -386,11 +408,13 @@
 				32282C5725932E2100B30971 /* DoBorder.swift in Sources */,
 				32A553B02580FDA20036F4A9 /* DoImage.swift in Sources */,
 				32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */,
+				32942EF5259719B300AC8D96 /* DoSecureField.swift in Sources */,
 				32D4EA7B258B8B1B008A0B4A /* DoScrollView.swift in Sources */,
 				32282C6925946DEE00B30971 /* DoTrim.swift in Sources */,
 				32D4EAAC259042F3008A0B4A /* DoForEach.swift in Sources */,
 				32A8073C2580AAE20008358B /* DoText.swift in Sources */,
 				32282C5D25932E4200B30971 /* DoFill.swift in Sources */,
+				32942EF825971DA200AC8D96 /* DoPicker.swift in Sources */,
 				32BBA6B12595DE390001F244 /* DoOutlineGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

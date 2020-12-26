@@ -17,7 +17,7 @@ struct DoLabel: View {
          swiftUI在iOS14.0之后提供了一个新的View：Label，
          区别于Text，Label除了可以展示文本，还可以展示图片。
          */
-        ExampleContainterView("Label") {
+        ExampleContainterView("Label", version: "2.0") {
             
             doBasic
             

@@ -50,13 +50,19 @@ struct ExampleContainterView<Content>: View where Content: View {
     
     private var content: () -> Content
     private var config: ExampleConfig
-
+    private var version: String = ""
+    
     @inlinable public init(
-        _ title: String = "Default", spacing: CGFloat = 10, width: CGFloat = .infinity, height: CGFloat = .infinity,
+        _ title: String = "Default",
+        spacing: CGFloat = 10,
+        width: CGFloat = .infinity,
+        height: CGFloat = .infinity,
+        version: String = "",
         @ViewBuilder content: @escaping () -> Content
     ){
         self.content = content
         self.config = ExampleConfig(title,spacing: spacing, width: width,height: height)
+        self.version = version
     }
     
     var body: some View {
@@ -65,7 +71,7 @@ struct ExampleContainterView<Content>: View where Content: View {
             
             VStack {
                 
-                TitleView(config.describe)
+                TitleView(config.describe, version: version)
                 
                 Spacer(minLength: 30)
                 
@@ -79,18 +85,34 @@ struct ExampleContainterView<Content>: View where Content: View {
     struct TitleView: View {
         
         var title: String
+        var version: String
         
-        init(_ title: String) {
+        init(_ title: String, version: String = "") {
             self.title = title
+            self.version = version
         }
         
         var body: some View {
             
             ZStack(alignment: .bottom) {
                 
-                Text(title)
-                    .font(.title)
-                    .frame(height: 40)
+                HStack{
+                    
+                    Text(title)
+                        .font(.largeTitle)
+                    
+                    if version.count > 0 {
+                        
+                        Text(version)
+                            .padding(.leading, 5)
+                            .padding(.trailing, 5)
+                            .foregroundColor(.white)
+                            .font(.system(size: 17))
+                            .background(Color.red)
+                            .frame(height: 20)
+                            .cornerRadius(10)
+                    }
+                }
                 
                 Rectangle()
                     .fill(Color.blue)

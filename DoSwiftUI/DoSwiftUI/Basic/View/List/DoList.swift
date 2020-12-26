@@ -134,7 +134,7 @@ struct DoList: View {
     }
     
     var doAppend_Delete_Move_Insert: some View {
-        VExampleView("append、delete、move、insert", height: 200) {
+        VExampleView("append、delete、move、insert", height: 250) {
             
             /*:
              ForEach有一个拓展，使得其遵守了`DynamicViewContent`协议，
@@ -154,6 +154,10 @@ struct DoList: View {
              
              具体是什么原因暂时还未知。
              */
+            
+            Text("向左滑动cell可以删除该数据")
+                .font(.footnote)
+            
             List{
                     
                 ForEach(indexs, id: \.self) { index in
@@ -412,7 +416,11 @@ struct DoList: View {
     var doDisclosureGroup_OutlineGroup: some View {
         
         VExampleView("DisclosureGroup、OutlineGroup", height: 200) {
-            
+            /*:
+             在List的初始化中，有一种基于`DisclosureGroup`、`OutlineGroup`的方式，
+             在前面我们已经知道这两者可以用来实现自递归的结构，比如tree、文件夹，
+             结合List，递归效果会比单纯使用这两者更有层次感。
+             */
             List(files, children: \.children) { data in
                 Text("\(data.name) (\(data.children?.count ?? 0))")
             }
@@ -430,78 +438,6 @@ struct DoList: View {
         }
     }
 }
-
-/*:
- ```swift
- 
- //: ViewBuilder
- init(@ViewBuilder content: () -> Content)
- 
- // 2个selection
- init(selection: Binding<SelectionValue?>?, @ViewBuilder content: () -> Content)
- 
- init(selection: Binding<Set<SelectionValue>>?, @ViewBuilder content: () -> Content)
- 
- 
- 
- //: Range
-  init(_ data: Range<Int>, @ViewBuilder rowContent: @escaping (Int) -> RowContent)
-  where Content == ForEach<Range<Int>, Int, HStack<RowContent>>, RowContent : View
-
- // 2个selection
-  init(_ data: Range<Int>, selection: Binding<SelectionValue?>?, @ViewBuilder rowContent: @escaping (Int) -> RowContent)
-  where Content == ForEach<Range<Int>, Int, HStack<RowContent>>, RowContent : View
-
-  init(_ data: Range<Int>, selection: Binding<Set<SelectionValue>>?, @ViewBuilder rowContent: @escaping (Int) -> RowContent)
-  where Content == ForEach<Range<Int>, Int, HStack<RowContent>>, RowContent : View
-
- 
- //: KeyPath
- 
- init(_ data: Data, id: KeyPath<Data.Element, ID>, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == ForEach<Data, ID, HStack<RowContent>>, Data : RandomAccessCollection, ID : Hashable, RowContent : View
- 
- init(_ data: Data, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == ForEach<Data, Data.Element.ID, HStack<RowContent>>, Data : RandomAccessCollection, RowContent : View, Data.Element : Identifiable
-
- // 4个selection
-
- init(_ data: Data, id: KeyPath<Data.Element, ID>, selection: Binding<Set<SelectionValue>>?, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == ForEach<Data, ID, HStack<RowContent>>, Data : RandomAccessCollection, ID : Hashable, RowContent : View
- 
- init(_ data: Data, id: KeyPath<Data.Element, ID>, selection: Binding<SelectionValue?>?, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == ForEach<Data, ID, HStack<RowContent>>, Data : RandomAccessCollection, ID : Hashable, RowContent : View
- 
- init(_ data: Data, selection: Binding<Set<SelectionValue>>?, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == ForEach<Data, Data.Element.ID, HStack<RowContent>>, Data : RandomAccessCollection, RowContent : View, Data.Element : Identifiable
-
- init(_ data: Data, selection: Binding<SelectionValue?>?, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == ForEach<Data, Data.Element.ID, HStack<RowContent>>, Data : RandomAccessCollection, RowContent : View, Data.Element : Identifiable
-
- 
- //: DisclosureGroup、OutlineGroup
- 
- init(_ data: Data, children: KeyPath<Data.Element, Data?>, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == OutlineGroup<Data, Data.Element.ID, RowContent, RowContent, DisclosureGroup<RowContent, OutlineSubgroupChildren>>, Data : RandomAccessCollection, RowContent : View, Data.Element : Identifiable
- 
- init(_ data: Data, id: KeyPath<Data.Element, ID>, children: KeyPath<Data.Element, Data?>, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == OutlineGroup<Data, ID, RowContent, RowContent, DisclosureGroup<RowContent, OutlineSubgroupChildren>>, Data : RandomAccessCollection, ID : Hashable, RowContent : View
- 
- // 4个selection
- init(_ data: Data, children: KeyPath<Data.Element, Data?>, selection: Binding<Set<SelectionValue>>?, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == OutlineGroup<Data, Data.Element.ID, RowContent, RowContent, DisclosureGroup<RowContent, OutlineSubgroupChildren>>, Data : RandomAccessCollection, RowContent : View, Data.Element : Identifiable
-
- init(_ data: Data, id: KeyPath<Data.Element, ID>, children: KeyPath<Data.Element, Data?>, selection: Binding<Set<SelectionValue>>?, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == OutlineGroup<Data, ID, RowContent, RowContent, DisclosureGroup<RowContent, OutlineSubgroupChildren>>, Data : RandomAccessCollection, ID : Hashable, RowContent : View
-
- init(_ data: Data, children: KeyPath<Data.Element, Data?>, selection: Binding<SelectionValue?>?, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == OutlineGroup<Data, Data.Element.ID, RowContent, RowContent, DisclosureGroup<RowContent, OutlineSubgroupChildren>>, Data : RandomAccessCollection, RowContent : View, Data.Element : Identifiable
-
- init(_ data: Data, id: KeyPath<Data.Element, ID>, children: KeyPath<Data.Element, Data?>, selection: Binding<SelectionValue?>?, @ViewBuilder rowContent: @escaping (Data.Element) -> RowContent)
- where Content == OutlineGroup<Data, ID, RowContent, RowContent, DisclosureGroup<RowContent, OutlineSubgroupChildren>>, Data : RandomAccessCollection, ID : Hashable, RowContent : View
-
- ```
- */
 
 struct DoList_Previews: PreviewProvider {
     static var previews: some View {
