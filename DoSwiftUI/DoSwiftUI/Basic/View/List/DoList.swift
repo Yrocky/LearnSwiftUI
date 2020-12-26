@@ -17,18 +17,20 @@ struct DoList: View {
             doWithViewBuilder_Dynamic
 
             doAppend_Delete_Move_Insert
-            
+
             doWithRange
 
             doWithKeyPath
 
             doDiffForEach
+
+            doDisclosureGroup_OutlineGroup
+            
+            doSection
             
             doSingleSelection
 
             doMutableSelection
-            
-            doDisclosureGroup_OutlineGroup
         }
     }
     
@@ -285,7 +287,7 @@ struct DoList: View {
     
     var doDiffForEach: some View {
         
-        VExampleView("在 ViewBuilder 中使用 ForEach 初始化，以及使用 ForEach 初始化的区别", height: 400) {
+        HScrollExampleView("在 ViewBuilder 中使用 ForEach 初始化，以及使用 ForEach 初始化的区别", height: 200) {
             /*:
              在上面的实例中，我们知道可以在ViewBuilder中使用ForEach来构建List，
              也可以使用基于ForEach的一系列init方法来构建，两者之间有没有什么区别呢?
@@ -302,11 +304,12 @@ struct DoList: View {
 
              */
             
-            List(0..<10) {
+            List(0..<10) {// 10_0000
                 Text("ForEach init - \($0)")
             }
+            .frame(width: 300)
             
-            List {
+            List {// 10_0000
                 
                 ForEach(0..<10) {
                     Text("ViewBuilder ForEach - \($0)")
@@ -317,6 +320,43 @@ struct DoList: View {
                 ForEach(0..<10) {
                     
                     InnerImage($0)
+                }
+            }
+            .frame(width: 300)
+        }
+    }
+    
+    var doDisclosureGroup_OutlineGroup: some View {
+        
+        VExampleView("DisclosureGroup、OutlineGroup", version: "2.0", height: 200) {
+            /*:
+             在List的初始化中，有一种基于`DisclosureGroup`、`OutlineGroup`的方式，
+             在前面我们已经知道这两者可以用来实现自递归的结构，比如tree、文件夹，
+             结合List，递归效果会比单纯使用这两者更有层次感。
+             */
+            List(files, children: \.children) { data in
+                Text("\(data.name) (\(data.children?.count ?? 0))")
+            }
+        }
+    }
+    
+    var doSection: some View {
+        VExampleView("Section", height: 200) {
+            /*:
+             在前面介绍`Section`的时候我们发现，这种视图结构正好可以用来构成List，
+             通过实例我们发现，使用`List-ForEach-Section`结构构建的List，
+             默认支持HeaderView悬停功能，这个暂时没有找到关闭的方法。
+             */
+            List {
+                ForEach(0..<3) { section in
+                    Section(
+                        header: Text("Header-\(section)"),
+                        footer: Text("Footer-\(section)")) {
+                        
+                        ForEach(0..<6) { row in
+                            Text("Cell {\(section),\(row)}")
+                        }
+                    }
                 }
             }
         }
@@ -412,20 +452,6 @@ struct DoList: View {
             ]
         )
     ]
-    
-    var doDisclosureGroup_OutlineGroup: some View {
-        
-        VExampleView("DisclosureGroup、OutlineGroup", height: 200) {
-            /*:
-             在List的初始化中，有一种基于`DisclosureGroup`、`OutlineGroup`的方式，
-             在前面我们已经知道这两者可以用来实现自递归的结构，比如tree、文件夹，
-             结合List，递归效果会比单纯使用这两者更有层次感。
-             */
-            List(files, children: \.children) { data in
-                Text("\(data.name) (\(data.children?.count ?? 0))")
-            }
-        }
-    }
     
     struct File: Hashable, Identifiable {
         let id = UUID()

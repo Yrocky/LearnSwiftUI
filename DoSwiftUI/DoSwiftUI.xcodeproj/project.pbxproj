@@ -20,6 +20,7 @@
 		323545B925809A6D003A9828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323545B825809A6D003A9828 /* Assets.xcassets */; };
 		323545BC25809A6D003A9828 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323545BB25809A6D003A9828 /* Preview Assets.xcassets */; };
 		323545C625809AE9003A9828 /* Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323545C525809AE9003A9828 /* Basic.swift */; };
+		3256C2C7259799B700225B55 /* DoAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3256C2C6259799B700225B55 /* DoAnchor.swift */; };
 		3264C40A25958960002D31F6 /* DoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264C40925958960002D31F6 /* DoList.swift */; };
 		3264C40D25958988002D31F6 /* DoNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264C40C25958988002D31F6 /* DoNavigationView.swift */; };
 		32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EEA2595F3FE00AC8D96 /* DoList_2.swift */; };
@@ -82,6 +83,7 @@
 		323545BB25809A6D003A9828 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		323545BD25809A6D003A9828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		323545C525809AE9003A9828 /* Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basic.swift; sourceTree = "<group>"; };
+		3256C2C6259799B700225B55 /* DoAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAnchor.swift; sourceTree = "<group>"; };
 		3264C40925958960002D31F6 /* DoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoList.swift; sourceTree = "<group>"; };
 		3264C40C25958988002D31F6 /* DoNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNavigationView.swift; sourceTree = "<group>"; };
 		32942EEA2595F3FE00AC8D96 /* DoList_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoList_2.swift; sourceTree = "<group>"; };
@@ -202,9 +204,9 @@
 			children = (
 				32BBA6B02595DE390001F244 /* DoOutlineGroup.swift */,
 				32BBA6AD2595DE280001F244 /* DoDisclosureGroup.swift */,
+				3218D2D1259749B400667F45 /* DoSection.swift */,
 				3264C40925958960002D31F6 /* DoList.swift */,
 				32942EEA2595F3FE00AC8D96 /* DoList_2.swift */,
-				3218D2D1259749B400667F45 /* DoSection.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -255,6 +257,7 @@
 			children = (
 				32D4EA7D258C4E72008A0B4A /* DoStack.swift */,
 				32D4EA80258C4E82008A0B4A /* DoLazyStack.swift */,
+				3256C2C6259799B700225B55 /* DoAnchor.swift */,
 				32D4EA8B258C87DE008A0B4A /* DoFrame.swift */,
 				32D4EA91258C9668008A0B4A /* DoFixedSize.swift */,
 				32D4EA83258C4EBF008A0B4A /* DoGroup.swift */,
@@ -376,6 +379,7 @@
 				32D4EABB2592E55B008A0B4A /* DoGeometryReader.swift in Sources */,
 				32D4EA78258B49B8008A0B4A /* DoLabel.swift in Sources */,
 				32942EEE2595F41A00AC8D96 /* DoGrid.swift in Sources */,
+				3256C2C7259799B700225B55 /* DoAnchor.swift in Sources */,
 				32D4EA8C258C87DE008A0B4A /* DoFrame.swift in Sources */,
 				323545B725809A6A003A9828 /* ContentView.swift in Sources */,
 				32D4EACD2592F7F4008A0B4A /* DoSpacer.swift in Sources */,

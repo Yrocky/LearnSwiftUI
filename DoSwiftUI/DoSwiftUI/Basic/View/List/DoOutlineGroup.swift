@@ -11,7 +11,7 @@ struct DoOutlineGroup: View {
     
     var body: some View {
         //: https://swiftwithmajid.com/2020/09/02/displaying-recursive-data-using-outlinegroup-in-swiftui/
-        ExampleContainterView("OutlineGroup") {
+        ExampleContainterView("OutlineGroup", version: "2.0") {
             
             doBasic
             

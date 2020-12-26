@@ -13,12 +13,15 @@ struct ExampleConfig {
     fileprivate var width: CGFloat
     fileprivate var height: CGFloat
     fileprivate var spacing: CGFloat
+    fileprivate var version: String
+
     
-    init(_ describe: String = "Default", spacing: CGFloat = 10, width: CGFloat, height: CGFloat) {
+    init(_ describe: String = "Default", version:String = "", spacing: CGFloat = 10, width: CGFloat, height: CGFloat) {
         self.describe = describe
         self.width = max(300, width)
         self.height = max(40, height)
         self.spacing = spacing
+        self.version = version
     }
 }
 
@@ -50,7 +53,6 @@ struct ExampleContainterView<Content>: View where Content: View {
     
     private var content: () -> Content
     private var config: ExampleConfig
-    private var version: String = ""
     
     @inlinable public init(
         _ title: String = "Default",
@@ -61,8 +63,13 @@ struct ExampleContainterView<Content>: View where Content: View {
         @ViewBuilder content: @escaping () -> Content
     ){
         self.content = content
-        self.config = ExampleConfig(title,spacing: spacing, width: width,height: height)
-        self.version = version
+        self.config = ExampleConfig(
+            title,
+            version: version,
+            spacing: spacing,
+            width: width,
+            height: height
+        )
     }
     
     var body: some View {
@@ -71,7 +78,7 @@ struct ExampleContainterView<Content>: View where Content: View {
             
             VStack {
                 
-                TitleView(config.describe, version: version)
+                TitleView(config.describe, version: config.version)
                 
                 Spacer(minLength: 30)
                 
@@ -101,17 +108,7 @@ struct ExampleContainterView<Content>: View where Content: View {
                     Text(title)
                         .font(.largeTitle)
                     
-                    if version.count > 0 {
-                        
-                        Text(version)
-                            .padding(.leading, 5)
-                            .padding(.trailing, 5)
-                            .foregroundColor(.white)
-                            .font(.system(size: 17))
-                            .background(Color.red)
-                            .frame(height: 20)
-                            .cornerRadius(10)
-                    }
+                    ExampleVersionView(version)
                 }
                 
                 Rectangle()
@@ -129,27 +126,40 @@ struct VExampleView<Content>: View where Content: View {
     private var config: ExampleConfig
     
     @inlinable public init(
-        _ describe: String = "Default",spacing: CGFloat = 10, width: CGFloat = 300, height: CGFloat = .infinity,
+        _ describe: String = "Default",
+        version: String = "",
+        spacing: CGFloat = 10,
+        width: CGFloat = 300,
+        height: CGFloat = .infinity,
         @ViewBuilder content: @escaping () -> Content
     ){
         self.content = content
-        self.config = ExampleConfig(describe,spacing: spacing, width: width,height: height)
+        self.config = ExampleConfig(
+            describe,
+            version: version,
+            spacing: spacing,
+            width: width,
+            height: height
+        )
     }
     
     var body: some View {
         
-        VStack{
+        ExampleInnerView(config.version) {
             
-            VStack(alignment: .center, spacing: config.spacing, content: content)
-                .frame(width: config.width, height: config.height)
-                .padding()
-                .border(Color.tintColor, width: 1)
-              
-            ExampleDescribeView(
-                tintColor: .tintColor,
-                describe: config.describe
-            )
-            .frame(maxWidth: config.width, minHeight: 20)
+            VStack{
+                
+                VStack(alignment: .center, spacing: config.spacing, content: content)
+                    .frame(width: config.width, height: config.height)
+                    .padding()
+                    .border(Color.tintColor, width: 1)
+                
+                ExampleDescribeView(
+                    tintColor: .tintColor,
+                    describe: config.describe
+                )
+                .frame(maxWidth: config.width, minHeight: 20)
+            }
         }
     }
 }
@@ -161,26 +171,40 @@ struct HExampleView<Content>: View where Content: View {
     private var config: ExampleConfig
     
     @inlinable public init(
-        _ describe: String = "Default", spacing: CGFloat = 10, width: CGFloat = 300, height: CGFloat = .infinity,
-        @ViewBuilder content: @escaping () -> Content){
+        _ describe: String = "Default",
+        version: String = "",
+        spacing: CGFloat = 10,
+        width: CGFloat = 300,
+        height: CGFloat = .infinity,
+        @ViewBuilder content: @escaping () -> Content
+    ){
         self.content = content
-        self.config = ExampleConfig(describe,spacing: spacing, width: width,height: height)
+        self.config = ExampleConfig(
+            describe,
+            version: version,
+            spacing: spacing,
+            width: width,
+            height: height
+        )
     }
 
     var body: some View {
         
-        VStack(alignment: .center){
+        ExampleInnerView(config.version) {
             
-            HStack(alignment: .center, spacing: config.spacing, content: content)
-                .frame(width: config.width, height: config.height)
-                .padding()
-                .border(Color.tintColor, width: 1)
-              
-            ExampleDescribeView(
-                tintColor: .tintColor,
-                describe: config.describe
-            )
-            .frame(maxWidth: config.width, minHeight: 20)
+            VStack(alignment: .center){
+                
+                HStack(alignment: .center, spacing: config.spacing, content: content)
+                    .frame(width: config.width, height: config.height)
+                    .padding()
+                    .border(Color.tintColor, width: 1)
+                
+                ExampleDescribeView(
+                    tintColor: .tintColor,
+                    describe: config.describe
+                )
+                .frame(maxWidth: config.width, minHeight: 20)
+            }
         }
     }
 }
@@ -192,29 +216,43 @@ struct VScrollExampleView<Content>: View where Content: View {
     private var config: ExampleConfig
     
     @inlinable public init(
-        _ describe: String = "Default",spacing: CGFloat = 10,  width: CGFloat = 300, height: CGFloat = .infinity,
-        @ViewBuilder content: @escaping () -> Content){
+        _ describe: String = "Default",
+        version: String = "",
+        spacing: CGFloat = 10,
+        width: CGFloat = 300,
+        height: CGFloat = .infinity,
+        @ViewBuilder content: @escaping () -> Content
+    ){
         self.content = content
-        self.config = ExampleConfig(describe,spacing: spacing, width: width,height: height)
+        self.config = ExampleConfig(
+            describe,
+            version: version,
+            spacing: spacing,
+            width: width,
+            height: height
+        )
     }
 
     var body: some View {
         
-        VStack{
+        ExampleInnerView(config.version) {
             
-            ScrollView{
+            VStack{
+                
+                ScrollView(showsIndicators: false){
                     
-                VStack(alignment: .leading, spacing: config.spacing, content: content)
-                    .padding()
+                    VStack(alignment: .leading, spacing: config.spacing, content: content)
+                        .padding()
+                }
+                .frame(width: config.width, height: config.height)
+                .border(Color.tintColor, width: 1)
+                
+                ExampleDescribeView(
+                    tintColor: .tintColor,
+                    describe: config.describe
+                )
+                .frame(maxWidth: config.width, minHeight: 20)
             }
-            .frame(width: config.width, height: config.height)
-            .border(Color.tintColor, width: 1)
-            
-            ExampleDescribeView(
-                tintColor: .tintColor,
-                describe: config.describe
-            )
-            .frame(maxWidth: config.width, minHeight: 20)
         }
     }
 }
@@ -226,29 +264,43 @@ struct HScrollExampleView<Content>: View where Content: View {
     private var config: ExampleConfig
     
     @inlinable public init(
-        _ describe: String = "Default",spacing: CGFloat = 10,  width: CGFloat = 300, height: CGFloat = .infinity,
-        @ViewBuilder content: @escaping () -> Content){
+        _ describe: String = "Default",
+        version: String = "",
+        spacing: CGFloat = 10,
+        width: CGFloat = 300,
+        height: CGFloat = .infinity,
+        @ViewBuilder content: @escaping () -> Content
+    ){
         self.content = content
-        self.config = ExampleConfig(describe,spacing: spacing, width: width,height: height)
+        self.config = ExampleConfig(
+            describe,
+            version: version,
+            spacing: spacing,
+            width: width,
+            height: height
+        )
     }
 
     var body: some View {
         
-        VStack(alignment: .center){
+        ExampleInnerView(config.version) {
             
-            ScrollView(.horizontal, showsIndicators: false){
+            VStack(alignment: .center){
                 
-                HStack(alignment: .center, spacing: config.spacing, content: content)
+                ScrollView(.horizontal, showsIndicators: false){
+                    
+                    HStack(alignment: .center, spacing: config.spacing, content: content)
+                }
+                .frame(width: config.width, height: config.height)
+                .padding()
+                .border(Color.tintColor, width: 1)
+                
+                ExampleDescribeView(
+                    tintColor: .tintColor,
+                    describe: config.describe
+                )
+                .frame(maxWidth: config.width, minHeight: 20)
             }
-            .frame(width: config.width, height: config.height)
-            .padding()
-            .border(Color.tintColor, width: 1)
-            
-            ExampleDescribeView(
-                tintColor: .tintColor,
-                describe: config.describe
-            )
-            .frame(maxWidth: config.width, minHeight: 20)
         }
     }
 }
@@ -258,6 +310,30 @@ fileprivate extension Color {
     static let tintColor: Color = {
         Color(red: 0.95, green: 0.95, blue: 0.95)
     }()
+}
+
+fileprivate struct ExampleInnerView<Content>: View where Content: View {
+    
+    private var content: () -> Content
+    fileprivate var version: String
+    
+    init(
+        _ version: String = "",
+         @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.version = version
+        self.content = content
+    }
+    
+    var body: some View {
+        
+        ZStack(alignment: .topTrailing) {
+            
+            content()
+            
+            ExampleVersionView(version)
+        }
+    }
 }
 
 fileprivate struct ExampleDescribeView: View{
@@ -281,5 +357,29 @@ fileprivate struct ExampleDescribeView: View{
                 .frame(width: 30, height: 1)
         }
         .padding(.bottom, 10)
+    }
+}
+
+fileprivate struct ExampleVersionView: View {
+    
+    let version: String
+    init(_ version: String = "") {
+        self.version = version
+    }
+
+    var body: some View {
+        
+        Group{
+            if version.count > 0 {
+                Text(version)
+                    .padding(.leading, 5)
+                    .padding(.trailing, 5)
+                    .foregroundColor(.white)
+                    .font(.system(size: 17))
+                    .background(Color.red)
+                    .frame(height: 20)
+                    .cornerRadius(10)
+            }
+        }
     }
 }
