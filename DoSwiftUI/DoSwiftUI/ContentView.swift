@@ -15,17 +15,18 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        ScrollView{
-            ForEach(0..<list.count) { index in
-                GroupBox(
-                    label: Text(list[index])
-                        .font(.system(size: 17))
-                        .foregroundColor(.pink)
-                ) {
-                }
-            }
+        
+        List() {
+            DoText()
+            DoImage()
+            DoLabel()
+            DoStepper()
+            DoSlider()
+            DoToggle()
+            DoProgressView()
+            DoTextField()
+            DoScrollView()
         }
-        .padding()
     }
 }
 

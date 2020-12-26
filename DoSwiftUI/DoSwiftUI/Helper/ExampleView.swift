@@ -127,6 +127,7 @@ struct VExampleView<Content>: View where Content: View {
                 tintColor: .tintColor,
                 describe: config.describe
             )
+            .frame(maxWidth: config.width, minHeight: 20)
         }
     }
 }
@@ -157,6 +158,7 @@ struct HExampleView<Content>: View where Content: View {
                 tintColor: .tintColor,
                 describe: config.describe
             )
+            .frame(maxWidth: config.width, minHeight: 20)
         }
     }
 }
@@ -190,6 +192,7 @@ struct VScrollExampleView<Content>: View where Content: View {
                 tintColor: .tintColor,
                 describe: config.describe
             )
+            .frame(maxWidth: config.width, minHeight: 20)
         }
     }
 }
@@ -211,8 +214,8 @@ struct HScrollExampleView<Content>: View where Content: View {
         
         VStack(alignment: .center){
             
-            ScrollView(.horizontal){
-                    
+            ScrollView(.horizontal, showsIndicators: false){
+                
                 HStack(alignment: .center, spacing: config.spacing, content: content)
             }
             .frame(width: config.width, height: config.height)
@@ -223,6 +226,7 @@ struct HScrollExampleView<Content>: View where Content: View {
                 tintColor: .tintColor,
                 describe: config.describe
             )
+            .frame(maxWidth: config.width, minHeight: 20)
         }
     }
 }

@@ -15,8 +15,14 @@ struct DoImage: View {
             
             doSystemImage
             
+            doSetupImageColor
+            
+            doColorSymbols
+            
             doSetupFrame
             
+            doResizable
+                        
             doUIImage
         }
         /*:
@@ -38,22 +44,75 @@ struct DoImage: View {
             
             Image(systemName: "cloud.fog.fill")
             
-            Image(systemName: "sun.min")
-                .foregroundColor(.red)
-            
             Image(systemName: "moon.circle.fill")
             
             Image(systemName: "sun.dust.fill")
         }
     }
     
+    var doSetupImageColor: some View {
+        
+        HExampleView("为 Image 设置颜色") {
+            
+            Image(systemName: "sun.min")
+                .foregroundColor(.red)
+            
+            Image(systemName: "wind")
+                .foregroundColor(.green)
+        }
+    }
+    
+    var doColorSymbols: some View{
+        
+        HExampleView("多彩色的 Symbols，设置不成功") {
+            
+            Image(systemName: "at.circle.fill")
+        
+            Image(systemName: "alarm")
+            
+            Image(systemName: "cloud.sun.rain.fill")
+            
+            Image(systemName: "thermometer.sun.fill")
+        }
+    }
+    
     var doSetupFrame: some View {
         
-        VExampleView("为 Image 设置 frame "){
+        HScrollExampleView("为 Image 设置 frame "){
             
             Image("the_Great_Wall")
                 .resizable()
-                .frame(width: 100, height: 200)
+                .frame(width: 50, height: 100)
+            
+            Image("icon_map_location",
+                  label: Text("原始尺寸"))
+            
+            Image("icon_map_location")
+                //: 不使用`resizable`不可以修改尺寸
+                .frame(width: 100, height: 100)
+            
+            Image("icon_map_location")
+                .resizable()
+                .frame(width: 100, height: 100)
+        }
+    }
+    
+    var doResizable: some View {
+        
+        HScrollExampleView("使用 resizable 拉伸图片"){
+
+            Group{
+                Image("op_sdyn_bubble_user_01")
+                    .resizable(resizingMode: .stretch)
+                
+                Image("live_bubble_user_121")
+                    .resizable(resizingMode: .stretch)
+                
+                Image("live_bubble_user_121")
+                    .resizable(resizingMode: .tile)
+            }
+            .frame(width: 100, height: 100)
+            .border(Color.green)
         }
     }
     
@@ -63,11 +122,21 @@ struct DoImage: View {
          Image除了可以加载bundle、SF中的图片，
          就还可以加载CGImage、UIImage
          */
-        VExampleView("使用 resizable 重新为 Image 设置尺寸"){
+        HExampleView("UIImage"){
             
-            Image("icon_map_location")
-                .resizable()
-                .frame(width: 400, height: 200)
+            Group{
+                if let uiImage = UIImage(named: "the_Great_Wall") {
+                    
+                    Image.init(uiImage: uiImage)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                    
+                    Image(uiImage: uiImage)
+                        .renderingMode(.none)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                }
+            }
         }
     }
 }

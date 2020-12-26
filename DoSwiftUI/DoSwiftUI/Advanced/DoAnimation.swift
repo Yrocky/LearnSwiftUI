@@ -151,49 +151,65 @@ struct DoAnimation: View {
          当然swiftUI也允许我们使用不对称的效果，比如消失的效果是缩放到0.5，
          而出现则是移动位移，使用`.asymmetric(:,:)`指明出现、隐藏的效果即可。
          */
-        VExampleView("系统内置的 transition 类型", height: 150) {
+        VExampleView("系统内置的 transition 类型", height: 180) {
             
             Toggle(isOn: $transitionFlag.animation(), label: {
                 Text("Tap me and then show or hide label")
             })
             
-            HStack{
+            VStack{
+                
+                HStack{
+                    if transitionFlag {
+                        Group{
+                            
+                            Text("move(top)")
+                                .transition(.move(edge: .top))
+                            
+                            Text("scale(1.2)")
+                                .transition(.scale(scale: 1.2))
+                            
+                            Text("offset({10,10})")
+                                .transition(.offset(x: 10, y: 10))
+                        }
+                        .padding(4)
+                        .background(Color.orange)
+                        .cornerRadius(4)
+                    }
+                }
+                HStack{
+                    if transitionFlag {
+                        Group{
+                            
+                            Text("slide")
+                                .transition(.slide)
+                            
+                            Text("opacity")
+                                .transition(.opacity)
+                        }
+                        .padding(4)
+                        .background(Color.orange)
+                        .cornerRadius(4)
+                    }
+                }
+                
                 if transitionFlag {
+                    
                     Group{
                         
-                        Text("move")
-                            .transition(.move(edge: .trailing))
-                        
-                        Text("scale")
-                            .transition(.scale(scale: 1.2))
-                        
-                        Text("offset")
-                            .transition(.offset(x: 10, y: 10))
-                        
-                        Text("slide")
-                            .transition(.slide)
-                        
-                        Text("opacity")
-                            .transition(.opacity)
-                        
-                        Text("combined")
+                        Text("combined - opacity & slide(0.8)")
                             .transition(AnyTransition.opacity.combined(with: .scale(scale: 0.8)))
+                        
+                        Text("asymmetric - scale(0.5) & offset(-10)")
+                            .transition(.asymmetric(
+                                            insertion: .scale(scale: 0.5),
+                                            removal: .offset(x: -10))
+                            )
                     }
                     .padding(4)
                     .background(Color.orange)
                     .cornerRadius(4)
                 }
-            }
-            
-            if transitionFlag {
-                Text("asymmetric")
-                    .padding(4)
-                    .background(Color.orange)
-                    .cornerRadius(4)
-                    .transition(.asymmetric(
-                                    insertion: .scale(scale: 0.5),
-                                    removal: .offset(x: -10))
-                    )
             }
         }
     }

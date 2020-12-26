@@ -19,11 +19,17 @@
 		323545B925809A6D003A9828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323545B825809A6D003A9828 /* Assets.xcassets */; };
 		323545BC25809A6D003A9828 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323545BB25809A6D003A9828 /* Preview Assets.xcassets */; };
 		323545C625809AE9003A9828 /* Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323545C525809AE9003A9828 /* Basic.swift */; };
+		3264C40A25958960002D31F6 /* DoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264C40925958960002D31F6 /* DoList.swift */; };
+		3264C40D25958988002D31F6 /* DoNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264C40C25958988002D31F6 /* DoNavigationView.swift */; };
+		32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EEA2595F3FE00AC8D96 /* DoList_2.swift */; };
+		32942EEE2595F41A00AC8D96 /* DoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EED2595F41A00AC8D96 /* DoGrid.swift */; };
 		32A553B02580FDA20036F4A9 /* DoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A553AF2580FDA20036F4A9 /* DoImage.swift */; };
 		32A8073C2580AAE20008358B /* DoText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8073B2580AAE20008358B /* DoText.swift */; };
 		32A8073F2580BC180008358B /* DoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8073E2580BC180008358B /* DoStepper.swift */; };
 		32A807422580CC150008358B /* DoToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A807412580CC150008358B /* DoToggle.swift */; };
 		32A807452580EEFC0008358B /* DoSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A807442580EEFC0008358B /* DoSlider.swift */; };
+		32BBA6AE2595DE280001F244 /* DoDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBA6AD2595DE280001F244 /* DoDisclosureGroup.swift */; };
+		32BBA6B12595DE390001F244 /* DoOutlineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBA6B02595DE390001F244 /* DoOutlineGroup.swift */; };
 		32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA3F25885575008A0B4A /* DoTextField.swift */; };
 		32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA4225886AE0008A0B4A /* DoGradient.swift */; };
 		32D4EA6F258AF202008A0B4A /* DoPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA6E258AF202008A0B4A /* DoPreference.swift */; };
@@ -43,7 +49,6 @@
 		32D4EA9C258CA571008A0B4A /* DoShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA9B258CA571008A0B4A /* DoShape.swift */; };
 		32D4EAA825904129008A0B4A /* DoEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAA725904129008A0B4A /* DoEnvironment.swift */; };
 		32D4EAAC259042F3008A0B4A /* DoForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAAB259042F3008A0B4A /* DoForEach.swift */; };
-		32D4EAAF2590788E008A0B4A /* DoOutlineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAAE2590788E008A0B4A /* DoOutlineGroup.swift */; };
 		32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */; };
 		32D4EAB82591CA4A008A0B4A /* DoAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */; };
 		32D4EABB2592E55B008A0B4A /* DoGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EABA2592E55B008A0B4A /* DoGeometryReader.swift */; };
@@ -70,11 +75,17 @@
 		323545BB25809A6D003A9828 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		323545BD25809A6D003A9828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		323545C525809AE9003A9828 /* Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basic.swift; sourceTree = "<group>"; };
+		3264C40925958960002D31F6 /* DoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoList.swift; sourceTree = "<group>"; };
+		3264C40C25958988002D31F6 /* DoNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNavigationView.swift; sourceTree = "<group>"; };
+		32942EEA2595F3FE00AC8D96 /* DoList_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoList_2.swift; sourceTree = "<group>"; };
+		32942EED2595F41A00AC8D96 /* DoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGrid.swift; sourceTree = "<group>"; };
 		32A553AF2580FDA20036F4A9 /* DoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoImage.swift; sourceTree = "<group>"; };
 		32A8073B2580AAE20008358B /* DoText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoText.swift; sourceTree = "<group>"; };
 		32A8073E2580BC180008358B /* DoStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoStepper.swift; sourceTree = "<group>"; };
 		32A807412580CC150008358B /* DoToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoToggle.swift; sourceTree = "<group>"; };
 		32A807442580EEFC0008358B /* DoSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSlider.swift; sourceTree = "<group>"; };
+		32BBA6AD2595DE280001F244 /* DoDisclosureGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoDisclosureGroup.swift; sourceTree = "<group>"; };
+		32BBA6B02595DE390001F244 /* DoOutlineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoOutlineGroup.swift; sourceTree = "<group>"; };
 		32D4EA3F25885575008A0B4A /* DoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTextField.swift; sourceTree = "<group>"; };
 		32D4EA4225886AE0008A0B4A /* DoGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGradient.swift; sourceTree = "<group>"; };
 		32D4EA6E258AF202008A0B4A /* DoPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoPreference.swift; sourceTree = "<group>"; };
@@ -94,7 +105,6 @@
 		32D4EA9B258CA571008A0B4A /* DoShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoShape.swift; sourceTree = "<group>"; };
 		32D4EAA725904129008A0B4A /* DoEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoEnvironment.swift; sourceTree = "<group>"; };
 		32D4EAAB259042F3008A0B4A /* DoForEach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoForEach.swift; sourceTree = "<group>"; };
-		32D4EAAE2590788E008A0B4A /* DoOutlineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoOutlineGroup.swift; sourceTree = "<group>"; };
 		32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoEmpty.swift; sourceTree = "<group>"; };
 		32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAlignment.swift; sourceTree = "<group>"; };
 		32D4EABA2592E55B008A0B4A /* DoGeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGeometryReader.swift; sourceTree = "<group>"; };
@@ -144,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				323545B425809A6A003A9828 /* DoSwiftUIApp.swift */,
+				323545B625809A6A003A9828 /* ContentView.swift */,
 				323545C425809AD8003A9828 /* Basic */,
 				32D4EA86258C4F0D008A0B4A /* Advanced */,
 				32D4EAD125931A27008A0B4A /* Helper */,
@@ -174,6 +185,17 @@
 			path = Basic;
 			sourceTree = "<group>";
 		};
+		32BBA6B32595DE400001F244 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				32BBA6B02595DE390001F244 /* DoOutlineGroup.swift */,
+				32BBA6AD2595DE280001F244 /* DoDisclosureGroup.swift */,
+				3264C40925958960002D31F6 /* DoList.swift */,
+				32942EEA2595F3FE00AC8D96 /* DoList_2.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		32D4EA86258C4F0D008A0B4A /* Advanced */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,15 +217,18 @@
 				32A8073B2580AAE20008358B /* DoText.swift */,
 				32A553AF2580FDA20036F4A9 /* DoImage.swift */,
 				32A8073E2580BC180008358B /* DoStepper.swift */,
+				32D4EA77258B49B8008A0B4A /* DoLabel.swift */,
 				32A807442580EEFC0008358B /* DoSlider.swift */,
 				32A807412580CC150008358B /* DoToggle.swift */,
 				32282C642594466700B30971 /* DoProgressView.swift */,
 				32D4EA3F25885575008A0B4A /* DoTextField.swift */,
 				32D4EA7A258B8B19008A0B4A /* DoScrollView.swift */,
+				32BBA6B32595DE400001F244 /* List */,
+				32942EED2595F41A00AC8D96 /* DoGrid.swift */,
+				3264C40C25958988002D31F6 /* DoNavigationView.swift */,
 				32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */,
 				32D4EA4225886AE0008A0B4A /* DoGradient.swift */,
 				32D4EA74258B4492008A0B4A /* DoGroupBox.swift */,
-				32D4EAB22590802C008A0B4A /* 2.0 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -240,19 +265,9 @@
 			path = Shape;
 			sourceTree = "<group>";
 		};
-		32D4EAB22590802C008A0B4A /* 2.0 */ = {
-			isa = PBXGroup;
-			children = (
-				32D4EA77258B49B8008A0B4A /* DoLabel.swift */,
-				32D4EAAE2590788E008A0B4A /* DoOutlineGroup.swift */,
-			);
-			path = 2.0;
-			sourceTree = "<group>";
-		};
 		32D4EAD125931A27008A0B4A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				323545B625809A6A003A9828 /* ContentView.swift */,
 				32D4EAC32592EE79008A0B4A /* MySegmentControl.swift */,
 				32282C6B25946FB500B30971 /* ExampleView.swift */,
 			);
@@ -333,19 +348,22 @@
 				32D4EA7E258C4E73008A0B4A /* DoStack.swift in Sources */,
 				32282C6C25946FB500B30971 /* ExampleView.swift in Sources */,
 				32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */,
+				32BBA6AE2595DE280001F244 /* DoDisclosureGroup.swift in Sources */,
+				3264C40D25958988002D31F6 /* DoNavigationView.swift in Sources */,
 				32D4EA72258B0325008A0B4A /* DoCoordinateSpace.swift in Sources */,
 				32D4EACA2592F776008A0B4A /* DoLayoutPriority.swift in Sources */,
 				32D4EA89258C4F91008A0B4A /* DoAnimation.swift in Sources */,
 				32A807422580CC150008358B /* DoToggle.swift in Sources */,
 				32D4EABB2592E55B008A0B4A /* DoGeometryReader.swift in Sources */,
 				32D4EA78258B49B8008A0B4A /* DoLabel.swift in Sources */,
+				32942EEE2595F41A00AC8D96 /* DoGrid.swift in Sources */,
 				32D4EA8C258C87DE008A0B4A /* DoFrame.swift in Sources */,
-				32D4EAAF2590788E008A0B4A /* DoOutlineGroup.swift in Sources */,
 				323545B725809A6A003A9828 /* ContentView.swift in Sources */,
 				32D4EACD2592F7F4008A0B4A /* DoSpacer.swift in Sources */,
 				32282C652594466700B30971 /* DoProgressView.swift in Sources */,
 				32D4EAC42592EE79008A0B4A /* MySegmentControl.swift in Sources */,
 				32282C5425932B4B00B30971 /* DoStroke.swift in Sources */,
+				3264C40A25958960002D31F6 /* DoList.swift in Sources */,
 				32D4EA9C258CA571008A0B4A /* DoShape.swift in Sources */,
 				323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */,
 				32D4EA75258B4495008A0B4A /* DoGroupBox.swift in Sources */,
@@ -367,11 +385,13 @@
 				32D4EA99258CA115008A0B4A /* DoCustomShape.swift in Sources */,
 				32282C5725932E2100B30971 /* DoBorder.swift in Sources */,
 				32A553B02580FDA20036F4A9 /* DoImage.swift in Sources */,
+				32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */,
 				32D4EA7B258B8B1B008A0B4A /* DoScrollView.swift in Sources */,
 				32282C6925946DEE00B30971 /* DoTrim.swift in Sources */,
 				32D4EAAC259042F3008A0B4A /* DoForEach.swift in Sources */,
 				32A8073C2580AAE20008358B /* DoText.swift in Sources */,
 				32282C5D25932E4200B30971 /* DoFill.swift in Sources */,
+				32BBA6B12595DE390001F244 /* DoOutlineGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
