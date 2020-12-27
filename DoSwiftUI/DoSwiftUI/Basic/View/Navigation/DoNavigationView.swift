@@ -15,13 +15,20 @@ struct DoNavigationView: View {
             doBasic
 //        }
     }
+    let items = [
+        "Chocolate", "Vanilla",
+        "Strawberry", "Mint Chip",
+        "Pistachio"
+    ]
     
     var doBasic: some View {
 //        VExampleView("基础用法", height: 200) {
             
             NavigationView {
-                Text("Home")
-                Text("Message")
+                List(items, id:\.self) {
+                    Text($0)
+                }
+                .navigationTitle("Today's Flavors")
 //            }
         }
     }

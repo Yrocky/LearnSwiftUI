@@ -36,7 +36,7 @@ struct DoShape: View {
         
         VStack{
             
-            HScrollExampleView("系统内置的 Shape 类型") {
+            VExampleView("系统内置的 Shape 类型") {
                 
                 /*:
                  swiftUI内置了一些形状，都是常用的几何形状，比如
@@ -46,27 +46,42 @@ struct DoShape: View {
                  * Ellipse，椭圆形
                  * Capsule，直译为胶囊，在2D上，它的四个角都是1/4圆，圆的直径为宽、高中的最小值
                  */
-                Rectangle()
-                    .makupFill(with: .red, width: width, height: height)
+                ScrollView(.horizontal) {
+                    
+                    HStack{
+                        
+                        Rectangle()
+                            .makupFill(with: .red, width: width, height: height)
+                        
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .makupFill(with: .orange, width: width, height: height)
+                        
+                        Circle()
+                            .makupFill(with: .green, width: width, height: height)
+                        
+                        Ellipse()
+                            .makupFill(with: .blue, width: width, height: height)
+                        
+                        Capsule()
+                            .makupFill(with: .pink, width: width, height: height)
+                    }
+                }
                 
-                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .makupFill(with: .orange, width: width, height: height)
+                HStack{
+                    
+                    Text("width")
+                    
+                    Slider(value: $width, in: 50...100)
+                }
                 
-                Circle()
-                    .makupFill(with: .green, width: width, height: height)
-                
-                Ellipse()
-                    .makupFill(with: .blue, width: width, height: height)
-                
-                Capsule()
-                    .makupFill(with: .pink, width: width, height: height)
+                HStack{
+                    
+                    Text("height")
+                    
+                    Slider(value: $height, in: 50...100)
+                }
             }
             
-            Text("width")
-            Slider(value: $width, in: 50...100)
-            
-            Text("height")
-            Slider(value: $height, in: 50...100)
         }
     }
     
