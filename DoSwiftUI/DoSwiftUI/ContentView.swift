@@ -21,7 +21,9 @@ struct ContentView: View {
 //
             List{
                 ForEach(examp) { i in
-                    Section(header: Text(i.name)) {
+                    Section(
+                        header: DoExampleHeaderView(i)
+                    ) {
                         ForEach(i.items ?? []) { j in
                             NavigationLink(
                                 j.rawValue,
@@ -37,8 +39,35 @@ struct ContentView: View {
     }
 }
 
+struct DoExampleHeaderView: View {
+    
+    let data: DoExampleData
+    
+    init(_ data: DoExampleData) {
+        self.data = data
+    }
+    
+    var body: some View{
+
+        HStack{
+         
+            Image(systemName: data.icon)
+                .resizable()
+                .frame(width: 20, height: 20)
+                .foregroundColor(.blue)
+                .aspectRatio(contentMode: .fit)
+            
+            Text(data.name)
+                .font(.system(size: 18))
+                .foregroundColor(.blue)
+            
+            Spacer()
+        }
+    }
+}
+
 let examp : [DoExampleData] = [
-    DoExampleData.init("Interface", items: [
+    DoExampleData("Interface",icon: "heart.text.square", items: [
         .Text, .Image, .Label, .TextField, .SecureField,
         .ProgressView, .Stepper, .Slider, .Toggle,
         .Picker, .TextEditor, .GroupBox, .Gradient,
@@ -47,26 +76,26 @@ let examp : [DoExampleData] = [
         .List, .List2, .Grid, .NavigationLink, .NavigationView
     ]),
     
-    DoExampleData.init("Layout", items: [
+    DoExampleData("Layout",icon: "square.grid.3x1.below.line.grid.1x2", items: [
         .Stack, .LazyStack, .Frame, .Group, .ForEach,
         .Alignment, .LayoutPriority, .FixedSize, .Anchor,
         .SafeArea, .Spacer, .GeometryReader, .Layout, .CoordinateSpace
     ]),
     
-    DoExampleData.init("Shape", items: [
+    DoExampleData("Shape",icon: "circle.square", items: [
         .Fill, .Stroke, .Border, .StrokeBorder,
         .Color, .Shape, .CustomShape, .BackgroundOverlay
     ]),
     
-    DoExampleData.init("Geature", items: [
+    DoExampleData("Geature",icon: "hand.draw", items: [
         
     ]),
     
-    DoExampleData.init("Animation", items: [
+    DoExampleData("Animation",icon: "circle.grid.cross.left.fill", items: [
         .Animation
     ]),
     
-    DoExampleData.init("Data Flow", items: [
+    DoExampleData("Data Flow",icon: "bonjour", items: [
         .State_Binding, .Environment, .Preference,
         .ObservedObject, .StateObject, .EnvironmentObject
     ]),
@@ -76,11 +105,13 @@ struct DoExampleData: Hashable, Identifiable {
     
     let id = UUID()
     var name : String
+    var icon : String
     var items: [DoExampleItem]? = nil
     
-    init(_ name: String, items: [DoExampleItem]? = nil) {
+    init(_ name: String, icon: String = "", items: [DoExampleItem]? = nil) {
         self.name = name
         self.items = items
+        self.icon = icon
     }
 }
 
