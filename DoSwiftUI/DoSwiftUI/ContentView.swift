@@ -73,7 +73,8 @@ let examp : [DoExampleData] = [
         .Picker, .TextEditor, .GroupBox, .Gradient,
         .ScrollView, .ActionSheet_Alert, .Empty,
         .OutlineGroup, .DisclosureGroup, .Section,
-        .List, .List2, .Grid, .NavigationLink, .NavigationView
+        .List, .List2, .Grid, .NavigationLink,
+        .NavigationBarItem, .NavigationView, .Toolbar
     ]),
     
     DoExampleData("Layout",icon: "square.grid.3x1.below.line.grid.1x2", items: [
@@ -83,8 +84,8 @@ let examp : [DoExampleData] = [
     ]),
     
     DoExampleData("Shape",icon: "circle.square", items: [
-        .Fill, .Stroke, .Border, .StrokeBorder,
-        .Color, .Shape, .CustomShape, .BackgroundOverlay
+        .Fill, .Stroke, .Border, .StrokeBorder, .Color,
+        .Path, .Shape, .CustomShape, .BackgroundOverlay
     ]),
     
     DoExampleData("Geature",icon: "hand.draw", items: [
@@ -127,7 +128,8 @@ enum DoExampleItem: String, Identifiable, CaseIterable {
     case List, List2
     
     case Grid
-    case NavigationLink, NavigationView
+    case NavigationLink, NavigationBarItem, NavigationView
+    case Toolbar
     
     // layout
     case Stack, LazyStack, Frame, Group, ForEach
@@ -135,7 +137,7 @@ enum DoExampleItem: String, Identifiable, CaseIterable {
     case SafeArea, Spacer, GeometryReader, Layout, CoordinateSpace
     
     // shape
-    case Fill, Stroke, Border, StrokeBorder
+    case Fill, Stroke, Border, StrokeBorder, Path
     case Color, Shape, CustomShape, BackgroundOverlay
     
     // geature
@@ -181,7 +183,9 @@ extension DoExampleItem {
                 case .List2: DoList_2()
                 case .Grid: DoGrid()
                 case .NavigationLink: DoNavigationLink()
+                case .NavigationBarItem: DoNavigationBarItem()
                 case .NavigationView: DoNavigationView()
+                case .Toolbar: DoToolbar()
                 case .Stack: DoStack()
                 case .LazyStack: DoLazyStack()
                 case .Frame: DoFrame()
@@ -200,6 +204,7 @@ extension DoExampleItem {
                 case .Stroke: DoStroke()
                 case .Border: DoBorder()
                 case .StrokeBorder: DoStrokeBorder()
+                case .Path: DoPath()
                 case .Color: DoColor()
                 case .Shape: DoShape()
                 case .CustomShape: DoCustomShape()

@@ -27,6 +27,10 @@
 		3256C2D72598286800225B55 /* DoEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3256C2D62598286800225B55 /* DoEnvironmentObject.swift */; };
 		3264C40A25958960002D31F6 /* DoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264C40925958960002D31F6 /* DoList.swift */; };
 		3264C40D25958988002D31F6 /* DoNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264C40C25958988002D31F6 /* DoNavigationView.swift */; };
+		327AE3DD25988F5A0062BD67 /* DoToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3DC25988F590062BD67 /* DoToolbar.swift */; };
+		327AE3E025988F870062BD67 /* DoNavigationBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3DF25988F870062BD67 /* DoNavigationBarItem.swift */; };
+		327AE3E32598B3ED0062BD67 /* DoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3E22598B3ED0062BD67 /* DoForm.swift */; };
+		327AE3E62598BF810062BD67 /* DoPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3E52598BF810062BD67 /* DoPath.swift */; };
 		32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EEA2595F3FE00AC8D96 /* DoList_2.swift */; };
 		32942EEE2595F41A00AC8D96 /* DoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EED2595F41A00AC8D96 /* DoGrid.swift */; };
 		32942EF22597138200AC8D96 /* DoTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EF12597138200AC8D96 /* DoTextEditor.swift */; };
@@ -94,6 +98,10 @@
 		3256C2D62598286800225B55 /* DoEnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoEnvironmentObject.swift; sourceTree = "<group>"; };
 		3264C40925958960002D31F6 /* DoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoList.swift; sourceTree = "<group>"; };
 		3264C40C25958988002D31F6 /* DoNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNavigationView.swift; sourceTree = "<group>"; };
+		327AE3DC25988F590062BD67 /* DoToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoToolbar.swift; sourceTree = "<group>"; };
+		327AE3DF25988F870062BD67 /* DoNavigationBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNavigationBarItem.swift; sourceTree = "<group>"; };
+		327AE3E22598B3ED0062BD67 /* DoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoForm.swift; sourceTree = "<group>"; };
+		327AE3E52598BF810062BD67 /* DoPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoPath.swift; sourceTree = "<group>"; };
 		32942EEA2595F3FE00AC8D96 /* DoList_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoList_2.swift; sourceTree = "<group>"; };
 		32942EED2595F41A00AC8D96 /* DoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGrid.swift; sourceTree = "<group>"; };
 		32942EF12597138200AC8D96 /* DoTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTextEditor.swift; sourceTree = "<group>"; };
@@ -211,7 +219,9 @@
 			isa = PBXGroup;
 			children = (
 				3256C2C92597A57F00225B55 /* DoNavigationLink.swift */,
+				327AE3DF25988F870062BD67 /* DoNavigationBarItem.swift */,
 				3264C40C25958988002D31F6 /* DoNavigationView.swift */,
+				327AE3DC25988F590062BD67 /* DoToolbar.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -261,6 +271,7 @@
 				32D4EA7A258B8B19008A0B4A /* DoScrollView.swift */,
 				32BBA6B32595DE400001F244 /* List */,
 				32942EED2595F41A00AC8D96 /* DoGrid.swift */,
+				327AE3E22598B3ED0062BD67 /* DoForm.swift */,
 				3256C2CC2597A58900225B55 /* Navigation */,
 				32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */,
 				32D4EA4225886AE0008A0B4A /* DoGradient.swift */,
@@ -298,6 +309,7 @@
 				32282C5325932B4B00B30971 /* DoStroke.swift */,
 				32282C5625932E2100B30971 /* DoBorder.swift */,
 				32282C5925932E3900B30971 /* DoStrokeBorder.swift */,
+				327AE3E52598BF810062BD67 /* DoPath.swift */,
 				32D4EA9B258CA571008A0B4A /* DoShape.swift */,
 				32282C6825946DEE00B30971 /* DoTrim.swift */,
 				32D4EA98258CA115008A0B4A /* DoCustomShape.swift */,
@@ -397,6 +409,7 @@
 				32D4EA89258C4F91008A0B4A /* DoAnimation.swift in Sources */,
 				32A807422580CC150008358B /* DoToggle.swift in Sources */,
 				32D4EABB2592E55B008A0B4A /* DoGeometryReader.swift in Sources */,
+				327AE3E32598B3ED0062BD67 /* DoForm.swift in Sources */,
 				32D4EA78258B49B8008A0B4A /* DoLabel.swift in Sources */,
 				32942EEE2595F41A00AC8D96 /* DoGrid.swift in Sources */,
 				3256C2D72598286800225B55 /* DoEnvironmentObject.swift in Sources */,
@@ -422,6 +435,7 @@
 				32D4EA92258C9668008A0B4A /* DoFixedSize.swift in Sources */,
 				32A8073F2580BC180008358B /* DoStepper.swift in Sources */,
 				3218D2D2259749B400667F45 /* DoSection.swift in Sources */,
+				327AE3E62598BF810062BD67 /* DoPath.swift in Sources */,
 				3256C2D42598285C00225B55 /* DoStateObject.swift in Sources */,
 				3256C2D02598284B00225B55 /* DoObservedObject.swift in Sources */,
 				32942EF22597138200AC8D96 /* DoTextEditor.swift in Sources */,
@@ -433,6 +447,7 @@
 				32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */,
 				323545C625809AE9003A9828 /* Basic.swift in Sources */,
 				32D4EA99258CA115008A0B4A /* DoCustomShape.swift in Sources */,
+				327AE3E025988F870062BD67 /* DoNavigationBarItem.swift in Sources */,
 				32282C5725932E2100B30971 /* DoBorder.swift in Sources */,
 				32A553B02580FDA20036F4A9 /* DoImage.swift in Sources */,
 				32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */,
@@ -441,6 +456,7 @@
 				32282C6925946DEE00B30971 /* DoTrim.swift in Sources */,
 				32D4EAAC259042F3008A0B4A /* DoForEach.swift in Sources */,
 				32A8073C2580AAE20008358B /* DoText.swift in Sources */,
+				327AE3DD25988F5A0062BD67 /* DoToolbar.swift in Sources */,
 				32282C5D25932E4200B30971 /* DoFill.swift in Sources */,
 				32942EF825971DA200AC8D96 /* DoPicker.swift in Sources */,
 				32BBA6B12595DE390001F244 /* DoOutlineGroup.swift in Sources */,

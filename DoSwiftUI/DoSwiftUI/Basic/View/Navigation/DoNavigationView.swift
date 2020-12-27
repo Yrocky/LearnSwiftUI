@@ -10,10 +10,12 @@ import SwiftUI
 struct DoNavigationView: View {
     var body: some View {
         
-//        ExampleContainterView("NavigationView") {
+        ExampleContainterView("NavigationView") {
             
             doBasic
-//        }
+        
+            doNavigationViewStyle
+        }
     }
     let items = [
         "Chocolate", "Vanilla",
@@ -21,15 +23,55 @@ struct DoNavigationView: View {
         "Pistachio"
     ]
     
+    @State var showNavigationView = false
+    
     var doBasic: some View {
-//        VExampleView("基础用法", height: 200) {
+        VExampleView("基础用法", height: 100) {
             
-            NavigationView {
-                List(items, id:\.self) {
-                    Text($0)
+            Text("Tap me show NavigationView")
+                .onTapGesture {
+                    self.showNavigationView.toggle()
                 }
-                .navigationTitle("Today's Flavors")
-//            }
+                .sheet(isPresented: $showNavigationView) {
+                    
+                    NavigationView {
+                        List(items, id:\.self) {
+                            Text($0)
+                        }
+                    }
+                    .navigationTitle("Today's Flavors")
+                }
+        }
+    }
+    
+    @State var showNavigationView_2 = false
+
+    var doNavigationViewStyle: some View {
+        VExampleView("NavigationViewStyl", height: 100) {
+            
+            /*:
+             `NavigationViewStyle`是swiftUI为导航样式的抽象，
+             系统一共为我们提供了三种导航视图样式:
+             * StackNavigationViewStyle
+             * DefaultNavigationViewStyle
+             * DoubleColumnNavigationViewStyle
+             
+             
+             */
+            Text("Tap me show NavigationView")
+                .onTapGesture {
+                    self.showNavigationView_2.toggle()
+                }
+                .sheet(isPresented: $showNavigationView_2) {
+                    
+                    NavigationView {
+                        List(items, id:\.self) {
+                            Text($0)
+                        }
+                    }
+                    .navigationTitle("Today's Flavors")
+                    .navigationViewStyle(StackNavigationViewStyle())
+                }
         }
     }
 }

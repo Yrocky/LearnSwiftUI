@@ -87,6 +87,7 @@ struct ExampleContainterView<Content>: View where Content: View {
                     .frame(width: config.width, height: config.height)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     struct TitleView: View {
