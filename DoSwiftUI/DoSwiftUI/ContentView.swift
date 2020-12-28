@@ -89,7 +89,7 @@ let examp : [DoExampleData] = [
     ]),
     
     DoExampleData("Geature",icon: "hand.draw", items: [
-        
+        .BasicGesture, .ComposingGesture
     ]),
     
     DoExampleData("Animation",icon: "circle.grid.cross.left.fill", items: [
@@ -141,6 +141,7 @@ enum DoExampleItem: String, Identifiable, CaseIterable {
     case Color, Shape, CustomShape, BackgroundOverlay
     
     // geature
+    case BasicGesture, ComposingGesture
     
     // animation
     case Animation
@@ -216,6 +217,8 @@ extension DoExampleItem {
                 case .ObservedObject: DoObservedObject()
                 case .StateObject: DoStateObject()
                 case .EnvironmentObject: DoEnvironmentObject()
+                case .BasicGesture: DoBasicGesture()
+                case .ComposingGesture: DoComposingGesture()
                 default: EmptyView()
                 }
             }

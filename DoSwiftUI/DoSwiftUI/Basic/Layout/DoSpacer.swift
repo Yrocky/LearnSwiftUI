@@ -108,7 +108,7 @@ struct DoSpacer: View {
     
     var doSpacerFrameValue: some View {
         
-        VExampleView("使用 Spacer 做间隔，但还是成组居中", width: 300, height: 80) {
+        VExampleView("使用 Spacer 做间隔，但还是成组居中", height: 80) {
             
             ZStack {
                 

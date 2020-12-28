@@ -43,7 +43,8 @@ import Foundation
 /// properties of the ``EnvironmentValues`` structure. For information about
 /// creating custom environment values, see the ``EnvironmentKey`` protocol.
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-@frozen @propertyWrapper public struct Environment<Value> : DynamicProperty {
+@frozen @propertyWrapper 
+public struct Environment<Value> : DynamicProperty {
 
     /// Creates an environment property to read the specified key path.
     ///
@@ -159,7 +160,8 @@ public protocol EnvironmentKey {
 /// to set a corresponding model object on an ancestor view by calling its
 /// ``View/environmentObject(_:)`` modifier.
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-@frozen @propertyWrapper public struct EnvironmentObject<ObjectType> : DynamicProperty where ObjectType : ObservableObject {
+@frozen @propertyWrapper 
+public struct EnvironmentObject<ObjectType> : DynamicProperty where ObjectType : ObservableObject {
 
     /// A wrapper of the underlying environment object that can create bindings
     /// to its properties using dynamic member lookup.

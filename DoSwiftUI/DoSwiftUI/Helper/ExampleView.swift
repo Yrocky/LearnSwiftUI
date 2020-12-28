@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+// MARK: Environment
+
+private struct ExampleViewWithKey: EnvironmentKey {
+    static let defaultValue: CGFloat = 300
+}
+
+extension EnvironmentValues {
+    var exampleViewWidth: CGFloat {
+        get { self[ExampleViewWithKey.self] }
+        set { self[ExampleViewWithKey.self] = newValue }
+    }
+}
+
 struct ExampleConfig {
     
     fileprivate var describe: String
@@ -16,7 +29,7 @@ struct ExampleConfig {
     fileprivate var version: String
 
     
-    init(_ describe: String = "Default", version:String = "", spacing: CGFloat = 10, width: CGFloat, height: CGFloat) {
+    init(_ describe: String = "Default", version:String = "", spacing: CGFloat = 10, width: CGFloat = 300, height: CGFloat) {
         self.describe = describe
         self.width = max(300, width)
         self.height = max(40, height)
@@ -123,6 +136,9 @@ struct ExampleContainterView<Content>: View where Content: View {
 
 struct VExampleView<Content>: View where Content: View {
     
+    @Environment(\.exampleViewWidth)
+    private var exampleViewWidth: CGFloat
+    
     private var content: () -> Content
     private var config: ExampleConfig
     
@@ -130,7 +146,6 @@ struct VExampleView<Content>: View where Content: View {
         _ describe: String = "Default",
         version: String = "",
         spacing: CGFloat = 10,
-        width: CGFloat = 300,
         height: CGFloat = .infinity,
         @ViewBuilder content: @escaping () -> Content
     ){
@@ -139,7 +154,6 @@ struct VExampleView<Content>: View where Content: View {
             describe,
             version: version,
             spacing: spacing,
-            width: width,
             height: height
         )
     }
@@ -151,8 +165,9 @@ struct VExampleView<Content>: View where Content: View {
             VStack{
                 
                 VStack(alignment: .center, spacing: config.spacing, content: content)
-                    .frame(width: config.width, height: config.height)
+                    .frame(width: exampleViewWidth, height: config.height)
                     .padding()
+                    .environment(\.exampleViewWidth, 300)
                     .border(Color.tintColor, width: 1)
                 
                 ExampleDescribeView(
@@ -167,6 +182,9 @@ struct VExampleView<Content>: View where Content: View {
 
 struct HExampleView<Content>: View where Content: View {
     
+    @Environment(\.exampleViewWidth)
+    private var exampleViewWidth: CGFloat
+
     private var content: () -> Content
     
     private var config: ExampleConfig
@@ -175,7 +193,6 @@ struct HExampleView<Content>: View where Content: View {
         _ describe: String = "Default",
         version: String = "",
         spacing: CGFloat = 10,
-        width: CGFloat = 300,
         height: CGFloat = .infinity,
         @ViewBuilder content: @escaping () -> Content
     ){
@@ -184,7 +201,6 @@ struct HExampleView<Content>: View where Content: View {
             describe,
             version: version,
             spacing: spacing,
-            width: width,
             height: height
         )
     }
@@ -196,7 +212,7 @@ struct HExampleView<Content>: View where Content: View {
             VStack(alignment: .center){
                 
                 HStack(alignment: .center, spacing: config.spacing, content: content)
-                    .frame(width: config.width, height: config.height)
+                    .frame(width: exampleViewWidth, height: config.height)
                     .padding()
                     .border(Color.tintColor, width: 1)
                 
@@ -212,6 +228,9 @@ struct HExampleView<Content>: View where Content: View {
 
 struct VScrollExampleView<Content>: View where Content: View {
     
+    @Environment(\.exampleViewWidth)
+    private var exampleViewWidth: CGFloat
+    
     private var content: () -> Content
     
     private var config: ExampleConfig
@@ -220,7 +239,6 @@ struct VScrollExampleView<Content>: View where Content: View {
         _ describe: String = "Default",
         version: String = "",
         spacing: CGFloat = 10,
-        width: CGFloat = 300,
         height: CGFloat = .infinity,
         @ViewBuilder content: @escaping () -> Content
     ){
@@ -229,7 +247,6 @@ struct VScrollExampleView<Content>: View where Content: View {
             describe,
             version: version,
             spacing: spacing,
-            width: width,
             height: height
         )
     }
@@ -245,7 +262,7 @@ struct VScrollExampleView<Content>: View where Content: View {
                     VStack(alignment: .leading, spacing: config.spacing, content: content)
                         .padding()
                 }
-                .frame(width: config.width, height: config.height)
+                .frame(width: exampleViewWidth, height: config.height)
                 .border(Color.tintColor, width: 1)
                 
                 ExampleDescribeView(
@@ -260,6 +277,9 @@ struct VScrollExampleView<Content>: View where Content: View {
 
 struct HScrollExampleView<Content>: View where Content: View {
     
+    @Environment(\.exampleViewWidth)
+    private var exampleViewWidth: CGFloat
+    
     private var content: () -> Content
     
     private var config: ExampleConfig
@@ -268,7 +288,6 @@ struct HScrollExampleView<Content>: View where Content: View {
         _ describe: String = "Default",
         version: String = "",
         spacing: CGFloat = 10,
-        width: CGFloat = 300,
         height: CGFloat = .infinity,
         @ViewBuilder content: @escaping () -> Content
     ){
@@ -277,7 +296,6 @@ struct HScrollExampleView<Content>: View where Content: View {
             describe,
             version: version,
             spacing: spacing,
-            width: width,
             height: height
         )
     }
@@ -292,7 +310,7 @@ struct HScrollExampleView<Content>: View where Content: View {
                     
                     HStack(alignment: .center, spacing: config.spacing, content: content)
                 }
-                .frame(width: config.width, height: config.height)
+                .frame(width: exampleViewWidth, height: config.height)
                 .padding()
                 .border(Color.tintColor, width: 1)
                 

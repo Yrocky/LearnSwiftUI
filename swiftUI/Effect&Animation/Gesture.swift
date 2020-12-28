@@ -26,13 +26,14 @@ public protocol Gesture {
     var body: Self.Body { get }
 }
 
+/// 组合手势：序列、唯一、同时
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension Gesture {
 
     /// Sequences a gesture with another one to create a new gesture, which
     /// results in the second gesture only receiving events after the first
     /// gesture succeeds.
-    ///
+    /// 产生手势的序列，
     /// - Parameter other: A gesture you want to combine with another gesture to
     ///   create a new, sequenced gesture.
     ///
@@ -51,6 +52,21 @@ extension Gesture {
     ///
     /// - Returns: A gesture with two simultaneous gestures.
     @inlinable public func simultaneously<Other>(with other: Other) -> SimultaneousGesture<Self, Other> where Other : Gesture
+}
+
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension Gesture {
+
+    /// Combines two gestures exclusively to create a new gesture where only one
+    /// gesture succeeds, giving precedence to the first gesture.
+    ///
+    /// - Parameter other: A gesture you combine with your gesture, to create a
+    ///   new, combined gesture.
+    ///
+    /// - Returns: A gesture that's the result of combining two gestures where
+    ///   only one of them can succeed. SwiftUI gives precedence to the first
+    ///   gesture.
+    @inlinable public func exclusively<Other>(before other: Other) -> ExclusiveGesture<Self, Other> where Other : Gesture
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
@@ -87,20 +103,6 @@ extension Gesture {
     public func map<T>(_ body: @escaping (Self.Value) -> T) -> _MapGesture<Self, T>
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension Gesture {
-
-    /// Combines two gestures exclusively to create a new gesture where only one
-    /// gesture succeeds, giving precedence to the first gesture.
-    ///
-    /// - Parameter other: A gesture you combine with your gesture, to create a
-    ///   new, combined gesture.
-    ///
-    /// - Returns: A gesture that's the result of combining two gestures where
-    ///   only one of them can succeed. SwiftUI gives precedence to the first
-    ///   gesture.
-    @inlinable public func exclusively<Other>(before other: Other) -> ExclusiveGesture<Self, Other> where Other : Gesture
-}
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension Gesture {
@@ -126,6 +128,7 @@ extension Gesture {
 
 /// Options that control how adding a gesture to a view affect's other gestures
 /// recognized by the view and its subviews.
+/// 控制向视图添加手势是否影响子View的其他手势
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 @frozen public struct GestureMask : OptionSet {
 
@@ -166,18 +169,22 @@ extension Gesture {
 
     /// Disable all gestures in the subview hierarchy, including the added
     /// gesture.
+    /// 从被添加手势的View开始，包括该View以及其所有的子View都不识别手势
     public static let none: GestureMask
 
     /// Enable the added gesture but disable all gestures in the subview
     /// hierarchy.
+    /// 只允许添加到当前View的手势生效，其所有子View添加的手势将无效
     public static let gesture: GestureMask
 
     /// Enable all gestures in the subview hierarchy but disable the added
     /// gesture.
+    /// 只允许子View添加的手势生效，当前View的手势无效
     public static let subviews: GestureMask
 
     /// Enable both the added gesture as well as all other gestures on the view
     /// and its subviews.
+    /// 当前View以及其子View都可以识别手势
     public static let all: GestureMask
 
     /// The element type of the option set.
@@ -201,6 +208,9 @@ extension Gesture {
 /// A property wrapper type that updates a property while the user performs a
 /// gesture and resets the property back to its initial state when the gesture
 /// ends.
+///
+/// 用来抽象手势状态，当手势被执行的时候，会改变状态，手势结束之后回到初始状态，
+/// 可以通过`Gesture/updating(_:body:)`来获取状态的变化回调。
 ///
 /// Declare a property as `@GestureState`, pass as a binding to it as a
 /// parameter to a gesture's ``Gesture/updating(_:body:)`` callback, and receive
@@ -229,7 +239,8 @@ extension Gesture {
 ///         }
 ///     }
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-@propertyWrapper @frozen public struct GestureState<Value> : DynamicProperty {
+@propertyWrapper @frozen 
+public struct GestureState<Value> : DynamicProperty {
 
     /// Creates a view state that's derived from a gesture.
     ///
@@ -386,6 +397,7 @@ public struct TapGesture : Gesture {
     ///   gesture.
     public init(count: Int = 1)
 
+    /// 没有Value
     /// The type representing the gesture's value.
     public typealias Value = ()
 
@@ -554,6 +566,7 @@ public struct RotationGesture : Gesture {
     ///   gesture starts. The default value is a one-degree angle.
     public init(minimumAngleDelta: Angle = .degrees(1))
 
+    /// Value为角度，用来标识手势从开始到目前经过了多少角度转换
     /// The type representing the gesture's value.
     public typealias Value = Angle
 
@@ -618,6 +631,7 @@ public struct LongPressGesture : Gesture {
     @available(tvOS, unavailable)
     public init(minimumDuration: Double = 0.5, maximumDistance: CGFloat = 10)
 
+    /// Value为布尔值，用来标识手势是否被响应了
     /// The type representing the gesture's value.
     public typealias Value = Bool
 
@@ -639,7 +653,7 @@ extension View {
 
 /// A gesture that recognizes a magnification motion and tracks the amount of
 /// magnification.
-///
+/// 放大手势，
 /// A magnification gesture tracks how a magnification event sequence changes.
 /// To recognize a magnification gesture on a view, create and configure the
 /// gesture, and then add it to the view using the
@@ -684,6 +698,7 @@ public struct MagnificationGesture : Gesture {
     ///   the gesture starts.
     public init(minimumScaleDelta: CGFloat = 0.01)
 
+    /// Value为CGFloat，用来标识缩放的比例
     /// The type representing the gesture's value.
     public typealias Value = CGFloat
 
@@ -692,7 +707,7 @@ public struct MagnificationGesture : Gesture {
 }
 
 /// A gesture that consists of two gestures where only one of them can succeed.
-///
+/// 独有的手势，由两种手势组成的手势，其中只有一种能够成功。
 /// The `ExclusiveGesture` gives precedence to its first gesture.
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 @frozen public struct ExclusiveGesture<First, Second> : Gesture where First : Gesture, Second : Gesture {
@@ -793,7 +808,7 @@ extension SequenceGesture.Value : Equatable where First.Value : Equatable, Secon
 
 /// A gesture containing two gestures that can happen at the same time with
 /// neither of them preceeding the other.
-///
+/// 同时发生的手势
 /// A simultaneous gesture is a container-event handler that evaluates its two
 /// child gestures at the same time. Its value is a struct with two optional
 /// values, each representing the phases of one of the two gestures.

@@ -55,7 +55,8 @@ import Foundation
 /// Whenever the user taps the `PlayButton`, the `PlayerView` updates its
 /// `isPlaying` state.
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-@frozen @propertyWrapper @dynamicMemberLookup public struct Binding<Value> {
+@frozen @propertyWrapper @dynamicMemberLookup 
+public struct Binding<Value> {
 
     /// The binding's transaction.
     ///
