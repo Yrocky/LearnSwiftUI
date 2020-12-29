@@ -20,6 +20,9 @@
 		323545B925809A6D003A9828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323545B825809A6D003A9828 /* Assets.xcassets */; };
 		323545BC25809A6D003A9828 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323545BB25809A6D003A9828 /* Preview Assets.xcassets */; };
 		323545C625809AE9003A9828 /* Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323545C525809AE9003A9828 /* Basic.swift */; };
+		324A4057259B320400665879 /* DoGestureViewModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A4056259B320400665879 /* DoGestureViewModifer.swift */; };
+		324A405C259B392200665879 /* DoVectorArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A405B259B392200665879 /* DoVectorArithmetic.swift */; };
+		324A405F259B395300665879 /* DoGeometryEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A405E259B395300665879 /* DoGeometryEffect.swift */; };
 		3256C2C7259799B700225B55 /* DoAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3256C2C6259799B700225B55 /* DoAnchor.swift */; };
 		3256C2CA2597A57F00225B55 /* DoNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3256C2C92597A57F00225B55 /* DoNavigationLink.swift */; };
 		3256C2D02598284B00225B55 /* DoObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3256C2CF2598284B00225B55 /* DoObservedObject.swift */; };
@@ -34,6 +37,8 @@
 		327AE3EA2599A6050062BD67 /* DoBasicGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3E92599A6050062BD67 /* DoBasicGesture.swift */; };
 		327AE3ED2599A61F0062BD67 /* DoComposingGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3EC2599A61F0062BD67 /* DoComposingGesture.swift */; };
 		327AE3F02599C2590062BD67 /* DoScrollViewReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3EF2599C2590062BD67 /* DoScrollViewReader.swift */; };
+		327AE3F4259AC2010062BD67 /* DoAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3F3259AC2010062BD67 /* DoAnimatable.swift */; };
+		327AE3F7259AC2540062BD67 /* DoTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3F6259AC2540062BD67 /* DoTransaction.swift */; };
 		32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EEA2595F3FE00AC8D96 /* DoList_2.swift */; };
 		32942EEE2595F41A00AC8D96 /* DoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EED2595F41A00AC8D96 /* DoGrid.swift */; };
 		32942EF22597138200AC8D96 /* DoTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32942EF12597138200AC8D96 /* DoTextEditor.swift */; };
@@ -94,6 +99,9 @@
 		323545BB25809A6D003A9828 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		323545BD25809A6D003A9828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		323545C525809AE9003A9828 /* Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basic.swift; sourceTree = "<group>"; };
+		324A4056259B320400665879 /* DoGestureViewModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGestureViewModifer.swift; sourceTree = "<group>"; };
+		324A405B259B392200665879 /* DoVectorArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoVectorArithmetic.swift; sourceTree = "<group>"; };
+		324A405E259B395300665879 /* DoGeometryEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGeometryEffect.swift; sourceTree = "<group>"; };
 		3256C2C6259799B700225B55 /* DoAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAnchor.swift; sourceTree = "<group>"; };
 		3256C2C92597A57F00225B55 /* DoNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNavigationLink.swift; sourceTree = "<group>"; };
 		3256C2CF2598284B00225B55 /* DoObservedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoObservedObject.swift; sourceTree = "<group>"; };
@@ -108,6 +116,8 @@
 		327AE3E92599A6050062BD67 /* DoBasicGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoBasicGesture.swift; sourceTree = "<group>"; };
 		327AE3EC2599A61F0062BD67 /* DoComposingGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoComposingGesture.swift; sourceTree = "<group>"; };
 		327AE3EF2599C2590062BD67 /* DoScrollViewReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoScrollViewReader.swift; sourceTree = "<group>"; };
+		327AE3F3259AC2010062BD67 /* DoAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAnimatable.swift; sourceTree = "<group>"; };
+		327AE3F6259AC2540062BD67 /* DoTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTransaction.swift; sourceTree = "<group>"; };
 		32942EEA2595F3FE00AC8D96 /* DoList_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoList_2.swift; sourceTree = "<group>"; };
 		32942EED2595F41A00AC8D96 /* DoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGrid.swift; sourceTree = "<group>"; };
 		32942EF12597138200AC8D96 /* DoTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTextEditor.swift; sourceTree = "<group>"; };
@@ -168,6 +178,7 @@
 			children = (
 				327AE3E92599A6050062BD67 /* DoBasicGesture.swift */,
 				327AE3EC2599A61F0062BD67 /* DoComposingGesture.swift */,
+				324A4056259B320400665879 /* DoGestureViewModifer.swift */,
 			);
 			path = Gesture;
 			sourceTree = "<group>";
@@ -219,6 +230,7 @@
 				32D4EAA0258CA5FA008A0B4A /* Layout */,
 				32D4EAA3258CA647008A0B4A /* Shape */,
 				32282C63259445AA00B30971 /* Gesture */,
+				327AE3F2259AC1A30062BD67 /* Animation */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -232,6 +244,18 @@
 				327AE3DC25988F590062BD67 /* DoToolbar.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		327AE3F2259AC1A30062BD67 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				32D4EA88258C4F91008A0B4A /* DoAnimation.swift */,
+				327AE3F6259AC2540062BD67 /* DoTransaction.swift */,
+				327AE3F3259AC2010062BD67 /* DoAnimatable.swift */,
+				324A405E259B395300665879 /* DoGeometryEffect.swift */,
+				324A405B259B392200665879 /* DoVectorArithmetic.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		32BBA6B32595DE400001F244 /* List */ = {
@@ -252,7 +276,6 @@
 				32D4EA94258C9D03008A0B4A /* DoStateAndBinding.swift */,
 				32D4EAA725904129008A0B4A /* DoEnvironment.swift */,
 				32D4EA6E258AF202008A0B4A /* DoPreference.swift */,
-				32D4EA88258C4F91008A0B4A /* DoAnimation.swift */,
 				32D4EABD2592E8DE008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift */,
 				3256C2D62598286800225B55 /* DoEnvironmentObject.swift */,
 				3256C2D32598285C00225B55 /* DoStateObject.swift */,
@@ -409,6 +432,7 @@
 				32282C5A25932E3900B30971 /* DoStrokeBorder.swift in Sources */,
 				32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */,
 				327AE3ED2599A61F0062BD67 /* DoComposingGesture.swift in Sources */,
+				324A4057259B320400665879 /* DoGestureViewModifer.swift in Sources */,
 				32942EFE25973C1400AC8D96 /* DoColor.swift in Sources */,
 				32D4EA7E258C4E73008A0B4A /* DoStack.swift in Sources */,
 				32282C6C25946FB500B30971 /* ExampleView.swift in Sources */,
@@ -423,6 +447,7 @@
 				327AE3E32598B3ED0062BD67 /* DoForm.swift in Sources */,
 				32D4EA78258B49B8008A0B4A /* DoLabel.swift in Sources */,
 				32942EEE2595F41A00AC8D96 /* DoGrid.swift in Sources */,
+				327AE3F4259AC2010062BD67 /* DoAnimatable.swift in Sources */,
 				3256C2D72598286800225B55 /* DoEnvironmentObject.swift in Sources */,
 				3256C2C7259799B700225B55 /* DoAnchor.swift in Sources */,
 				32D4EA8C258C87DE008A0B4A /* DoFrame.swift in Sources */,
@@ -446,6 +471,7 @@
 				32D4EA92258C9668008A0B4A /* DoFixedSize.swift in Sources */,
 				32A8073F2580BC180008358B /* DoStepper.swift in Sources */,
 				3218D2D2259749B400667F45 /* DoSection.swift in Sources */,
+				327AE3F7259AC2540062BD67 /* DoTransaction.swift in Sources */,
 				327AE3E62598BF810062BD67 /* DoPath.swift in Sources */,
 				3256C2D42598285C00225B55 /* DoStateObject.swift in Sources */,
 				3256C2D02598284B00225B55 /* DoObservedObject.swift in Sources */,
@@ -454,6 +480,7 @@
 				32D4EAB82591CA4A008A0B4A /* DoAlignment.swift in Sources */,
 				32D4EAC12592EA8B008A0B4A /* DoSafeArea.swift in Sources */,
 				327AE3EA2599A6050062BD67 /* DoBasicGesture.swift in Sources */,
+				324A405C259B392200665879 /* DoVectorArithmetic.swift in Sources */,
 				32D4EAA825904129008A0B4A /* DoEnvironment.swift in Sources */,
 				32D4EA84258C4EC0008A0B4A /* DoGroup.swift in Sources */,
 				32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */,
@@ -462,6 +489,7 @@
 				327AE3E025988F870062BD67 /* DoNavigationBarItem.swift in Sources */,
 				32282C5725932E2100B30971 /* DoBorder.swift in Sources */,
 				32A553B02580FDA20036F4A9 /* DoImage.swift in Sources */,
+				324A405F259B395300665879 /* DoGeometryEffect.swift in Sources */,
 				32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */,
 				32942EF5259719B300AC8D96 /* DoSecureField.swift in Sources */,
 				32D4EA7B258B8B1B008A0B4A /* DoScrollView.swift in Sources */,

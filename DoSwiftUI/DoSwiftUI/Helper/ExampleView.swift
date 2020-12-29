@@ -67,6 +67,8 @@ struct ExampleContainterView<Content>: View where Content: View {
     private var content: () -> Content
     private var config: ExampleConfig
     
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+
     @inlinable public init(
         _ title: String = "Default",
         spacing: CGFloat = 10,
@@ -324,13 +326,6 @@ struct HScrollExampleView<Content>: View where Content: View {
     }
 }
 
-fileprivate extension Color {
-    
-    static let tintColor: Color = {
-        Color(red: 0.95, green: 0.95, blue: 0.95)
-    }()
-}
-
 fileprivate struct ExampleInnerView<Content>: View where Content: View {
     
     private var content: () -> Content
@@ -401,4 +396,17 @@ fileprivate struct ExampleVersionView: View {
             }
         }
     }
+}
+
+fileprivate extension Color {
+    
+    static let darkBackgroundColor: Color = Color(red:0.14, green:0.15, blue:0.19)
+    static let normalBackgroundColor: Color = Color(red:0.83, green:0.87, blue:0.89)
+    
+    static let themeColor: Color = Color(red:0.08, green:0.52, blue:0.82)
+    
+    static let mainColor: Color = Color(red:0.56, green:0.64, blue:0.75)
+    static let subColor: Color = Color(red:0.14, green:0.15, blue:0.19)
+    
+    static let tintColor: Color = Color(red: 0.95, green: 0.95, blue: 0.95)
 }
