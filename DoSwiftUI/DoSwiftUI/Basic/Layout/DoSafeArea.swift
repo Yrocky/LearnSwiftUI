@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoSafeArea: View {
     
-    @State var state = 0
+    @State private var state = 0
 
     var body: some View {
         
@@ -45,7 +45,7 @@ struct DoSafeArea: View {
             .background(Color.gray.opacity(0.2))
     }
     
-    @State var currentEdge = 0
+    @State private var currentEdge = 0
 
     var doIgnoresSafeArea: some View {
         

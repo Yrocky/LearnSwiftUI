@@ -45,7 +45,7 @@ struct DoFrame: View {
         }
     }
     
-    @State var frameAlignment = Alignment.center
+    @State private var frameAlignment = Alignment.center
     
     var doSetupAlignment: some View {
         
@@ -68,8 +68,8 @@ struct DoFrame: View {
         }
     }
     
-    @State var superViewWidth: CGFloat = 140.0
-    @State var flexSizeText: String = "flex size"
+    @State private var superViewWidth: CGFloat = 140.0
+    @State private var flexSizeText: String = "flex size"
     
     var doMinIdealMaxFrame: some View {
         //: https://developer.apple.com/documentation/swiftui/view/frame(minwidth:idealwidth:maxwidth:minheight:idealheight:maxheight:alignment:)

@@ -21,7 +21,7 @@ struct DoPicker: View {
         }
     }
     
-    @State var selectGender = Gender.male
+    @State private var selectGender = Gender.male
     
     var doBasic: some View {
         VExampleView("静态的 Picker") {
@@ -64,7 +64,7 @@ struct DoPicker: View {
         }
     }
     
-    @State var currentEdge = Edge.top
+    @State private var currentEdge = Edge.top
     
     var doPickerWithForEach: some View {
         VExampleView("结合 ForEach 使用") {
@@ -81,7 +81,7 @@ struct DoPicker: View {
         }
     }
     
-    @State var currentSelected = 1
+    @State private var currentSelected = 1
     
     var doPickerStyle: some View {
         

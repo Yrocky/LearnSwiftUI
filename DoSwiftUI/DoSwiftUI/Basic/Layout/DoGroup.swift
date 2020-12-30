@@ -106,7 +106,7 @@ struct DoGroup: View {
         }
     }
     
-    @State var someOptionalValueMaybeNull :Int?
+    @State private var someOptionalValueMaybeNull :Int?
     
     var doGroupWithOptional: some View {
         
@@ -174,7 +174,7 @@ struct DoGroup: View {
         }
     }
     
-    @State var usedLanauage: Language = .swift
+    @State private var usedLanauage: Language = .swift
     
     var doGroupWithSwitch: some View {
         
@@ -204,7 +204,7 @@ struct DoGroup: View {
         }
     }
     
-    @State var counter = 5
+    @State private var counter = 5
     
     var doGroupWithWhile: some View {
         

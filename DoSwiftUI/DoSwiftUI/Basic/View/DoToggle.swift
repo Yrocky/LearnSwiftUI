@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoToggle: View {
     
-    @State var isOn = true
+    @State private var isOn = true
     
     var body: some View {
         

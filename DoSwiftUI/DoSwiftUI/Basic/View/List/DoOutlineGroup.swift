@@ -102,7 +102,7 @@ struct DoOutlineGroup: View {
         }
     }
     
-    @State var root: [File] = [
+    @State private var root: [File] = [
         File("root", children: [
             File("home", children: [
                 File("swiftUI"),

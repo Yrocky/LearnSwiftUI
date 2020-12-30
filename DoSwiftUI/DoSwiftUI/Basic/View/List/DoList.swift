@@ -34,7 +34,7 @@ struct DoList: View {
         }
     }
     
-    @State var sliderValue = 0.2
+    @State private var sliderValue = 0.2
     
     var doWithViewBuilder_Static: some View {
         VExampleView("使用 ViewBuilder 构建静态列表", height: 200) {
@@ -110,7 +110,7 @@ struct DoList: View {
         }
     }
     
-    @State var indexs = [0,1,2,3,4,5]
+    @State private var indexs = [0,1,2,3,4,5]
     
     var doWithViewBuilder_Dynamic: some View {
         
@@ -362,8 +362,8 @@ struct DoList: View {
         }
     }
     
-    @State var selections: Set<Int> = []
-    @State var selection: Int?
+    @State private var selections: Set<Int> = []
+    @State private var selection: Int?
     
     var doSingleSelection: some View {
         

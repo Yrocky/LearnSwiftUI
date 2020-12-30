@@ -89,11 +89,12 @@ let examp : [DoExampleData] = [
     ]),
     
     DoExampleData("Geature",icon: "hand.draw", items: [
-        .BasicGesture, .ComposingGesture
+        .BasicGesture, .ComposingGesture, .GestureViewModifer
     ]),
     
     DoExampleData("Animation",icon: "circle.grid.cross.left.fill", items: [
-        .Animation
+        .Animation, .Transaction, .Animatable,
+        .VectorArithmetic, .GeometryEffect
     ]),
     
     DoExampleData("Data Flow",icon: "bonjour", items: [
@@ -141,10 +142,11 @@ enum DoExampleItem: String, Identifiable, CaseIterable {
     case Color, Shape, CustomShape, BackgroundOverlay
     
     // geature
-    case BasicGesture, ComposingGesture
+    case BasicGesture, ComposingGesture, GestureViewModifer
     
     // animation
-    case Animation
+    case Animation, Transaction, Animatable
+    case VectorArithmetic, GeometryEffect
     
     // data flow
     case State_Binding, Environment, Preference
@@ -219,6 +221,11 @@ extension DoExampleItem {
                 case .EnvironmentObject: DoEnvironmentObject()
                 case .BasicGesture: DoBasicGesture()
                 case .ComposingGesture: DoComposingGesture()
+                case .GestureViewModifer: DoGestureViewModifer()
+                case .Transaction: DoTransaction()
+                case .Animatable: DoAnimatable()
+                case .VectorArithmetic: DoVectorArithmetic()
+                case .GeometryEffect: DoGeometryEffect()
                 default: EmptyView()
                 }
             }

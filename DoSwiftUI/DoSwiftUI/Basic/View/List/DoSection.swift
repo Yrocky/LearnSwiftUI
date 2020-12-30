@@ -17,7 +17,7 @@ struct DoSection: View {
         }
     }
     
-    @State var sliderValue = 0.3
+    @State private var sliderValue = 0.3
     
     var doBasic: some View {
         VExampleView("基础用法") {

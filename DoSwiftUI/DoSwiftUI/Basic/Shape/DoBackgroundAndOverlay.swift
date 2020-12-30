@@ -104,7 +104,7 @@ struct DoBackgroundAndOverlay: View {
         }
     }
     
-    @State var overlayProgress: CGFloat = 0.0
+    @State private var overlayProgress: CGFloat = 0.0
     
     var doOverlayBasic: some View {
         

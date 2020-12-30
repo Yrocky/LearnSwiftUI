@@ -15,7 +15,7 @@ struct DoNavigationBarItem: View {
         }
     }
     
-    @State var showed = false
+    @State private var showed = false
     
     var doBasic: some View {
         

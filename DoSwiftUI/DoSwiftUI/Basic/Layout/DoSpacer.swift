@@ -67,7 +67,7 @@ struct DoSpacer: View {
         .frame(width: 300)
     }
     
-    @State var addSpacer = true
+    @State private var addSpacer = true
     
     var doDynamicViewSize: some View {
     
@@ -140,7 +140,7 @@ struct DoSpacer: View {
         }
     }
     
-    @State var rightViewWidth: CGFloat = 70
+    @State private var rightViewWidth: CGFloat = 70
     
     var doSpacerMinLengthValue: some View {
         

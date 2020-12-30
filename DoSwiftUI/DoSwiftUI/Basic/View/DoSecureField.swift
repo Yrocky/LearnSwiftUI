@@ -18,7 +18,7 @@ struct DoSecureField: View {
         }
     }
     
-    @State var password: String = ""
+    @State private var password: String = ""
     
     var doBasic: some View {
         VExampleView("基础用法") {
@@ -38,7 +38,7 @@ struct DoSecureField: View {
         }
     }
     
-    @State var isSecure = true
+    @State private var isSecure = true
     
     var doSecureChangeToText: some View {
         

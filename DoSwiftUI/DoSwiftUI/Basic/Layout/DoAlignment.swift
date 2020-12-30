@@ -24,7 +24,7 @@ struct DoAlignment: View {
         }
     }
     
-    @State var horizontalAlignment = HorizontalAlignment.leading
+    @State private var horizontalAlignment = HorizontalAlignment.leading
     
     var doHorizontalAlignment: some View {
         
@@ -53,7 +53,7 @@ struct DoAlignment: View {
         }
     }
     
-    @State var verticalAlignment = VerticalAlignment.top
+    @State private var verticalAlignment = VerticalAlignment.top
 
     var doVerticalAlignment: some View {
         
@@ -76,7 +76,7 @@ struct DoAlignment: View {
         }
     }
     
-    @State var usageAlignmentGuideVStack = true
+    @State private var usageAlignmentGuideVStack = true
     
     var doAlignmentGuideWithVStack: some View {
         
@@ -166,7 +166,7 @@ struct DoAlignment: View {
         }
     }
     
-    @State var usageAlignmentGuideWithHStack = false
+    @State private var usageAlignmentGuideWithHStack = false
     
     var doAlignmentGuideWithHStack: some View {
         

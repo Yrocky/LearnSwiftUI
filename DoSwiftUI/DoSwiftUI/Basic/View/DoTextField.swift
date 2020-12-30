@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DoTextField: View {
     
-    @State var name: String = ""
-    @State var password: String = ""
+    @State private var name: String = ""
+    @State private var password: String = ""
     var body: some View {
         
         ExampleContainterView("TextField") {
@@ -148,7 +148,7 @@ struct LeftAndRightViewTextFieldStyle: TextFieldStyle {
  */
 struct MyTextField: View {
     
-    @State var text: String = ""
+    @State private var text: String = ""
     private var placehold: String
     
     init(_ placehold: String) {

@@ -29,8 +29,8 @@ struct DoShape: View {
         }
     }
     
-    @State var width : CGFloat = 50
-    @State var height : CGFloat = 50
+    @State private var width : CGFloat = 50
+    @State private var height : CGFloat = 50
     
     var doBasicBuildInShap: some View {
         
@@ -85,7 +85,7 @@ struct DoShape: View {
         }
     }
     
-    @State var angleDegrees: Double = 0
+    @State private var angleDegrees: Double = 0
     
     var doRotatedShape: some View {
         
@@ -126,8 +126,8 @@ struct DoShape: View {
         Text("0")
     }
     
-    @State var widthSacle: CGFloat = 1.0
-    @State var heightSacle: CGFloat = 1.0
+    @State private var widthSacle: CGFloat = 1.0
+    @State private var heightSacle: CGFloat = 1.0
     
     var doScaledShape: some View {
         
@@ -148,8 +148,8 @@ struct DoShape: View {
         }
     }
     
-    @State var offsetX: CGFloat = 1.0
-    @State var offsetY: CGFloat = 1.0
+    @State private var offsetX: CGFloat = 1.0
+    @State private var offsetY: CGFloat = 1.0
     
     var doOffsetShape: some View {
         

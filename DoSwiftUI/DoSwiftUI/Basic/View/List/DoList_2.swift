@@ -18,12 +18,12 @@ struct DoList_2: View {
         }
     }
     
-    @State var sliderValue = 0.28
+    @State private var sliderValue = 0.28
     
-    @State var topInset : CGFloat = 0
-    @State var leadingInset : CGFloat = 0
-    @State var bottomInset : CGFloat = 0
-    @State var trailingInset : CGFloat = 0
+    @State private var topInset : CGFloat = 0
+    @State private var leadingInset : CGFloat = 0
+    @State private var bottomInset : CGFloat = 0
+    @State private var trailingInset : CGFloat = 0
     
     var doSomeViewModifer: some View {
         

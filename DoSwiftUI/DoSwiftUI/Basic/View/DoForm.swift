@@ -53,11 +53,11 @@ struct DoForm: View {
         }
     }
     
-    @State var textFieldValue = ""
-    @State var stepperValue = 1
-    @State var sliderValue = 0.4
-    @State var toggleValue = true
-    @State var pickerValue = 2
+    @State private var textFieldValue = ""
+    @State private var stepperValue = 1
+    @State private var sliderValue = 0.4
+    @State private var toggleValue = true
+    @State private var pickerValue = 2
     
     var doSomeView: some View {
         VExampleView("some controls", height: 200) {

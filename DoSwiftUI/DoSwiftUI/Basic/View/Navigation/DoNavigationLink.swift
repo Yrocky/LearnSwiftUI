@@ -47,7 +47,7 @@ struct DoNavigationLink: View {
         }
     }
     
-    @State var navigationLinkIsActive = false
+    @State private var navigationLinkIsActive = false
     
     var doActive: some View {
         VExampleView("isActive") {
@@ -71,7 +71,7 @@ struct DoNavigationLink: View {
         }
     }
     
-    @State var currentNavigationLinkTag : Int? = 1
+    @State private var currentNavigationLinkTag : Int? = 1
     
     var doSelection: some View {
         VExampleView("selection") {
@@ -113,7 +113,7 @@ struct DoNavigationLink: View {
         }
     }
     
-    @State var showNavigationView = false
+    @State private var showNavigationView = false
     
     var doInNavigationView: some View {
     

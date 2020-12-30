@@ -38,7 +38,7 @@ struct DoColor: View {
     }
     
     
-    @State var colorOpacity: Double = 0.5
+    @State private var colorOpacity: Double = 0.5
     
     var doColorOpacity: some View {
         
@@ -56,9 +56,9 @@ struct DoColor: View {
         }
     }
     
-    @State var red: Double = 0.4
-    @State var green: Double = 0.1
-    @State var blue: Double = 0.7
+    @State private var red: Double = 0.4
+    @State private var green: Double = 0.1
+    @State private var blue: Double = 0.7
     
     var doColourDisk: some View {
         VExampleView("colour disk") {

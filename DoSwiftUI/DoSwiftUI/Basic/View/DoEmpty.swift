@@ -18,7 +18,7 @@ struct DoEmpty: View {
         }
     }
     
-    @State var condition = true
+    @State private var condition = true
     var doInCondition: some View {
         
         HExampleView("在条件判断中使用") {

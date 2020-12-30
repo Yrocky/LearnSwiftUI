@@ -21,7 +21,7 @@ struct DoActionSheetAlert: View {
         }
     }
     
-    @State var isActionSheetPresented = false
+    @State private var isActionSheetPresented = false
     
     var doActionSheet: some View {
         VExampleView("ActionSheet") {
@@ -63,7 +63,7 @@ struct DoActionSheetAlert: View {
     }
     
     
-    @State var actionSheetItem : ActionSheetItem? = nil
+    @State private var actionSheetItem : ActionSheetItem? = nil
     
     var doActionSheetBindingWithItem: some View {
         VExampleView("ActionSheet 的显示与否使用一个 Identifiable 的 Optional") {
@@ -106,7 +106,7 @@ struct DoActionSheetAlert: View {
         }
     }
 
-    @State var isAlertPresented = false
+    @State private var isAlertPresented = false
 
     var doAlert: some View {
         VExampleView("Alert") {
@@ -132,7 +132,7 @@ struct DoActionSheetAlert: View {
         }
     }
     
-    @State var isSheetPresented = false
+    @State private var isSheetPresented = false
     
     var doSheet: some View {
         VExampleView("sheet") {

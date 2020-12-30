@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DoPreference: View {
     
-    @State var activeIndex = 0
-    @State var rects = [CGRect.zero]
+    @State private var activeIndex = 0
+    @State private var rects = [CGRect.zero]
         
     var body: some View {
         

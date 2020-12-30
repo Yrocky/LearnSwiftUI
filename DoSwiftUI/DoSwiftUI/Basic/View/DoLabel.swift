@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoLabel: View {
     
-    @State var showIcon = false
+    @State private var showIcon = false
     
     var body: some View {
         

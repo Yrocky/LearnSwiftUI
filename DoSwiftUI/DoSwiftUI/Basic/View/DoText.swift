@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoText: View {
     
-    @State var text = ""
+    @State private var text = ""
     
     var body: some View {
         

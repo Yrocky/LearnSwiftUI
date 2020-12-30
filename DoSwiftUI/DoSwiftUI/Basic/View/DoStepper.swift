@@ -25,7 +25,7 @@ struct DoStepper: View {
         }
     }
     
-    @State var currentValue = 2
+    @State private var currentValue = 2
 
     var doBacisStepper: some View {
         
@@ -98,8 +98,8 @@ struct DoStepper: View {
         }
     }
     
-    let specificValues = [10,100,520,999,1314,9999,99999,999999,5201314,9999999]
-    @State var index = 0
+    private let specificValues = [10,100,520,999,1314,9999,99999,999999,5201314,9999999]
+    @State private var index = 0
     
     var doActionStepper: some View {
         /*:

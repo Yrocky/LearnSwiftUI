@@ -108,7 +108,7 @@ struct DoCoordinateSpace: View {
     /// its enclosing view's coordinate space:
     ///
     ///     struct ContentView: View {
-    ///         @State var location = CGPoint.zero
+    ///         @State private var location = CGPoint.zero
     ///
     ///         var body: some View {
     ///             VStack {

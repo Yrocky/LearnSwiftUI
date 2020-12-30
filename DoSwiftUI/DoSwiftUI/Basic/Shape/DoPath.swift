@@ -131,7 +131,7 @@ struct DoPath: View {
         }
     }
     
-    @State var endAngle: Double = 145
+    @State private var endAngle: Double = 145
     
     var doDrawWithArc: some View {
         VExampleView("Draw with arc", height: 100) {

@@ -20,7 +20,7 @@ struct DoTextEditor: View {
         }
     }
     
-    @State var text: String = "Your can put you text in here"
+    @State private var text: String = "Your can put you text in here"
     
     var doBasic: some View {
         VExampleView("基础用法") {

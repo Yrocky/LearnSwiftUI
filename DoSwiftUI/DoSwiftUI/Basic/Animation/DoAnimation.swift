@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DoAnimation: View {
     
-    @State var titleVisible = true
-    @State var transitionFlag = true
+    @State private var titleVisible = true
+    @State private var transitionFlag = true
     
     var body: some View {
         

@@ -15,7 +15,9 @@ struct DoEnvironment: View {
          
          https://developer.apple.com/documentation/swiftui/environmentvalues
          */
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ExampleContainterView("Environment") {
+                    
+        }
     }
 }
 

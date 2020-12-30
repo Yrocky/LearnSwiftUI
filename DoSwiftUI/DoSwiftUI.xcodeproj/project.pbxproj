@@ -252,8 +252,8 @@
 				32D4EA88258C4F91008A0B4A /* DoAnimation.swift */,
 				327AE3F6259AC2540062BD67 /* DoTransaction.swift */,
 				327AE3F3259AC2010062BD67 /* DoAnimatable.swift */,
-				324A405E259B395300665879 /* DoGeometryEffect.swift */,
 				324A405B259B392200665879 /* DoVectorArithmetic.swift */,
+				324A405E259B395300665879 /* DoGeometryEffect.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";

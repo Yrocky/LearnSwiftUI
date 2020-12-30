@@ -57,7 +57,7 @@ struct DoBasicGesture: View {
         }
     }
     
-    @State var tapCounter = 0
+    @State private var tapCounter = 0
     
     var doTapGesture: some View {
         HExampleView("TapGesture") {
@@ -89,7 +89,7 @@ struct DoBasicGesture: View {
         }
     }
     
-    @State var onTapGestureCounter = 0
+    @State private var onTapGestureCounter = 0
     
     var doOnTapGesture: some View {
         
@@ -112,8 +112,8 @@ struct DoBasicGesture: View {
     }
     
     @GestureState var longPressGestureState = false
-    @State var longPressGestureCounter = 0
-    @State var longPressGestureIsActive = false
+    @State private var longPressGestureCounter = 0
+    @State private var longPressGestureIsActive = false
     
     var doLongPressGesture: some View {
         HExampleView("LongPressGesture") {
@@ -159,7 +159,7 @@ struct DoBasicGesture: View {
         }
     }
     
-    @State var onLongPressGestureState = false
+    @State private var onLongPressGestureState = false
     
     var doOnLongPressGesture: some View {
         
@@ -195,12 +195,12 @@ struct DoBasicGesture: View {
         }
     }
     
-    @State var inRectangle = false
+    @State private var inRectangle = false
     @GestureState var dragGestureLocation = CGPoint.zero
     @GestureState var dragGestureOffset = CGSize.zero
     
-    @State var currentDragOffset: CGSize = .zero
-    @State var finalDragOffset: CGSize = .zero
+    @State private var currentDragOffset: CGSize = .zero
+    @State private var finalDragOffset: CGSize = .zero
     
     @State private var state : DragGestureState = DragGestureState()
     
@@ -246,8 +246,8 @@ struct DoBasicGesture: View {
 
     @GestureState var magnifyBy = CGFloat(1.0)
     
-    @State var magnCurrentValue: CGFloat = 0
-    @State var magnFinalValue: CGFloat = 1
+    @State private var magnCurrentValue: CGFloat = 0
+    @State private var magnFinalValue: CGFloat = 1
     
     var doMagnificationGesture: some View {
         VExampleView("MagnificationGesture") {
@@ -304,7 +304,7 @@ struct DoBasicGesture: View {
         }
     }
     
-    @State var rotaAngle: Angle = Angle(degrees: 0.0)
+    @State private var rotaAngle: Angle = Angle(degrees: 0.0)
     
     @State private var currentAmount: Angle = .degrees(0)
     @State private var finalAmount: Angle = .degrees(0)

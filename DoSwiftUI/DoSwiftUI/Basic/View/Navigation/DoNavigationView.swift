@@ -23,7 +23,7 @@ struct DoNavigationView: View {
         "Pistachio"
     ]
     
-    @State var showNavigationView = false
+    @State private var showNavigationView = false
     
     var doBasic: some View {
         VExampleView("基础用法", height: 100) {
@@ -44,7 +44,7 @@ struct DoNavigationView: View {
         }
     }
     
-    @State var showNavigationView_2 = false
+    @State private var showNavigationView_2 = false
 
     var doNavigationViewStyle: some View {
         VExampleView("NavigationViewStyl", height: 100) {

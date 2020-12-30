@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoSlider: View {
     
-    @State var value = 0.4
+    @State private var value = 0.4
     
     var body: some View {
         

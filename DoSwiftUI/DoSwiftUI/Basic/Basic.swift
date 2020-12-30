@@ -13,8 +13,8 @@ struct Basic: View {
      在siwftUI中如果要绑定控件的值到变量，
      需要使用`@State`来修饰变量，以表示该变量是有状态的
      */
-    @State var toggleIsOn = false
-    @State var sliderValue = 0.33
+    @State private var toggleIsOn = false
+    @State private var sliderValue = 0.33
     
     var body: some View {
         /*:

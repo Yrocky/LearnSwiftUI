@@ -21,7 +21,7 @@ struct DoDisclosureGroup: View {
         }
     }
     
-    @State var topExpanded = true
+    @State private var topExpanded = true
     
     var doBasic: some View {
         
@@ -43,7 +43,7 @@ struct DoDisclosureGroup: View {
         }
     }
     
-    @State var sliderValue = 0.3
+    @State private var sliderValue = 0.3
     
     var doCustomLabel: some View {
         

@@ -95,7 +95,7 @@ struct DoProgressView: View {
         }
     }
     
-    @State var progressValue = 0.2
+    @State private var progressValue = 0.2
     
     var doDynamicProgress: some View {
         
