@@ -344,6 +344,13 @@ fileprivate struct ExampleInnerView<Content>: View where Content: View {
         ZStack(alignment: .topTrailing) {
             
             content()
+                .padding()
+//                .background(
+//                    Text("@Y_rocky")
+//                        .font(.system(size: 14))
+//                        .rotationEffect(Angle(degrees: 15))
+//                        .foregroundColor(Color.gray.opacity(0.1))
+//                )
             
             ExampleVersionView(version)
         }
@@ -370,7 +377,6 @@ fileprivate struct ExampleDescribeView: View{
                 .fill(tintColor)
                 .frame(width: 30, height: 1)
         }
-        .padding(.bottom, 10)
     }
 }
 

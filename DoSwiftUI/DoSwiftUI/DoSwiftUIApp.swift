@@ -11,7 +11,8 @@ import SwiftUI
 struct DoSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            DoAnimation()
                 .environment(\.exampleViewWidth, 350)
         }
     }

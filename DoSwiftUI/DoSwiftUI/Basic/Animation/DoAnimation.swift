@@ -15,203 +15,384 @@ struct DoAnimation: View {
     var body: some View {
         
         ExampleContainterView("Animation"){
-            
-            doWithAnimation_1
-            
-            doWithAnimation_2
-            
-            doWithAnimation_3
-            
-            doWithTransaction
-            
-            doTransition_1
-        }
-    }
-    
-    var doWithAnimation_1: some View {
-        
-        /*:
-         在swiftUI中，有两个关于动画的函数：`withAnimation`以及`withTransaction`，
-         使用前者包裹的内容将具备动画效果，比如下面在block中改变了titleVisible变量的值，
-         某些与该变量有关系的View的显示隐藏将会具备动画效果。
-         
-         在withAnimation函数中，还可以使用`Animation`类型的实例，来指定具体的动画效果，这个将会在后面讲解。
-         另外View有一个关于动画的modifer：`.animation(:)`，
-         它接收的也是一个Animation，这里暂时使用系统内置的`easeIn`等实例。
-         
-         通过下面的例子能发现，使用withAnimation包裹的转换引起的动画等级比较高，
-         具体到对应的子View再单独设置了效果也没有用
-         */
-        VExampleView("在 withAnimation 触发 State 的改变") {
-            
-            if titleVisible {
-                Text("Hello world~")
-//                    .animation(.easeIn(duration: 1.2))
-            }
-            
-            Button(action: {
-                withAnimation(.easeInOut(duration: 1)) {
-                    self.titleVisible.toggle()
-                }
-            }, label: {
-                Text("1 Tap me and then show or hide label")
-            })
-            
-            if !titleVisible {
-                Text("Bye world!")
-                    //: 没有作用
-                    .animation(.easeInOut(duration: 5))
-            }
-        }
-    }
-    
-    var doWithAnimation_2: some View {
 
-        VExampleView("只使用 animation 不会有动画效果") {
             /*:
-             在这个例子中，我们在`titleVisible`发生改变的时候不包裹动画，
-             只在View中使用`animation(:)`，会发现，并没有预想中的动画效果出现。
+             `Animation`在swiftUI是对动画的抽象，并且为View提供了添加动画的modifer：
+             ```swift
+             func animation<V>(_ animation: Animation?, value: V) -> some View where V : Equatable
+             ```
+             目前有一些内置的动画，比如`spring`、`ease*`、`linear`、`timingCurve`等，
+             并且还提供了诸如可以修改动画`delay`、`speed`、`repeat`的方法。
+             
+             > ease* 表示各种ease(In/Out)动画
+             
              */
-            if titleVisible {
-                Text("Hello world~")
-                    .animation(.easeInOut)
-            }
             
-            Button(action: {
-                self.titleVisible.toggle()
-            }, label: {
-                Text("Tap me ,No animation")
-            })
+            doEase
             
-            if !titleVisible {
-                Text("Bye world!")
-                    .animation(.easeInOut)
-            }
+            doSpring
+            
+            doInterpolatingSpring
+            
+            doTimingCurve
+            
+            doDelay
+            
+            doSpeed
+            
+            doRepeatCount
         }
     }
     
+    @State private var easeOffset: CGFloat = 0
     
-    var doWithAnimation_3: some View {
+    var doEase: some View {
+        VExampleView("ease(In/Out)、linear") {
+            /*:
+             
+             */
+            AnimationExampleView(
+                "easeInOut",
+                offset: easeOffset,
+                color: Color.blue,
+                animation: .easeInOut
+            )
+            
+            AnimationExampleView(
+                "easeIn",
+                offset: easeOffset,
+                color: Color.purple,
+                animation: .easeIn
+            )
+            
+            AnimationExampleView(
+                "easeOut",
+                offset: easeOffset,
+                color: Color.green,
+                animation: .easeOut
+            )
+            
+            AnimationExampleView(
+                "linear",
+                offset: easeOffset,
+                color: Color.orange,
+                animation: .linear
+            )
+            
+            MakeAnimationButton($easeOffset)
+        }
+    }
+    
+    @State private var springOffset: CGFloat = 0
+    @ObservedObject private var spring = SpringProp()
+    
+    var doSpring: some View {
         
-        VExampleView("Binding 使用 animation") {
+        VExampleView("spring") {
             /*:
-             在这个例子中，我们使用另一种动画方式，在将状态绑定到Toggle的时候，
-             为其添加一个`animation`，这样在状态发生变化的时候就会执行一个隐式的动画。
+             
              */
-            if titleVisible {
-                Text("Hello world~")
-            }
+            AnimationExampleView(
+                "Default spring",
+                offset: springOffset,
+                color: Color.red,
+                animation: .spring()
+            )
             
-            Toggle(isOn: $titleVisible.animation(), label: {
-                Text("3 Tap me and then show or hide label")
-            })
+            AnimationExampleView(
+                "spring",
+                offset: springOffset,
+                color: Color.purple,
+                animation: .spring(
+                    response: spring.response,
+                    dampingFraction: spring.dampingFraction,
+                    blendDuration: spring.blendDuration
+                )
+            )
             
-            if !titleVisible {
-                Text("Bye world!")
-            }
+            AnimationExampleView(
+                "interactiveSpring",
+                offset: springOffset,
+                color: Color.green,
+                animation: .interactiveSpring(
+                    response: spring.response,
+                    dampingFraction: spring.dampingFraction,
+                    blendDuration: spring.blendDuration
+                )
+            )
+            
+            SpringSliderView("response", value: $spring.response)
+            
+            SpringSliderView("dampingFraction", value: $spring.dampingFraction)
+            
+            SpringSliderView("blendDuration", value: $spring.blendDuration)
+            
+            MakeAnimationButton($springOffset)
         }
     }
     
-    var doWithTransaction: some View {
+    @State private var interpolatingSpringOffset: CGFloat = 0
+    @ObservedObject private var interpolatingSpring = InterpolatingSpringProp()
 
-        VExampleView("在 withTransaction 内触发 State 的改变") {
-            
+    var doInterpolatingSpring: some View {
+        
+        VExampleView("interpolatingSpring") {
             /*:
-             在这个例子中，我们在`titleVisible`发生改变的时候不包裹动画，
-             只在View中使用`animation(:)`，会发现，并没有预想中的动画效果出现。
+             
              */
-            if titleVisible {
-                Text("Hello world~")
-            }
+            AnimationExampleView(
+                offset: interpolatingSpringOffset,
+                color: Color.orange,
+                animation: .interpolatingSpring(
+                    mass: interpolatingSpring.mass,
+                    stiffness: interpolatingSpring.stiffness,
+                    damping: interpolatingSpring.damping,
+                    initialVelocity: interpolatingSpring.initialVelocity
+                )
+            )
             
-            Button(action: {
-                withTransaction(Transaction(animation: .easeInOut(duration: 2))) {
-                    self.titleVisible.toggle()
-                }
-            }, label: {
-                Text("4 Tap me and then show or hide label")
-            })
+            SpringSliderView("mass", value: $interpolatingSpring.mass, bounds: 0...10)
             
-            if !titleVisible {
-                Text("Bye world!")
-            }
+            SpringSliderView("stiffness", value: $interpolatingSpring.stiffness)
+            
+            SpringSliderView("damping", value: $interpolatingSpring.damping)
+            
+            SpringSliderView("initialVelocity", value: $interpolatingSpring.initialVelocity)
+            
+            MakeAnimationButton($interpolatingSpringOffset)
         }
     }
     
-    var doTransition_1: some View {
+    @ObservedObject private var timingCurve = TimingCurveProp()
+    @State private var timingCurveOffset: CGFloat = 0
+    
+    var doTimingCurve: some View {
         
-        /*:
-         在上面显示与隐藏`Text("Hello world~")`、`Text("Bye world!")`的时候，
-         使用的是系统默认的渐隐渐现，不过我们可以通过`transition(:)`来改变View的出现与隐藏方式。
-         目前系统有`move`、`slide`、`scale`、`offset`、`opacity`这几个效果，
-         另外还可以通过`combined`来组合以上这几个效果。
-         
-         不论是单一效果还是组合效果，它们都是对称的，出现的方向和消失的方向是相反的。
-         比如，消失的效果是缩放到0.5，那么再次出现则会从0.5到正常尺寸。
-         当然swiftUI也允许我们使用不对称的效果，比如消失的效果是缩放到0.5，
-         而出现则是移动位移，使用`.asymmetric(:,:)`指明出现、隐藏的效果即可。
-         */
-        VExampleView("系统内置的 transition 类型", height: 180) {
+        VExampleView("timingCurve") {
+            /*:
+             
+             */
+            AnimationExampleView(
+                offset: timingCurveOffset,
+                color: Color.green,
+                animation: .timingCurve(
+                    timingCurve.c0x,
+                    timingCurve.c0y,
+                    timingCurve.c1x,
+                    timingCurve.c1y
+                )
+            )
             
-            Toggle(isOn: $transitionFlag.animation(), label: {
-                Text("Tap me and then show or hide label")
-            })
+            SpringSliderView("c0x", value: $timingCurve.c0x)
             
-            VStack{
+            SpringSliderView("c0y", value: $timingCurve.c0y)
+            
+            SpringSliderView("c1x", value: $timingCurve.c1x)
+            
+            SpringSliderView("c1y", value: $timingCurve.c1y)
+            
+            MakeAnimationButton($timingCurveOffset)
+        }
+    }
+    
+    @State private var delayValue: Double = 1
+    @State private var delayOffset: CGFloat = 0
+
+    var doDelay: some View {
+        VExampleView("delay") {
+            /*:
+             
+             */
+            AnimationExampleView(
+                offset: delayOffset,
+                color: .purple,
+                animation: Animation.easeInOut.delay(delayValue)
+            )
+            
+            SpringSliderView(
+                "delayValue",
+                value: $delayValue,
+                bounds: 0...4
+            )
+            
+            MakeAnimationButton($delayOffset)
+        }
+    }
+    
+    @State private var speed: Double = 1
+    @State private var speedOffset: CGFloat = 0
+    
+    var doSpeed: some View {
+        VExampleView("speed") {
+            /*:
+             
+             */
+            AnimationExampleView(
+                offset: speedOffset,
+                color: Color.green,
+                animation: Animation.easeOut.speed(speed)
+            )
+            
+            SpringSliderView(
+                "speed",
+                value: $speed,
+                bounds: 0...2
+            )
+            
+            MakeAnimationButton($speedOffset)
+        }
+    }
+    
+    @State private var repeatCount: Int = 1
+    @State private var repeatCountOffset: CGFloat = 0
+    @State private var autoreverses = false
+    
+    var doRepeatCount: some View {
+        
+        VExampleView("repeatCount、repeatForever") {
+            /*:
+             
+             */
+            AnimationExampleView(
+                "repeatCount \(repeatCount)",
+                offset: repeatCountOffset,
+                color: Color.green,
+                animation: Animation.easeOut.repeatCount(repeatCount, autoreverses: autoreverses)
+            )
+            
+            AnimationExampleView(
+                "repeatForever",
+                offset: repeatCountOffset,
+                color: Color.orange,
+                animation: Animation.easeOut.repeatForever(autoreverses: autoreverses)
+            )
+            
+            Toggle("autoreverses", isOn: $autoreverses)
+            
+            Stepper("repeatCount", value: $repeatCount, in: 0...5)
+            
+            MakeAnimationButton($repeatCountOffset)
+        }
+    }
+}
+
+
+fileprivate struct AnimationExampleView: View {
+    
+    let title: String
+    var offset: CGFloat
+    var animation: Animation
+    let color: Color
+    
+    init(_ title: String = "", offset: CGFloat = 0,color: Color, animation: Animation = .default) {
+        self.title = title
+        self.offset = offset
+        self.color = color
+        self.animation = animation
+    }
+    
+    var body: some View{
+        VStack(alignment: .leading){
+            HStack{
                 
-                HStack{
-                    if transitionFlag {
-                        Group{
-                            
-                            Text("move(top)")
-                                .transition(.move(edge: .top))
-                            
-                            Text("scale(1.2)")
-                                .transition(.scale(scale: 1.2))
-                            
-                            Text("offset({10,10})")
-                                .transition(.offset(x: 10, y: 10))
-                        }
-                        .padding(4)
-                        .background(Color.orange)
-                        .cornerRadius(4)
-                    }
-                }
-                HStack{
-                    if transitionFlag {
-                        Group{
-                            
-                            Text("slide")
-                                .transition(.slide)
-                            
-                            Text("opacity")
-                                .transition(.opacity)
-                        }
-                        .padding(4)
-                        .background(Color.orange)
-                        .cornerRadius(4)
-                    }
-                }
-                
-                if transitionFlag {
+                if title.count > 0 {
                     
-                    Group{
-                        
-                        Text("combined - opacity & slide(0.8)")
-                            .transition(AnyTransition.opacity.combined(with: .scale(scale: 0.8)))
-                        
-                        Text("asymmetric - scale(0.5) & offset(-10)")
-                            .transition(.asymmetric(
-                                            insertion: .scale(scale: 0.5),
-                                            removal: .offset(x: -10))
-                            )
-                    }
-                    .padding(4)
-                    .background(Color.orange)
-                    .cornerRadius(4)
+                    Text(title)
                 }
+                
+                Spacer()
+            }
+            
+            HStack{
+                
+                Circle()
+                    .fill(color)
+                    .frame(width: 40, height: 40)
+                    .offset(x: offset)
+                    .animation(animation)
+                
+                Spacer()
             }
         }
+    }
+}
+
+fileprivate struct SpringSliderView: View {
+    
+    let title: String
+    var value: Binding<Double>
+    let bounds: ClosedRange<Double>
+    
+    init(
+        _ title: String,
+        value: Binding<Double>,
+        bounds: ClosedRange<Double> = 0...1
+    ) {
+        self.title = title
+        self.value = value
+        self.bounds = bounds
+    }
+    
+    var body: some View{
+        VStack{
+            Text("\(title): \(value.wrappedValue)")
+            
+            Slider(value: value, in: bounds)
+        }
+    }
+}
+
+fileprivate struct MakeAnimationButton: View {
+    
+    let offset: Binding<CGFloat>
+    
+    init(_ offset: Binding<CGFloat>) {
+        self.offset = offset
+    }
+    
+    var body: some View {
+        Button("Make it animation") {
+            if offset.wrappedValue == 0 {
+                offset.wrappedValue = 300
+            } else {
+                offset.wrappedValue = 0
+            }
+        }
+        .accentColor(Color(red:1.00, green:0.31, blue:0.33))
+        .padding()
+        .background(Color(red:0.69, green:0.96, blue:0.40))
+        .cornerRadius(6)
+    }
+}
+
+fileprivate class SpringProp: ObservableObject {
+    @Published var response: Double = 0.55
+    @Published var dampingFraction: Double = 0.825
+    @Published var blendDuration: Double = 0
+}
+
+fileprivate class InterpolatingSpringProp: ObservableObject {
+    @Published var mass: Double = 1.4
+    @Published var stiffness: Double = 0
+    @Published var damping: Double = 0
+    @Published var initialVelocity: Double = 0
+}
+
+fileprivate class TimingCurveProp: ObservableObject {
+    @Published var c0x: Double = 0
+    @Published var c0y: Double = 0
+    @Published var c1x: Double = 0
+    @Published var c1y: Double = 0
+}
+
+extension Color {
+    
+    static var random: Color {
+        Color(
+            red: Double.random(in: 0.01...0.9),
+            green: Double.random(in: 0.01...0.9),
+            blue: Double.random(in: 0.01...0.9)
+        )
     }
 }
 

@@ -75,12 +75,12 @@
 		32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */; };
 		32D4EAB82591CA4A008A0B4A /* DoAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */; };
 		32D4EABB2592E55B008A0B4A /* DoGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EABA2592E55B008A0B4A /* DoGeometryReader.swift */; };
-		32D4EABE2592E8DF008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EABD2592E8DE008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift */; };
 		32D4EAC12592EA8B008A0B4A /* DoSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAC02592EA8B008A0B4A /* DoSafeArea.swift */; };
 		32D4EAC42592EE79008A0B4A /* MySegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAC32592EE79008A0B4A /* MySegmentControl.swift */; };
 		32D4EAC72592F600008A0B4A /* DoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAC62592F600008A0B4A /* DoLayout.swift */; };
 		32D4EACA2592F776008A0B4A /* DoLayoutPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EAC92592F776008A0B4A /* DoLayoutPriority.swift */; };
 		32D4EACD2592F7F4008A0B4A /* DoSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EACC2592F7F4008A0B4A /* DoSpacer.swift */; };
+		32EB7077259C7BDC00FA21E5 /* DoAnimationViewModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB7076259C7BDC00FA21E5 /* DoAnimationViewModifer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,12 +154,12 @@
 		32D4EAB42591B7BF008A0B4A /* DoEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoEmpty.swift; sourceTree = "<group>"; };
 		32D4EAB72591CA4A008A0B4A /* DoAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAlignment.swift; sourceTree = "<group>"; };
 		32D4EABA2592E55B008A0B4A /* DoGeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGeometryReader.swift; sourceTree = "<group>"; };
-		32D4EABD2592E8DE008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoObservedObject_StateObject_EnvironmentObject.swift; sourceTree = "<group>"; };
 		32D4EAC02592EA8B008A0B4A /* DoSafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSafeArea.swift; sourceTree = "<group>"; };
 		32D4EAC32592EE79008A0B4A /* MySegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySegmentControl.swift; sourceTree = "<group>"; };
 		32D4EAC62592F600008A0B4A /* DoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoLayout.swift; sourceTree = "<group>"; };
 		32D4EAC92592F776008A0B4A /* DoLayoutPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoLayoutPriority.swift; sourceTree = "<group>"; };
 		32D4EACC2592F7F4008A0B4A /* DoSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSpacer.swift; sourceTree = "<group>"; };
+		32EB7076259C7BDC00FA21E5 /* DoAnimationViewModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAnimationViewModifer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,8 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				327AE3E92599A6050062BD67 /* DoBasicGesture.swift */,
-				327AE3EC2599A61F0062BD67 /* DoComposingGesture.swift */,
 				324A4056259B320400665879 /* DoGestureViewModifer.swift */,
+				327AE3EC2599A61F0062BD67 /* DoComposingGesture.swift */,
 			);
 			path = Gesture;
 			sourceTree = "<group>";
@@ -249,6 +249,7 @@
 		327AE3F2259AC1A30062BD67 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				32EB7076259C7BDC00FA21E5 /* DoAnimationViewModifer.swift */,
 				32D4EA88258C4F91008A0B4A /* DoAnimation.swift */,
 				327AE3F6259AC2540062BD67 /* DoTransaction.swift */,
 				327AE3F3259AC2010062BD67 /* DoAnimatable.swift */,
@@ -276,7 +277,6 @@
 				32D4EA94258C9D03008A0B4A /* DoStateAndBinding.swift */,
 				32D4EAA725904129008A0B4A /* DoEnvironment.swift */,
 				32D4EA6E258AF202008A0B4A /* DoPreference.swift */,
-				32D4EABD2592E8DE008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift */,
 				3256C2D62598286800225B55 /* DoEnvironmentObject.swift */,
 				3256C2D32598285C00225B55 /* DoStateObject.swift */,
 				3256C2CF2598284B00225B55 /* DoObservedObject.swift */,
@@ -436,6 +436,7 @@
 				32942EFE25973C1400AC8D96 /* DoColor.swift in Sources */,
 				32D4EA7E258C4E73008A0B4A /* DoStack.swift in Sources */,
 				32282C6C25946FB500B30971 /* ExampleView.swift in Sources */,
+				32EB7077259C7BDC00FA21E5 /* DoAnimationViewModifer.swift in Sources */,
 				32D4EAB52591B7C0008A0B4A /* DoEmpty.swift in Sources */,
 				32BBA6AE2595DE280001F244 /* DoDisclosureGroup.swift in Sources */,
 				3264C40D25958988002D31F6 /* DoNavigationView.swift in Sources */,
@@ -476,7 +477,6 @@
 				3256C2D42598285C00225B55 /* DoStateObject.swift in Sources */,
 				3256C2D02598284B00225B55 /* DoObservedObject.swift in Sources */,
 				32942EF22597138200AC8D96 /* DoTextEditor.swift in Sources */,
-				32D4EABE2592E8DF008A0B4A /* DoObservedObject_StateObject_EnvironmentObject.swift in Sources */,
 				32D4EAB82591CA4A008A0B4A /* DoAlignment.swift in Sources */,
 				32D4EAC12592EA8B008A0B4A /* DoSafeArea.swift in Sources */,
 				327AE3EA2599A6050062BD67 /* DoBasicGesture.swift in Sources */,

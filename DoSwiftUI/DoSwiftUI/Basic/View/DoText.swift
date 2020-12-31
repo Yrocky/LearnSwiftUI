@@ -27,11 +27,17 @@ struct DoText: View {
             
             doUnderline
             
+            doItalic
+            
             doKerningAndTracking
             
             doBaselineOffset
             
             doLineLimit
+            
+            doDate
+            
+            doAllowsTightening
         }
     }
     
@@ -48,11 +54,20 @@ struct DoText: View {
          .uppercase，将文本全部转成大写
          .lowercase，将文本全部转成小写
          */
-        HExampleView("使用 textCase 进行大小写转换"){
+        VExampleView("使用 textCase 进行大小写转换"){
+    
+            let helloText = "HeLLo"
             
-            Text("Hello").textCase(.uppercase)
+            Text(helloText)
             
-            Text("Hello").textCase(.lowercase)
+            HStack{
+                
+                Text(helloText)
+                    .textCase(.uppercase)
+                
+                Text(helloText)
+                    .textCase(.lowercase)
+            }
         }
     }
     
@@ -81,6 +96,16 @@ struct DoText: View {
                 .underline()
             Text("ABC")
                 .underline(true, color: .red)
+        }
+    }
+    
+    var doItalic: some View {
+        HExampleView("使用 italic 将文本倾斜") {
+            
+            Text("Hello rocky")
+                .font(.system(size: 20))
+                .foregroundColor(Color.orange)
+                .italic()
         }
     }
     
@@ -170,7 +195,106 @@ struct DoText: View {
             }
         }
     }
+    
+    var now : Date = Date()
+    
+    var doDate: some View {
+        VExampleView("Date", version: "2.0") {
+            //:
+            DateExampleView("DateStyle.time") {
+                Text(now, style: .time)
+            }
+            //:
+            DateExampleView("DateStyle.date") {
+                Text(now, style: .date)
+            }
+            //:
+            DateExampleView("DateStyle.relative") {
+                Text(now, style: .relative)
+            }
+            //: `offset`，将实时与给定时间做对比，
+            DateExampleView("DateStyle.offset") {
+                Text(now, style: .offset)
+            }
+            //: `timer`会从给定的时间开始作为一个计时数据
+            DateExampleView("DateStyle.timer") {
+                Text(now, style: .timer)
+            }
+            DateExampleView("ClosedRange<Date>") {
 
+                let start = Date(timeIntervalSince1970: 1590805973)
+                let end = Date(timeIntervalSince1970: 1609295573)
+                
+                Text(start...end)
+            }
+            DateExampleView("DateInterval") {
+                
+                let start = Date(timeIntervalSince1970: 959653973)
+                let end = Date(timeIntervalSince1970: 1609295573)
+                
+                let dateInterval = DateInterval(start: start, end: end)
+                
+                Text(dateInterval)
+            }
+        }
+    }
+
+    var doAllowsTightening: some View {
+        VExampleView("allowsTightening") {
+    
+            /*:
+             `allowsTightening`可以允许在没有空间的情况下压缩文字之间的间距。
+             当不允许压缩空间的时候，会使用`...`来展示其他的
+             */
+            
+            let testText = "This is a wide text element"
+            
+            Text(testText)
+                .font(.body)
+                .frame(height: 50)
+                .border(Color.gray.opacity(0.2))
+            
+            Group{
+                
+                Text(testText)
+                    .allowsTightening(true)
+                
+                Text(testText)
+                    .allowsTightening(false)
+            }
+            .font(.body)
+            .frame(width: 200, height: 50)
+            .border(Color.gray.opacity(0.2))
+            .lineLimit(1)
+            
+        }
+    }
+    
+    struct DateExampleView<Content>: View where Content : View {
+        
+        let title: String
+        private var content: () -> Content
+
+        init(_ title: String, @ViewBuilder content: @escaping () -> Content) {
+            self.title = title
+            self.content = content
+        }
+        
+        var body: some View{
+
+            HStack(spacing: 10) {
+                
+                Text(title)
+                    .font(.system(size: 16))
+                    .foregroundColor(Color.purple)
+                    .bold()
+                
+                content()
+                    .font(.system(size: 14))
+                    .foregroundColor(Color.gray)
+            }
+        }
+    }
 }
 
 struct DoAttributedText: View {

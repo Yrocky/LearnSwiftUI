@@ -148,6 +148,7 @@ struct DoBasicGesture: View {
                     LongPressGesture(minimumDuration: 5, maximumDistance: 50)
                         .updating($longPressGestureState) { (currentState, gestureState, transaction) in
                             gestureState = currentState
+                            print("LongPress transaction \(transaction)")
                         }
                         .onChanged { _ in
                             longPressGestureCounter += 1

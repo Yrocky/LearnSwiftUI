@@ -121,6 +121,13 @@ extension View {
     /// only arranges for the geometry of the views to be linked, not
     /// their rendering.
     ///
+    /// 如果在同一事务中插入一个视图，
+    /// 而另一个具有相同键的视图被删除，
+    /// 系统将在窗口空间中插入它们的框架矩形，
+    /// 使它看起来有一个视图从旧位置移动到新位置。
+    /// 通常的转换机制定义了两个视图在转换过程中是如何被渲染的(例如淡入/淡出，缩放等)，
+    /// “matchedGeometryEffect()”修饰符只会安排被链接的视图的几何，而不是它们的渲染。
+    ///
     /// If the number of currently-inserted views in the group with
     /// `isSource = true` is not exactly one results are undefined, due
     /// to it not being clear which is the source view.

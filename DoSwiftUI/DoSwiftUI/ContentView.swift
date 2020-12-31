@@ -93,7 +93,7 @@ let examp : [DoExampleData] = [
     ]),
     
     DoExampleData("Animation",icon: "circle.grid.cross.left.fill", items: [
-        .Animation, .Transaction, .Animatable,
+        .AnimationViewModifer, .Animation, .Transaction, .Animatable,
         .VectorArithmetic, .GeometryEffect
     ]),
     
@@ -145,7 +145,7 @@ enum DoExampleItem: String, Identifiable, CaseIterable {
     case BasicGesture, ComposingGesture, GestureViewModifer
     
     // animation
-    case Animation, Transaction, Animatable
+    case AnimationViewModifer, Animation, Transaction, Animatable
     case VectorArithmetic, GeometryEffect
     
     // data flow
@@ -226,6 +226,7 @@ extension DoExampleItem {
                 case .Animatable: DoAnimatable()
                 case .VectorArithmetic: DoVectorArithmetic()
                 case .GeometryEffect: DoGeometryEffect()
+                case .AnimationViewModifer: DoAnimationViewModifer()
                 default: EmptyView()
                 }
             }
