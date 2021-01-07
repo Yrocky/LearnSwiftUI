@@ -18,6 +18,12 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>点击“好”以允许访问。
+若不允许，您将无法在相册中选择照片、上传照片、也无法保存照片</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>点击“好”以允许访问。
+若不允许，您将无法在相册中选择照片、上传照片、也无法保存照片</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,11 @@
 		3256C2D72598286800225B55 /* DoEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3256C2D62598286800225B55 /* DoEnvironmentObject.swift */; };
 		3264C40A25958960002D31F6 /* DoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264C40925958960002D31F6 /* DoList.swift */; };
 		3264C40D25958988002D31F6 /* DoNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264C40C25958988002D31F6 /* DoNavigationView.swift */; };
+		3271847025A45F330093686F /* Dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271846F25A45F330093686F /* Dump.swift */; };
+		3271847325A4622F0093686F /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271847225A4622F0093686F /* Screenshot.swift */; };
+		3271847725A6AFB10093686F /* ToastUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3271847625A6AFB10093686F /* ToastUI */; };
+		3271847A25A6B8710093686F /* InfiniteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271847925A6B8710093686F /* InfiniteListView.swift */; };
+		3271847D25A6D20C0093686F /* FullScreenPopGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271847C25A6D20C0093686F /* FullScreenPopGesture.swift */; };
 		327AE3DD25988F5A0062BD67 /* DoToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3DC25988F590062BD67 /* DoToolbar.swift */; };
 		327AE3E025988F870062BD67 /* DoNavigationBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3DF25988F870062BD67 /* DoNavigationBarItem.swift */; };
 		327AE3E32598B3ED0062BD67 /* DoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AE3E22598B3ED0062BD67 /* DoForm.swift */; };
@@ -109,6 +114,10 @@
 		3256C2D62598286800225B55 /* DoEnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoEnvironmentObject.swift; sourceTree = "<group>"; };
 		3264C40925958960002D31F6 /* DoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoList.swift; sourceTree = "<group>"; };
 		3264C40C25958988002D31F6 /* DoNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNavigationView.swift; sourceTree = "<group>"; };
+		3271846F25A45F330093686F /* Dump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dump.swift; sourceTree = "<group>"; };
+		3271847225A4622F0093686F /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
+		3271847925A6B8710093686F /* InfiniteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteListView.swift; sourceTree = "<group>"; };
+		3271847C25A6D20C0093686F /* FullScreenPopGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPopGesture.swift; sourceTree = "<group>"; };
 		327AE3DC25988F590062BD67 /* DoToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoToolbar.swift; sourceTree = "<group>"; };
 		327AE3DF25988F870062BD67 /* DoNavigationBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNavigationBarItem.swift; sourceTree = "<group>"; };
 		327AE3E22598B3ED0062BD67 /* DoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoForm.swift; sourceTree = "<group>"; };
@@ -167,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3271847725A6AFB10093686F /* ToastUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +259,9 @@
 		327AE3F2259AC1A30062BD67 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				32EB7076259C7BDC00FA21E5 /* DoAnimationViewModifer.swift */,
 				32D4EA88258C4F91008A0B4A /* DoAnimation.swift */,
 				327AE3F6259AC2540062BD67 /* DoTransaction.swift */,
+				32EB7076259C7BDC00FA21E5 /* DoAnimationViewModifer.swift */,
 				327AE3F3259AC2010062BD67 /* DoAnimatable.swift */,
 				324A405B259B392200665879 /* DoVectorArithmetic.swift */,
 				324A405E259B395300665879 /* DoGeometryEffect.swift */,
@@ -354,7 +364,11 @@
 			isa = PBXGroup;
 			children = (
 				32D4EAC32592EE79008A0B4A /* MySegmentControl.swift */,
+				3271847925A6B8710093686F /* InfiniteListView.swift */,
 				32282C6B25946FB500B30971 /* ExampleView.swift */,
+				3271846F25A45F330093686F /* Dump.swift */,
+				3271847225A4622F0093686F /* Screenshot.swift */,
+				3271847C25A6D20C0093686F /* FullScreenPopGesture.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -375,6 +389,9 @@
 			dependencies = (
 			);
 			name = DoSwiftUI;
+			packageProductDependencies = (
+				3271847625A6AFB10093686F /* ToastUI */,
+			);
 			productName = DoSwiftUI;
 			productReference = 323545B125809A6A003A9828 /* DoSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -402,6 +419,9 @@
 				Base,
 			);
 			mainGroup = 323545A825809A6A003A9828;
+			packageReferences = (
+				3271847525A6AFB00093686F /* XCRemoteSwiftPackageReference "ToastUI" */,
+			);
 			productRefGroup = 323545B225809A6A003A9828 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -446,6 +466,7 @@
 				32A807422580CC150008358B /* DoToggle.swift in Sources */,
 				32D4EABB2592E55B008A0B4A /* DoGeometryReader.swift in Sources */,
 				327AE3E32598B3ED0062BD67 /* DoForm.swift in Sources */,
+				3271847D25A6D20C0093686F /* FullScreenPopGesture.swift in Sources */,
 				32D4EA78258B49B8008A0B4A /* DoLabel.swift in Sources */,
 				32942EEE2595F41A00AC8D96 /* DoGrid.swift in Sources */,
 				327AE3F4259AC2010062BD67 /* DoAnimatable.swift in Sources */,
@@ -453,6 +474,7 @@
 				3256C2C7259799B700225B55 /* DoAnchor.swift in Sources */,
 				32D4EA8C258C87DE008A0B4A /* DoFrame.swift in Sources */,
 				323545B725809A6A003A9828 /* ContentView.swift in Sources */,
+				3271847325A4622F0093686F /* Screenshot.swift in Sources */,
 				32D4EACD2592F7F4008A0B4A /* DoSpacer.swift in Sources */,
 				32282C652594466700B30971 /* DoProgressView.swift in Sources */,
 				32D4EAC42592EE79008A0B4A /* MySegmentControl.swift in Sources */,
@@ -462,10 +484,12 @@
 				32D4EA9C258CA571008A0B4A /* DoShape.swift in Sources */,
 				323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */,
 				32D4EA75258B4495008A0B4A /* DoGroupBox.swift in Sources */,
+				3271847A25A6B8710093686F /* InfiniteListView.swift in Sources */,
 				32D4EA6F258AF202008A0B4A /* DoPreference.swift in Sources */,
 				32D4EA8F258C961D008A0B4A /* DoBackgroundAndOverlay.swift in Sources */,
 				32D4EA95258C9D03008A0B4A /* DoStateAndBinding.swift in Sources */,
 				32D4EA81258C4E82008A0B4A /* DoLazyStack.swift in Sources */,
+				3271847025A45F330093686F /* Dump.swift in Sources */,
 				32D4EAC72592F600008A0B4A /* DoLayout.swift in Sources */,
 				32A807452580EEFC0008358B /* DoSlider.swift in Sources */,
 				3256C2CA2597A57F00225B55 /* DoNavigationLink.swift in Sources */,
@@ -688,6 +712,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3271847525A6AFB00093686F /* XCRemoteSwiftPackageReference "ToastUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quanshousio/ToastUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3271847625A6AFB10093686F /* ToastUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3271847525A6AFB00093686F /* XCRemoteSwiftPackageReference "ToastUI" */;
+			productName = ToastUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 323545A925809A6A003A9828 /* Project object */;
 }

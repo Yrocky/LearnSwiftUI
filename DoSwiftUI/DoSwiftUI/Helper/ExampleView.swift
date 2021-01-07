@@ -102,7 +102,9 @@ struct ExampleContainterView<Content>: View where Content: View {
                     .frame(width: config.width, height: config.height)
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
+        .lazyPop()
+//        .navigationBarTitleDisplayMode(.inline)
     }
     
     struct TitleView: View {
@@ -354,6 +356,7 @@ fileprivate struct ExampleInnerView<Content>: View where Content: View {
             
             ExampleVersionView(version)
         }
+        .takeScreenhot()
     }
 }
 

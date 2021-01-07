@@ -12,8 +12,50 @@ struct DoSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             
-            DoAnimation()
+//            InfiniteListContainer()
+//            DoStateAndBinding()
+//            ExampleScreenshot()
+            ContentView()
+//                .frame(width: 300, height: 100)
                 .environment(\.exampleViewWidth, 350)
+        }
+    }
+}
+
+struct ExampleScreenshot: View {
+    
+    @State private var image: UIImage? = nil
+    
+    var body: some View {
+        VStack(alignment: .leading){
+            
+            GeometryReader { geometry in
+                
+                VStack(alignment: .center) {
+                    
+                    Text("Hello world")
+                        .foregroundColor(.red)
+                        .font(.system(size: 30))
+                        .padding()
+                }
+                .onTapGesture(count: 2) {
+//                    if let snapshoot = takeScreenshot(
+//                        origin: geometry.frame(in: .global).origin,
+//                        size: geometry.frame(in: .global).size
+//                    ) {
+//                        image = snapshoot
+//                        save(image: snapshoot)
+//                    }
+                }
+            }
+            
+            if let image = image {
+                Image(uiImage: image)
+                    .aspectRatio(contentMode: .fit)
+                    .border(Color.gray.opacity(0.2))
+                    .animation(.easeInOut)
+                    .transition(AnyTransition.opacity.combined(with: AnyTransition.scale(scale: 0.3)))
+            }
         }
     }
 }

@@ -35,7 +35,7 @@ struct DoText: View {
             
             doLineLimit
             
-            doDate
+//            doDate
             
             doAllowsTightening
         }

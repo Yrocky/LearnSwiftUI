@@ -286,22 +286,6 @@ public struct RedactionReasons : OptionSet {
     public typealias Body = Never
 }
 
-/// A type that can serve as the animatable data of an animatable type.
-/// 向量运算
-/// `VectorArithmetic` extends the `AdditiveArithmetic` protocol with scalar
-/// multiplication and a way to query the vector magnitude of the value. Use
-/// this type as the `animatableData` associated type of a type that conforms to
-/// the ``Animatable`` protocol.
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public protocol VectorArithmetic : AdditiveArithmetic {
-
-    /// Multiplies each component of this value by the given value.
-    mutating func scale(by rhs: Double)
-
-    /// Returns the dot-product of this vector arithmetic instance with itself.
-    var magnitudeSquared: Double { get }
-}
-
 /// A type that represents part of your app's user interface and provides
 /// modifiers that you use to configure views.
 ///
@@ -1190,36 +1174,6 @@ extension CGRect : Animatable {
 
     /// The data to animate.
     public var animatableData: CGRect.AnimatableData
-}
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension Float : VectorArithmetic {
-
-    /// Multiplies each component of this value by the given value.
-    public mutating func scale(by rhs: Double)
-
-    /// Returns the dot-product of this vector arithmetic instance with itself.
-    public var magnitudeSquared: Double { get }
-}
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension Double : VectorArithmetic {
-
-    /// Multiplies each component of this value by the given value.
-    public mutating func scale(by rhs: Double)
-
-    /// Returns the dot-product of this vector arithmetic instance with itself.
-    public var magnitudeSquared: Double { get }
-}
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension CGFloat : VectorArithmetic {
-
-    /// Multiplies each component of this value by the given value.
-    public mutating func scale(by rhs: Double)
-
-    /// Returns the dot-product of this vector arithmetic instance with itself.
-    public var magnitudeSquared: Double { get }
 }
 
 @available(iOS 14.0, macOS 11.0, *)
