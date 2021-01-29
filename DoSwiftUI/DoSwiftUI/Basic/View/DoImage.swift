@@ -19,7 +19,11 @@ struct DoImage: View {
             
             doColorSymbols
             
+            doImageScale
+            
             doSetupFrame
+            
+            doImageEffect
             
             doResizable
                         
@@ -54,25 +58,69 @@ struct DoImage: View {
         
         HExampleView("为 Image 设置颜色") {
             
-            Image(systemName: "sun.min")
-                .foregroundColor(.red)
-            
             Image(systemName: "wind")
                 .foregroundColor(.green)
+            
+            Image(systemName: "wind")
+                .colorMultiply(.green)
+            
+            Image(systemName: "wind")
+                .accentColor(.green)
         }
     }
     
+    var doImageScale: some View {
+        
+        HExampleView("Scale") {
+            VStack{
+                
+                Image(systemName: "sun.dust.fill")
+                
+                Text("default")
+            }
+            
+            ExampleImageScale(scale: .small)
+            
+            ExampleImageScale(scale: .medium)
+            
+            ExampleImageScale(scale: .large)
+        }
+    }
     var doColorSymbols: some View{
         
-        HExampleView("多彩色的 Symbols，设置不成功") {
+        HExampleView("multicolor Symbols") {
             
             Image(systemName: "at.circle.fill")
+                .renderingMode(.original)
+            
+            Image(systemName: "at.circle.fill")
+                .renderingMode(.original)
+                .colorMultiply(.red)
+            
+            Image(systemName: "at.circle.fill")
+                .renderingMode(.original)
+                .foregroundColor(.red)
+            
+            Image(systemName: "at.circle.fill")
+                .renderingMode(.original)
+                .accentColor(.red)
         
+            Divider()
+            
             Image(systemName: "alarm")
+                .renderingMode(.original)
             
             Image(systemName: "cloud.sun.rain.fill")
+                .renderingMode(.original)
             
             Image(systemName: "thermometer.sun.fill")
+                .renderingMode(.original)
+            
+            Image(systemName: "folder.badge.plus")
+                .renderingMode(.original)
+            
+            Image(systemName: "leaf.fill")
+                .renderingMode(.original)
         }
     }
     
@@ -116,6 +164,22 @@ struct DoImage: View {
         }
     }
     
+    var doImageEffect: some View {
+        HExampleView("effect") {
+            
+            ExampleImageEffect(text: "default")
+            
+            ExampleImageEffect(text: "colorMultiply")
+                .colorMultiply(.red)
+            
+            ExampleImageEffect(text: "saturation")
+                .saturation(0.3)
+            
+            ExampleImageEffect(text: "contrast")
+                .contrast(0.7)
+        }
+    }
+    
     var doUIImage: some View {
         
         /*:
@@ -137,6 +201,47 @@ struct DoImage: View {
                         .frame(width: 80, height: 80)
                 }
             }
+        }
+    }
+    
+    struct ExampleImageScale: View {
+        
+        var scale: Image.Scale
+        
+        var body: some View {
+            VStack{
+                
+                Image(systemName: "sun.dust.fill")
+                    .imageScale(scale)
+                
+                Text(scale.text())
+            }
+        }
+    }
+    struct ExampleImageEffect: View {
+        
+        var text: String
+        
+        var body: some View {
+            VStack{
+                
+                Image("icon_map_location")
+                
+                Text(text)
+            }
+        }
+    }
+}
+
+extension Image.Scale {
+    
+    func text() -> String {
+        switch self {
+        case .small: return "small"
+        case .medium: return "medium"
+        case .large: return "large"
+        @unknown default:
+            return "default"
         }
     }
 }

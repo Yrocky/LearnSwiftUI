@@ -11,11 +11,11 @@ struct DoPicker: View {
     var body: some View {
         ExampleContainterView("Picker") {
             
-//            doBasic
+            doBasic
 //
-//            doPickerWithLabel
+            doPickerWithLabel
 //
-//            doPickerWithForEach
+            doPickerWithForEach
             
             doPickerStyle
         }
@@ -29,7 +29,10 @@ struct DoPicker: View {
              通过在ViewBuilder中创建固定个数的View来实现一个静态的`Picker`，
              可以是任意的View，貌似为Picker设置的title没有生效。
              */
-            Picker("选择性别", selection: $selectGender) {
+            Picker(
+                "选择性别",
+                selection: $selectGender
+            ) {
                 GenderView(.male).tag(Gender.male)
                 GenderView(.female).tag(Gender.female)
             }
@@ -42,10 +45,12 @@ struct DoPicker: View {
         VExampleView("结合 Label 使用") {
             
             /*:
-             同样的我们可以使用自定义的Label来实现title，但是还不生效。
+             同样的我们可以使用自定义的Label来实现title，但是还不生效，这是因为需要在Navigation中才会生效，并且为每一个option设置tag可以保证数据的正确选择，默认的效果是push一个新的界面选择。
              */
-            Picker(selection: $selectGender,
-                        label: Label("Select Your Gender", systemImage: "hand.tap.fill")) {
+            Picker(
+                selection: $selectGender,
+                label: Label("Select Your Gender", systemImage: "hand.tap.fill")
+            ) {
                 GenderView(.male).tag(Gender.male)
                 GenderView(.female).tag(Gender.female)
             }
@@ -72,7 +77,10 @@ struct DoPicker: View {
              结合ForEach，我们可以创建一个动态的Picker，做法就是在ViewBuilder中使用ForEach创建多个选项。
              
              */
-            Picker("Select Edge:", selection: $currentEdge) {
+            Picker(
+                "Select Edge:",
+                selection: $currentEdge
+            ) {
                 ForEach(Edge.allCases) { edge in
                     Text(edge.rawValue)
                         .tag(edge)
@@ -97,7 +105,10 @@ struct DoPicker: View {
                  * On tvOS, the default is a segmented control.
                  
                  */
-                Picker("Select Edge:", selection: $currentEdge) {
+                Picker(
+                    "Select Edge:",
+                    selection: $currentEdge
+                ) {
                     ForEach(Edge.allCases) { edge in
                         Text(edge.rawValue)
                             .tag(edge)
@@ -111,7 +122,10 @@ struct DoPicker: View {
                 /*:
                  InlinePickerStyle是在14.0之后推出的样式，看结果是统一将选项在
                  */
-                Picker("Select Edge:", selection: $currentEdge) {
+                Picker(
+                    "Select Edge:",
+                    selection: $currentEdge
+                ) {
                     ForEach(Edge.allCases) { edge in
                         Text(edge.rawValue)
                             .tag(edge)
@@ -127,7 +141,10 @@ struct DoPicker: View {
                  
                  > Use this style when there are more than five options.
                  */
-                Picker("Which is your number:", selection: $currentSelected) {
+                Picker(
+                    "Which is your number:",
+                    selection: $currentSelected
+                ) {
                     ForEach(1..<30) { index in
                         Text("NO.\(index)")
                             .tag(index)
@@ -136,7 +153,10 @@ struct DoPicker: View {
                 .pickerStyle(MenuPickerStyle())
                 
                 VStack{
-                    Picker("", selection: $currentSelected) {
+                    Picker(
+                        "",
+                        selection: $currentSelected
+                    ) {
                         ForEach(1..<30) { index in
                             Text("NO.\(index)")
                                 .tag(index)
@@ -154,7 +174,10 @@ struct DoPicker: View {
             
             VExampleView("WheelPickerStyle") {
                 
-                Picker("Which is your number:", selection: $currentSelected) {
+                Picker(
+                    "Which is your number:",
+                    selection: $currentSelected
+                ) {
                     ForEach(1..<6) { index in
                         Text("NO.\(index)")
                             .tag(index)
@@ -169,7 +192,10 @@ struct DoPicker: View {
                  顾名思义，`SegmentedPickerStyle`其实是UISegmentControl的样式，
                  这样看来，在swiftUI中，UIPickerView和UISegmentControl其实是使用同一个类型实现的。
                  */
-                Picker("Which is your number:", selection: $currentSelected) {
+                Picker(
+                    "Which is your number:",
+                    selection: $currentSelected
+                ) {
                     ForEach(1..<6) { index in
                         Text("NO.\(index)")
                             .tag(index)

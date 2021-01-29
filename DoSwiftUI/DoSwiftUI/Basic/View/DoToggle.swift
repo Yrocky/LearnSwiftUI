@@ -20,15 +20,21 @@ struct DoToggle: View {
              由于Toggle、Stepper、Slider这些控件基本上都是在表单中使用，
              所以swiftUI中默认都会以行来表示。
              */
-            doTextToggle
+//            doTextToggle
+//
+//            doStringToggle
+//
+//            doSystemToggleStyle
+//
+//            doMutualExclusionToggle
+//
+//            doMyToggleStyle
+//
+//            doMyRectangleToggleStyle
             
-            doStringToggle
+            doToggleContentView
             
-            doSystemToggleStyle
-            
-            doMyToggleStyle
-            
-            doMyRectangleToggleStyle
+            doToggleContentViewContainer
         }
     }
     
@@ -109,6 +115,76 @@ struct DoToggle: View {
         }
     }
     
+    enum ToggleOption: Hashable {
+        case one, two, three
+    }
+    
+    @State private var selectionOption: ToggleOption? = nil
+    
+    var doMutualExclusionToggle: some View {
+        VExampleView("mutual exclusion") {
+            
+            Toggle(isOn: $selectionOption, tag: ToggleOption.one) {
+                Text("Option one")
+            }
+            
+            Toggle(isOn: $selectionOption, tag: ToggleOption.two) {
+                Text("Option two")
+            }
+            
+            Toggle(isOn: $selectionOption, tag: ToggleOption.three) {
+                Text("Option three")
+            }
+        }
+    }
+    
+    @State private var showContent: Bool = true
+    
+    var doToggleContentView: some View {
+        
+        VExampleView("ToggleContentView") {
+         
+            ToggleContentView(
+                "Show location in Map",
+                show: $showContent
+            ) {
+                Color.pink
+                    .frame(height: 50)
+                    .overlay(Text("Mock Map"))
+            }
+        }
+    }
+    
+    @State private var showAddressInMap: Bool = true
+    var doToggleContentViewContainer: some View {
+        VStack{
+            
+            VExampleView("ToggleContentViewContainer with Binding") {
+                ToggleContentViewContainer(
+                    "Show location in Map",
+                    show: $showAddressInMap
+                ) {
+                    Color.orange
+                        .frame(height: 50)
+                        .overlay(Text("Mock Map"))
+                }
+                
+                Button("Show or hidden") {
+                    withAnimation {
+                        showAddressInMap.toggle()
+                    }
+                }
+            }
+            
+            VExampleView("ToggleContentViewContainer with no Binding") {
+                ToggleContentViewContainer("Show location in Map") {
+                    Color.purple
+                        .frame(height: 50)
+                        .overlay(Text("Mock Map"))
+                }
+            }
+        }
+    }
     /*:
      我们创建一个`MyToggleStyle`
      */
@@ -196,6 +272,107 @@ struct DoToggle: View {
             .padding(10)
             .background(Color.gray)
         }
+    }
+}
+
+extension Toggle {
+    init<T: Hashable>(
+        isOn: Binding<T?>,
+        tag: T,
+        @ViewBuilder label: () -> Label
+    ){
+        
+        let selectionValue: Binding<Bool> = Binding(
+            get: {
+                isOn.wrappedValue == tag
+            },
+            set: {
+                if $0 {
+                    isOn.wrappedValue = tag
+                } else {
+                    isOn.wrappedValue = nil
+                }
+            })
+
+        self.init(isOn: selectionValue, label: label)
+    }
+}
+
+struct ToggleContentView<Content>: View where Content: View {
+    
+    private var text: String
+    @Binding<Bool> private var show: Bool
+    private var content: Content
+    
+    init(
+        _ text: String,
+        show: Binding<Bool>,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.text = text
+        self._show = show
+        self.content = content()
+    }
+    
+    var body: some View{
+        
+        VStack {
+            
+            Toggle(text, isOn: $show.animation())
+//            HStack{
+//                Text(text)
+//                    .foregroundColor(.orange)
+//                    .font(.headline)
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//
+//                Image(systemName: show ? "chevron.up" : "chevron.down")
+//            }
+//            .padding(.vertical, 10)
+//            .onTapGesture {
+//                withAnimation {
+//                    show.toggle()
+//                }
+//            }
+            if show {
+                content
+                    .animation(.easeInOut)
+            }
+        }
+    }
+}
+
+struct ToggleContentViewContainer<Content>: View where Content: View {
+    
+    var text: String
+    // 在外部没有提供Binding的时候，内部提供一个默认的State来产生Binding
+    @State private var show: Bool = false
+    // 记录外部提供的Binding
+    private var showBinding: Binding<Bool>?
+    private var content: () -> Content
+    
+    init(
+        _ text: String,
+        content: @escaping () -> Content
+    ) {
+        self.init(text, show: nil, content: content)
+    }
+    
+    init(
+        _ text: String,
+        show: Binding<Bool>?,
+        content: @escaping () -> Content
+    ) {
+        self.text = text
+        self.showBinding = show
+        self.content = content
+    }
+    
+    var body: some View{
+        ToggleContentView(
+            text,
+            show: showBinding ?? $show,
+            content: content
+        )
     }
 }
 

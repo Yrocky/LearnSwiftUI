@@ -11,16 +11,22 @@ struct DoAlignment: View {
     var body: some View {
         
         ExampleContainterView("Alignment"){
-        
-            doHorizontalAlignment
             
-            doVerticalAlignment
-            
+//            doHorizontalAlignment
+//
+//            doVerticalAlignment
+//
             doAlignmentGuideWithVStack
+//
+//            doAlignmentGuideWithHStack
+//
+//            doCustomAlignment
+//
+//            doAlignmentButton
             
-            doAlignmentGuideWithHStack
+            doAlignmentText
             
-            doCustomAlignment
+            doAlignmentList
         }
     }
     
@@ -158,6 +164,7 @@ struct DoAlignment: View {
                     }
             }
             .frame(width: 300, alignment: .leading)
+            .border(Color.pink, width: 1)
             .onTapGesture {
                 withAnimation {
                     self.usageAlignmentGuideVStack.toggle()
@@ -205,6 +212,212 @@ struct DoAlignment: View {
         }
     }
     
+    @State private var alignment: HorizontalAlignment = .leading
+    @State private var textAlignment: TextAlignment = .leading
+    
+    var doAlignmentButton: some View {
+        VExampleView("AlignmentButton") {
+            ZStack(alignment: Alignment(horizontal: alignment, vertical: .center)) {
+                
+                HStack(spacing: 20){
+                    AlignmentButton(alignment: .leading) {
+                        self.alignment = .leading
+                        self.textAlignment = .leading
+                    }
+                    .foregroundColor(.white)
+                    AlignmentButton(alignment: .center) {
+                        self.alignment = .center
+                        self.textAlignment = .center
+                    }
+                    .foregroundColor(.white)
+                    AlignmentButton(alignment: .trailing) {
+                        self.alignment = .trailing
+                        self.textAlignment = .trailing
+                    }
+                    .foregroundColor(.white)
+                }
+                
+                VStack(alignment: alignment, spacing: 4){
+                    AlignmentLine()
+                        .animation(.easeOut)
+                    AlignmentLine()
+                        .frame(width: 16, height: 3, alignment: .center)
+                        .cornerRadius(1.5)
+                        .animation(Animation.easeOut.delay(0.03))
+                    AlignmentLine()
+                        .animation(Animation.easeOut.delay(0.06))
+                    AlignmentLine()
+                        .frame(width: 16, height: 3, alignment: .center)
+                        .cornerRadius(1.5)
+                        .animation(Animation.easeOut.delay(0.09))
+                }
+                .foregroundColor(.pink)
+            }
+            .padding()
+            .background(Color.gray)
+            .cornerRadius(10)
+            .shadow(radius: 3)
+            
+            Text("Binding is one of the several property wrappers that SwiftUI presents us to control data flow in the app. Binding provides us a reference like access to a value type. This week we will understand how and when to use binding. We will learn how to avoid common mistakes while using binding in SwiftUI.")
+                .multilineTextAlignment(textAlignment)
+                .font(.system(size: 15))
+                .animation(.easeInOut)
+                .border(Color.gray, width: 2)
+        }
+    }
+    
+    var doAlignmentText: some View {
+        VExampleView("Custom Alignment") {
+            
+            VStack(alignment: .leading){
+                
+                HStack{
+                    Text("Name")
+                        .font(.system(size: 17, weight: Font.Weight.bold))
+                        .foregroundColor(.orange)
+                    Text("rocky")
+                }
+                
+                HStack{
+                    Text("Age")
+                        .font(.system(size: 17, weight: Font.Weight.bold))
+                        .foregroundColor(.orange)
+                    Text("28")
+                }
+                
+                HStack{
+                    Text("Address")
+                        .font(.system(size: 17, weight: Font.Weight.bold))
+                        .foregroundColor(.orange)
+                    Text("China.shanghai")
+                }
+            }
+            .border(Color.orange, width: 1)
+            
+            VStack(alignment: .columns){
+                
+                HStack{
+                    Text("Name")
+                        .font(.system(size: 17, weight: Font.Weight.bold))
+                        .foregroundColor(.orange)
+                    Text("rocky")
+                        .alignmentGuide(.columns) {
+                            $0[.leading]
+                        }
+                }
+                
+                HStack{
+                    Text("Age")
+                        .font(.system(size: 17, weight: Font.Weight.bold))
+                        .foregroundColor(.orange)
+                    Text("28")
+                        .alignmentGuide(.columns) {
+                            $0[.leading]
+                        }
+                }
+                
+                HStack{
+                    Text("Address")
+                        .font(.system(size: 17, weight: Font.Weight.bold))
+                        .foregroundColor(.orange)
+                    Text("China.shanghai")
+                        .alignmentGuide(.columns) {
+                            $0[.leading]
+                        }
+                }
+            }
+            .border(Color.orange, width: 1)
+            
+            VStack(alignment: .leading) {
+                Text("Hello, world!")
+                Text("This is a longer line of text")
+            }
+            
+            VStack(alignment: .leading) {
+                Text("Hello, world!")
+                    .alignmentGuide(.leading) { d in d[.leading] }
+                Text("This is a longer line of text")
+            }
+            
+            VStack(alignment: .leading) {
+                Text("Hello, world!")
+                    .alignmentGuide(.leading) { d in d[.trailing] }
+                Text("This is a longer line of text")
+            }
+        }
+    }
+    
+    @State private var alignmentGuideOffset: CGFloat = 0
+    var doAlignmentList: some View {
+        VExampleView("") {
+            // VStack使用`HorizontalAlignment`来决定对齐，
+            HStack(alignment: .center) {
+    
+                /*:
+                 
+                 ```swift
+                 HStack(alignment: .center) {
+                     Image(systemName: "star")
+                     VStack(alignment: .leading) {
+                         Text("Vue.js")
+                         Text("C")
+                     }
+                 ```
+                 不使用`alignmentGuide`显示指明对齐方式的，默认使用的是容器的对齐方式，
+                 比如这里的Image就是使用HStack的VerticalAlignment.center对齐方式。
+                 由于容器已经指明了对齐方式，所以内部的子View只能修改这个方向上的偏移，
+                 比如我们可以使用`alignmentGuide`修改Image在水平方向上的偏移，
+                 使用一个`Slider`动态的修改偏移量，会发现Image在水平方向上呈现上下移动。
+                 因此我们可以得出一个结论，子View会默认使用父View的对齐方式，并且通过`alignmentGuide`可以修改对齐偏移量。
+                 
+                 ``swift
+                 HStack(alignment: .center) {
+                     Image(systemName: "star")
+                         .alignmentGuide(VerticalAlignment.center) {
+                             $0[VerticalAlignment.center] + self.alignmentGuideOffset
+                         }
+                     VStack(alignment: .leading) {
+                         Text("Vue.js")
+                         Text("C")
+                     }
+                 }
+                 
+                 Slider(value: $alignmentGuideOffset, in: -50...50) {
+                     Text("Offset")
+                 }
+                 ```
+                 
+                 */
+                Image(systemName: "star")
+                    .alignmentGuide(VerticalAlignment.center) {
+                        $0[VerticalAlignment.center] + self.alignmentGuideOffset
+                    }
+                
+                VStack(alignment: .leading) {
+                    Text("Vue.js")
+                    Text("Java")
+                    Text("Swift")
+                        .alignmentGuide(VerticalAlignment.center) {
+                            $0[VerticalAlignment.center] + self.alignmentGuideOffset
+                        }
+                    Text("Objective-C")
+                    Text("Python")
+                        .alignmentGuide(.leading) {// 需要和父容器的对齐方式一致才可以生效
+                            $0[.leading] + self.alignmentGuideOffset// 在原来的对齐基础上偏移
+                        }
+                    Text("C++")
+                        .alignmentGuide(.trailing) {
+                            $0[.leading] + self.alignmentGuideOffset
+                        }
+                }
+            }
+            
+            Slider(value: $alignmentGuideOffset, in: -50...50) {
+                Text("Offset")
+            }
+        }
+    }
+    
     struct ItemView: View {
         
         var color = Color.clear
@@ -224,7 +437,7 @@ struct DoAlignment: View {
         
         var body: some View {
             Rectangle()
-                .fill(color.opacity(0.2))
+                .fill(color.opacity(1))
                 .frame(width: width, height: height)
                 .cornerRadius(4)
         }
@@ -268,7 +481,8 @@ struct DoAlignment: View {
             ForEach(cardItems.indices, id:\.self) { index in
                 CardView(
                     cardItem: cardItems[index],
-                    direction: (index % 2 == 0 ? .left : .right))
+                    direction: (index % 2 == 0 ? .left : .right)
+                )
             }
         }
     }
@@ -322,6 +536,47 @@ struct DoAlignment: View {
                 })
         }
     }
+    
+    struct AlignmentLine: View {
+        var body: some View{
+            Rectangle()
+                .frame(width: 25, height: 3, alignment: .center)
+                .cornerRadius(1.5)
+        }
+    }
+    
+    struct AlignmentButton: View {
+        
+        var alignment: HorizontalAlignment
+        var action: () -> Void
+        
+        var body: some View{
+            Button(action: action) {
+
+                VStack(alignment: alignment, spacing: 4){
+                    AlignmentLine()
+                    AlignmentLine()
+                        .frame(width: 16, height: 3, alignment: .center)
+                        .cornerRadius(1.5)
+                    AlignmentLine()
+                    AlignmentLine()
+                        .frame(width: 16, height: 3, alignment: .center)
+                        .cornerRadius(1.5)
+                }
+            }
+        }
+    }
+}
+
+struct ColumnsAlignment : AlignmentID {
+    static func defaultValue(in context: ViewDimensions) -> CGFloat {
+        context[.leading]
+    }
+}
+
+extension HorizontalAlignment {
+    
+    static let columns: HorizontalAlignment = HorizontalAlignment(ColumnsAlignment.self)
 }
 
 extension HorizontalAlignment {

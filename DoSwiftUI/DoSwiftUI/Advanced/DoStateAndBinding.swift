@@ -16,18 +16,22 @@ struct DoStateAndBinding: View {
         ExampleContainterView("State&Binding") {
             
 //            doStaticValue
-//
+////
 //            doState
-//
+////
 //            doForm
+//
+//            doSingUpData
             
-            doSingUpData
+            doStructSingUpData
             
-            doBinding
+//            doBinding
+//
+//            doCustomBinding
         }
     }
     
-    var text = "World"
+    @State var text = "World"
     
     var doStaticValue: some View {
         
@@ -36,6 +40,11 @@ struct DoStateAndBinding: View {
              我们可以像往常一样，在某些控件中使用变量来展示数据，
              */
             Text("Hello \(text)")
+            
+            Button("Modif") {
+//                modifText()
+                self.text = "世界"
+            }
         }
     }
     
@@ -175,6 +184,37 @@ struct DoStateAndBinding: View {
         }
     }
     
+    @State private var singupData: SingUpData = SingUpData()
+    var doStructSingUpData: some View {
+        VExampleView("struct") {
+            
+            Text("singup:\($singupData.account.wrappedValue)、\($singupData.password.wrappedValue)、\($singupData.confirmPassword.wrappedValue)")
+            
+            InputView(
+                icon: "person",
+                placehold: "account",
+                text: $singupData.account
+            )
+            
+            InputView(
+                icon: "lock.square.stack",
+                placehold: "password",
+                text: $singupData.password
+            )
+            
+            InputView(
+                icon: "lock.square.stack",
+                placehold: "confirm password",
+                text: $singupData.confirmPassword
+            )
+            
+            Button("Commit") {
+                // singup handle
+            }
+            .disabled($singupData.account.wrappedValue.count < 4 || $singupData.password.wrappedValue != $singupData.confirmPassword.wrappedValue || $singupData.password.wrappedValue.count == 0 )
+        }
+    }
+    
     @State private var completionAmount: CGFloat = 0.0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
@@ -197,6 +237,55 @@ struct DoStateAndBinding: View {
             /*:
              数据绑定是一种连接数据提供者和使用者并对其进行同步的技术。
              */
+            
+        }
+    }
+    
+    @State private var option_one = true
+    @State private var option_two = false
+    @State private var option_three = false
+    
+    var doCustomBinding: some View {
+        VExampleView("custom Binding") {
+            /*:
+             使用自定义的Binding来实现一个checkbox控件，或者互斥的Toggle
+             */
+            let binging_one = Binding<Bool>(
+                get: { return option_one },
+                set: {
+                    self.option_one = $0
+                    if $0 {
+                        self.option_two = false
+                        self.option_three = false
+                    }
+                }
+            )
+            let binging_two = Binding<Bool>(
+                get: { return option_two },
+                set: {
+                    self.option_two = $0
+                    if $0 {
+                        self.option_one = false
+                        self.option_three = false
+                    }
+                }
+            )
+            let binging_three = Binding<Bool>(
+                get: { return option_three },
+                set: {
+                    self.option_three = $0
+                    if $0 {
+                        self.option_one = false
+                        self.option_two = false
+                    }
+                }
+            )
+            
+            Toggle("Option one", isOn: binging_one)
+            
+            Toggle("Option two", isOn: binging_two)
+            
+            Toggle("Option three", isOn: binging_three)
         }
     }
     
@@ -243,9 +332,9 @@ struct DoStateAndBinding: View {
     
     struct SingUpData {
         
-        @State var account: String = ""
-        @State var password: String = ""
-        @State var confirmPassword: String = ""
+        var account: String = ""
+        var password: String = ""
+        var confirmPassword: String = ""
         
 //        var singUpButtonIsValid: AnyPublisher<Bool, Never>{
 //            $account
@@ -255,6 +344,9 @@ struct DoStateAndBinding: View {
 //                }
 //                .eraseToAnyPublisher()
 //        }
+        var disable: Bool {
+            account.count < 4 || password != confirmPassword || password.count == 0
+        }
     }
 }
 

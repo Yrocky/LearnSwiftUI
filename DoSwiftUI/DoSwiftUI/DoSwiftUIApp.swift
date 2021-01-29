@@ -12,10 +12,11 @@ struct DoSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             
+            DoBlurImageView()
 //            InfiniteListContainer()
 //            DoStateAndBinding()
 //            ExampleScreenshot()
-            ContentView()
+//            ContentView()
 //                .frame(width: 300, height: 100)
                 .environment(\.exampleViewWidth, 350)
         }

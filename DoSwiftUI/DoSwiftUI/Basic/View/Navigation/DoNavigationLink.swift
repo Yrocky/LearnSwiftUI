@@ -17,6 +17,8 @@ struct DoNavigationLink: View {
             
             doSelection
             
+            doUseHashable
+            
             doInNavigationView
         }
     }
@@ -71,7 +73,7 @@ struct DoNavigationLink: View {
         }
     }
     
-    @State private var currentNavigationLinkTag : Int? = 1
+    @State private var currentNavigationLinkTag : Int? = nil
     
     var doSelection: some View {
         VExampleView("selection") {
@@ -111,6 +113,76 @@ struct DoNavigationLink: View {
             }
             .pickerStyle(SegmentedPickerStyle())
         }
+    }
+    
+    enum NavigationOption: Hashable {
+        case a, b, c
+    }
+    
+    @State private var selectedOption: NavigationOption? = nil
+    
+    var doUseHashable: some View {
+        HExampleView("Use Hashable") {
+            /*:
+             使用一个枚举将需要导航的界面列举出来，我们知道selection参数使用的是`Binding<V:Hashable>?`，
+             */
+            NavigationLink(
+                "goto View A",
+                destination: Text("View A"),
+                tag: NavigationOption.a,
+                selection: $selectedOption
+            )
+            
+            NavigationLink(
+                "goto View B",
+                destination: Text("View B"),
+                tag: NavigationOption.b,
+                selection: $selectedOption
+            )
+            
+            NavigationLink(
+                "goto View C",
+                destination: Text("View C"),
+                tag: NavigationOption.c,
+                selection: $selectedOption
+            )
+        }
+    }
+    
+    enum NavigationDestination: Hashable {
+        case a
+        case b
+        case c
+    }
+    
+    @State private var destination: NavigationDestination?
+    
+    var doManyButtonWithNavigationLink: some View {
+        VExampleView("Many Button With Navigation Link") {
+    
+            /*:
+             如果我们有多个Button，在点击的时候需要导航到下一个界面，我们并不会去写多个NavigationLink来完成导航，
+             */
+            
+//            NavigationLink.init(destination: <#T##_#>, tag: <#T##Hashable#>, selection: <#T##Binding<Hashable?>#>, label: <#T##() -> _#>)
+            
+            Button("goto View A"){
+                
+            }
+            
+            Button("goto View B") {
+                
+            }
+            
+            Button("goto View C") {
+                
+            }
+        }
+    }
+    
+    func destinationView() -> some View {
+    
+        Text("")
     }
     
     @State private var showNavigationView = false
