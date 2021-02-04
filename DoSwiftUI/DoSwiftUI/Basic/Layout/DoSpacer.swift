@@ -11,7 +11,7 @@ struct DoSpacer: View {
     
     var body: some View {
         
-        ExampleContainterView("Spacer") {
+        ExampleContainerView("Spacer") {
             
             doBasic
             

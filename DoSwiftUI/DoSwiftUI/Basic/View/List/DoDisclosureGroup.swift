@@ -11,7 +11,7 @@ struct DoDisclosureGroup: View {
     
     var body: some View {
         
-        ExampleContainterView("DisclosureGroup", version: "2.0") {
+        ExampleContainerView("DisclosureGroup", version: "2.0") {
             
             doBasic
             

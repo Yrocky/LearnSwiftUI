@@ -10,7 +10,7 @@ import SwiftUI
 struct DoList_2: View {
     var body: some View {
         
-        ExampleContainterView("List") {
+        ExampleContainerView("List") {
          
             doSomeViewModifer
             

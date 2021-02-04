@@ -10,7 +10,7 @@ import SwiftUI
 struct DoForEach: View {
     var body: some View {
         
-        ExampleContainterView("ForEach"){
+        ExampleContainerView("ForEach"){
             
             doRange
             

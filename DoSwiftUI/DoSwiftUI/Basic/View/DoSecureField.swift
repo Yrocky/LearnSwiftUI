@@ -10,7 +10,7 @@ import SwiftUI
 struct DoSecureField: View {
     var body: some View {
         
-        ExampleContainterView("SecureField") {
+        ExampleContainerView("SecureField") {
             
             doBasic
             

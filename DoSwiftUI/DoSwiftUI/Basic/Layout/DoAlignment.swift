@@ -10,7 +10,7 @@ import SwiftUI
 struct DoAlignment: View {
     var body: some View {
         
-        ExampleContainterView("Alignment"){
+        ExampleContainerView("Alignment"){
             
 //            doHorizontalAlignment
 //

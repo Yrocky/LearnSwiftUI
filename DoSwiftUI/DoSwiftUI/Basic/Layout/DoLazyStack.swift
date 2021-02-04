@@ -10,7 +10,7 @@ import SwiftUI
 struct DoLazyStack: View {
     
     var body: some View {
-        ExampleContainterView("Lazy*Stack", version: "2.0"){
+        ExampleContainerView("Lazy*Stack", version: "2.0"){
             
             doBasic
             

@@ -70,7 +70,7 @@ struct Trace: Shape {
 struct DoAnimatiingTimingCurves: View {
     var sdfsd: some View {
         // https://gist.github.com/chriseidhof/f1bfea3b26ed23c26f2b016a2d618ba4
-        ExampleContainterView("Timing Curves") {
+        ExampleContainerView("Timing Curves") {
             
 //            doTimingCurves
         }

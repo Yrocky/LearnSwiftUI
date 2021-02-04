@@ -24,45 +24,59 @@ struct ExampleConfig {
     
     fileprivate var describe: String
     fileprivate var width: CGFloat
-    fileprivate var height: CGFloat
+    fileprivate var height: CGFloat?
     fileprivate var spacing: CGFloat
     fileprivate var version: String
 
     
-    init(_ describe: String = "Default", version:String = "", spacing: CGFloat = 10, width: CGFloat = 300, height: CGFloat) {
+    init(_ describe: String = "Default", version: String = "", spacing: CGFloat = 10, width: CGFloat = 300, height: CGFloat? = nil) {
         self.describe = describe
         self.width = max(300, width)
-        self.height = max(40, height)
+        self.height = max(40, height ?? 0)
         self.spacing = spacing
         self.version = version
     }
 }
 
-protocol ExampleViewAble {
+protocol ExampleViewAble: View {
 
     associatedtype Content = View
+//
+//    var content: () -> Content { get set }
+//
+//    var config: ExampleConfig { get set }
 
-    var content: () -> Content { get set }
-
-    var config: ExampleConfig { get set }
-
-    init()
-//    init(_ config: Example.Config, @ViewBuilder content: @escaping () -> Content)
-}
-
-extension ExampleViewAble where Self : View {
+//    init(config: ExampleConfig, content: @escaping () -> Content)
     
     init(
-        _ config: ExampleConfig,
+        _ title: String,
+        spacing: CGFloat,
+        width: CGFloat,
+        height: CGFloat,
+        version: String,
         @ViewBuilder content: @escaping () -> Content
-    ){
-        self.init()
-        self.content = content
-        self.config = config
-    }
+    )
 }
 
-struct ExampleContainterView<Content>: View where Content: View {
+extension ExampleViewAble {
+    
+    init(
+        title: String = "",
+        spacing: CGFloat = 10,
+        width: CGFloat = .infinity,
+        height: CGFloat = .infinity,
+        version: String = "",
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.init(title, spacing: spacing, width: width, height: height, version: version, content: content)
+    }
+    
+//    init(_ config: ExampleConfig, @ViewBuilder content: @escaping () -> Content) {
+//        self.init(config: config, content: content)
+//    }
+}
+
+struct ExampleContainerView<Content>: View where Content: View {
     
     private var content: () -> Content
     private var config: ExampleConfig
@@ -99,7 +113,7 @@ struct ExampleContainterView<Content>: View where Content: View {
                 
                 //: Invalid frame dimension (negative or non-finite).
                 VStack(spacing: config.spacing, content:content)
-                    .frame(width: config.width, height: config.height)
+//                    .frame(width: config.width)
             }
         }
         .navigationBarHidden(true)

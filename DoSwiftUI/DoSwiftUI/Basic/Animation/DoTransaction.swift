@@ -10,7 +10,7 @@ import SwiftUI
 struct DoTransaction: View {
     var body: some View {
         
-        ExampleContainterView("Transaction") {
+        ExampleContainerView("Transaction") {
             
         }
     }

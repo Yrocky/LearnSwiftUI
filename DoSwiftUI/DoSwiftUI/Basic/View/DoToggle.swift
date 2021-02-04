@@ -13,7 +13,7 @@ struct DoToggle: View {
     
     var body: some View {
         
-        ExampleContainterView("Toggle") {
+        ExampleContainerView("Toggle") {
             /*:
              Toggle在swiftUI中用来表示开关控件，其属性也具备响应性，
              因此需要使用`@State`来修饰。同时还支持使用一个自定义的View来展示内容，

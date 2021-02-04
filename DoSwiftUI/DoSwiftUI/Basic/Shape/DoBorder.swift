@@ -10,7 +10,7 @@ import SwiftUI
 struct DoBorder: View {
     var body: some View {
         
-        ExampleContainterView("border") {
+        ExampleContainerView("border") {
             
             doInColor
             

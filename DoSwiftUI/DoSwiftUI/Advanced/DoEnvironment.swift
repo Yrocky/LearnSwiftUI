@@ -15,7 +15,7 @@ struct DoEnvironment: View {
          
          https://developer.apple.com/documentation/swiftui/environmentvalues
          */
-        ExampleContainterView("Environment") {
+        ExampleContainerView("Environment") {
             
         }
     }

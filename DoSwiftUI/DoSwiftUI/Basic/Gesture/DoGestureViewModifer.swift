@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoGestureViewModifer: View {
     var body: some View {
-        ExampleContainterView("Gesure ViewModifer") {
+        ExampleContainerView("Gesure ViewModifer") {
             
             doAllowsHitTesting
             

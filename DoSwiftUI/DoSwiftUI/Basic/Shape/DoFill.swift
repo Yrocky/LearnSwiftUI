@@ -10,7 +10,7 @@ import SwiftUI
 struct DoFill: View {
     var body: some View {
         
-        ExampleContainterView("fill") {
+        ExampleContainerView("fill") {
             
             doBasic
             

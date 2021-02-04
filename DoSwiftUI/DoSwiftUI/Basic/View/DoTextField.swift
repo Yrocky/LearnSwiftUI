@@ -13,7 +13,7 @@ struct DoTextField: View {
     @State private var password: String = ""
     var body: some View {
         
-        ExampleContainterView("TextField") {
+        ExampleContainerView("TextField") {
             
             doNormalTextField
             

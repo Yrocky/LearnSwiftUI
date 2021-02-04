@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoAnimatable: View {
     var body: some View {
-        ExampleContainterView("Animatable") {
+        ExampleContainerView("Animatable") {
             /*:
              在动画框架中，动画所表示的都是在`一定时间内，一个状态经过一系列的连续变化，成为另一个状态`。
              比如一个View在x轴上经过1s移动100px的距离，如果是线性动画，运动轨迹就是每1/100s移动1px距离，

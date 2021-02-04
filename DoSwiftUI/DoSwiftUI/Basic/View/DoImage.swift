@@ -11,7 +11,7 @@ struct DoImage: View {
     
     var body: some View {
         
-        ExampleContainterView("Image") {
+        ExampleContainerView("Image") {
             
             doSystemImage
             

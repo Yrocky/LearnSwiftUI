@@ -10,7 +10,7 @@ import SwiftUI
 struct DoComposingGesture: View {
     var body: some View {
         
-        ExampleContainterView("ComposingGesture") {
+        ExampleContainerView("ComposingGesture") {
             
             /*:
              前面我们接触到的手势都是单个的，如果一个视图上可能有多个手势，

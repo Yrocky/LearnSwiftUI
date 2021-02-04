@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoSection: View {
     var body: some View {
-        ExampleContainterView("Section") {
+        ExampleContainerView("Section") {
             
             doBasic
             

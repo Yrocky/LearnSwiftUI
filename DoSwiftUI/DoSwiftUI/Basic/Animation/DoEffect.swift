@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoEffect: View {
     var body: some View {
-        ExampleContainterView("Effect") {
+        ExampleContainerView("Effect") {
             
             doTransformEffect
             

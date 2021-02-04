@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoGrid: View {
     var body: some View {
-        ExampleContainterView("Grid", version: "2.0") {
+        ExampleContainerView("Grid", version: "2.0") {
          
             doBasic
             

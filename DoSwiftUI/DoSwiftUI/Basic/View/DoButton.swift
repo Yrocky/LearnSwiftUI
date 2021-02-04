@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoButton: View {
     var body: some View {
-        ExampleContainterView("Button") {
+        ExampleContainerView("Button") {
          
             doBasic
         }

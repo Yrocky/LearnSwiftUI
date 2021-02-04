@@ -10,7 +10,7 @@ import SwiftUI
 struct DoBackgroundAndOverlay: View {
     
     var body: some View {
-        ExampleContainterView("Background&Overlay"){
+        ExampleContainerView("Background&Overlay"){
             
             doBackcgroundBasic
             

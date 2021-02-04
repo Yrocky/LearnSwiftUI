@@ -10,7 +10,7 @@ import SwiftUI
 struct DoEmpty: View {
     var body: some View {
 
-        ExampleContainterView("EmptyView") {
+        ExampleContainerView("EmptyView") {
             
             doInCondition
             

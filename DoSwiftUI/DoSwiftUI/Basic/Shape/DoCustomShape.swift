@@ -10,7 +10,7 @@ import SwiftUI
 struct DoCustomShape: View {
     var body: some View {
         
-        ExampleContainterView("CustomShape"){
+        ExampleContainerView("CustomShape"){
             
             doTriangle
             

@@ -11,7 +11,7 @@ struct DoScrollViewReader: View {
     
     var body: some View {
         
-        ExampleContainterView("ScrollViewReader", version:"2.0") {
+        ExampleContainerView("ScrollViewReader", version:"2.0") {
             
         }
     }

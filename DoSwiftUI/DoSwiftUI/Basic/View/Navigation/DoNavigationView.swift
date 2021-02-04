@@ -10,7 +10,7 @@ import SwiftUI
 struct DoNavigationView: View {
     var body: some View {
         
-        ExampleContainterView("NavigationView") {
+        ExampleContainerView("NavigationView") {
             
             doBasic
         

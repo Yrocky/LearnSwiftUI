@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoPath: View {
     var body: some View {
-        ExampleContainterView("Path") {
+        ExampleContainerView("Path") {
          
             doBasic
             

@@ -13,7 +13,7 @@ struct DoText: View {
     
     var body: some View {
         
-        ExampleContainterView("Text") {
+        ExampleContainerView("Text") {
             
             doBasicText
             

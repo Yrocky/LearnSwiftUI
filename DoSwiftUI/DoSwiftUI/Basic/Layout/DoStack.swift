@@ -17,7 +17,7 @@ struct DoStack: View {
          VStack和HStack都会根据其子View类撑起对应的尺寸，
          当然我们也可以使用`.frame`来设置指定的尺寸。
          */
-        ExampleContainterView("*Stack"){
+        ExampleContainerView("*Stack"){
 
             doHStack
             

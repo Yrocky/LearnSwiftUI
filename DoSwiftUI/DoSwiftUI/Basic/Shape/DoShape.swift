@@ -11,7 +11,7 @@ struct DoShape: View {
     
     var body: some View {
         
-        ExampleContainterView("Shape") {
+        ExampleContainerView("Shape") {
             
             doBasicBuildInShap
             

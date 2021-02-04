@@ -10,7 +10,7 @@ import SwiftUI
 struct DoBasicGesture: View {
     var body: some View {
         
-        ExampleContainterView("BasicGesture") {
+        ExampleContainerView("BasicGesture") {
             
             doGesture
             

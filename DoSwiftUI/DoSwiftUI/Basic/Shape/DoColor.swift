@@ -10,7 +10,7 @@ import SwiftUI
 struct DoColor: View {
     var body: some View {
         
-        ExampleContainterView("Color") {
+        ExampleContainerView("Color") {
             
             doBuildInColor
             

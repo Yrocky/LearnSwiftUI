@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoActionSheetAlert: View {
     var body: some View {
-        ExampleContainterView("ActionSheet & Alert") {
+        ExampleContainerView("ActionSheet & Alert") {
             
             doActionSheet
             

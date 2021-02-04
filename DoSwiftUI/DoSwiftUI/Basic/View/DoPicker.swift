@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoPicker: View {
     var body: some View {
-        ExampleContainterView("Picker") {
+        ExampleContainerView("Picker") {
             
             doBasic
 //

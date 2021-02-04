@@ -10,7 +10,7 @@ import SwiftUI
 struct DoStateObject: View {
     var body: some View {
         
-        ExampleContainterView("StateObject") {
+        ExampleContainerView("StateObject") {
                             
         }
     }

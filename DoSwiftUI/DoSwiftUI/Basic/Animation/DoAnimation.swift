@@ -14,7 +14,7 @@ struct DoAnimation: View {
     
     var body: some View {
         
-        ExampleContainterView("Animation"){
+        ExampleContainerView("Animation"){
 
             /*:
              `Animation`在swiftUI是对动画的抽象，并且为View提供了添加动画的modifer：

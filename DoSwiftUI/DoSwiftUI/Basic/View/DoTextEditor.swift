@@ -10,7 +10,7 @@ import SwiftUI
 struct DoTextEditor: View {
     var body: some View {
         
-        ExampleContainterView("TextEditor", version: "2.0") {
+        ExampleContainerView("TextEditor", version: "2.0") {
             
             doBasic
             

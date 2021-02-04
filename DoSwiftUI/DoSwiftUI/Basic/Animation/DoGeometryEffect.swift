@@ -10,7 +10,7 @@ import SwiftUI
 struct DoGeometryEffect: View {
     var body: some View {
         
-        ExampleContainterView("GeometryEffect") {
+        ExampleContainerView("GeometryEffect") {
                
             doHeroAnimation
         }

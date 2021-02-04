@@ -13,7 +13,7 @@ struct DoStateAndBinding: View {
     var body: some View {
         //: https://developer.apple.com/documentation/swiftui/state-and-data-flow
         //: property wrapper
-        ExampleContainterView("State&Binding") {
+        ExampleContainerView("State&Binding") {
             
 //            doStaticValue
 ////

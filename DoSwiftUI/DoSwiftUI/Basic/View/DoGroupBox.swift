@@ -17,7 +17,7 @@ struct DoGroupBox: View {
          而config是`GroupBoxStyleConfiguration`类型，
          提供两个内部的View：Label、Content，分别对应GroupBox中的label和content。
          */
-        ExampleContainterView("GroupBox") {
+        ExampleContainerView("GroupBox") {
             
             doBasic
             

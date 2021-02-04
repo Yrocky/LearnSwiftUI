@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoTabView: View {
     var body: some View {
-        ExampleContainterView("TabView") {
+        ExampleContainerView("TabView") {
             
             doNormal
             

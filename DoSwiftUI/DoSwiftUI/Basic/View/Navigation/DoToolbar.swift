@@ -10,7 +10,7 @@ import SwiftUI
 struct DoToolbar: View {
     var body: some View {
         
-        ExampleContainterView("Toolbar", version: "2.0") {
+        ExampleContainerView("Toolbar", version: "2.0") {
             
         }
     }

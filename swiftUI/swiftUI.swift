@@ -1146,35 +1146,6 @@ extension UIUserInterfaceSizeClass {
     public init(_ sizeClass: UserInterfaceSizeClass?)
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension CGPoint : Animatable {
-
-    /// The type defining the data to animate.
-    public typealias AnimatableData = AnimatablePair<CGFloat, CGFloat>
-
-    /// The data to animate.
-    public var animatableData: CGPoint.AnimatableData
-}
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension CGSize : Animatable {
-
-    /// The type defining the data to animate.
-    public typealias AnimatableData = AnimatablePair<CGFloat, CGFloat>
-
-    /// The data to animate.
-    public var animatableData: CGSize.AnimatableData
-}
-
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension CGRect : Animatable {
-
-    /// The type defining the data to animate.
-    public typealias AnimatableData = AnimatablePair<CGPoint.AnimatableData, CGSize.AnimatableData>
-
-    /// The data to animate.
-    public var animatableData: CGRect.AnimatableData
-}
 
 @available(iOS 14.0, macOS 11.0, *)
 @available(tvOS, unavailable)

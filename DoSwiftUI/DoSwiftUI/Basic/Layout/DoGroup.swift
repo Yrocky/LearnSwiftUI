@@ -11,7 +11,7 @@ struct DoGroup: View {
     
     var body: some View {
         
-        ExampleContainterView("Group") {
+        ExampleContainerView("Group") {
             
             doBasic_1
             

@@ -13,7 +13,7 @@ struct DoSlider: View {
     
     var body: some View {
         
-        ExampleContainterView("Slider"){
+        ExampleContainerView("Slider"){
             
             doSlider
             

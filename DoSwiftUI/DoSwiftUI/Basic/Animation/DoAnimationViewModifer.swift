@@ -14,7 +14,7 @@ struct DoAnimationViewModifer: View {
     
     var body: some View {
         
-        ExampleContainterView("Animation ViewModifer"){
+        ExampleContainerView("Animation ViewModifer"){
             
             doWithAnimation_1
             

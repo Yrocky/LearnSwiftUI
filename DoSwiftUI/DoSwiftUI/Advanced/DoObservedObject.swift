@@ -10,7 +10,7 @@ import SwiftUI
 struct DoObservedObject: View {
     var body: some View {
         
-        ExampleContainterView("ObservedObject") {
+        ExampleContainerView("ObservedObject") {
             
         }
     }

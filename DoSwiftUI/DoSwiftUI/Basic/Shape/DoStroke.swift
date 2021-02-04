@@ -13,7 +13,7 @@ struct DoStroke: View {
         
         VStack(spacing: 10){
         
-            ExampleContainterView("stroke") {
+            ExampleContainerView("stroke") {
                 
                 doStroke
                 

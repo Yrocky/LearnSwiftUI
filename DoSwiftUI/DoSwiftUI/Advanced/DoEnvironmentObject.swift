@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DoEnvironmentObject: View {
     var body: some View {
-        ExampleContainterView("EnvironmentObject") {
+        ExampleContainerView("EnvironmentObject") {
                     
         }
     }

@@ -10,7 +10,7 @@ import SwiftUI
 struct DoProgressView: View {
     var body: some View {
         
-        ExampleContainterView("ProgressView"){
+        ExampleContainerView("ProgressView"){
             
             doLoading
             

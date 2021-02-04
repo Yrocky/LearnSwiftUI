@@ -11,7 +11,7 @@ struct DoLayoutPriority: View {
     
     var body: some View {
         
-        ExampleContainterView("layoutPriority") {
+        ExampleContainerView("layoutPriority") {
             
             doBasic
             

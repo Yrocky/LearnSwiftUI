@@ -11,7 +11,7 @@ struct DoStepper: View {
     
     var body: some View {
         
-        ExampleContainterView("Stepper"){
+        ExampleContainerView("Stepper"){
             
             doBacisStepper
             

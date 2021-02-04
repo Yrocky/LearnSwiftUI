@@ -10,7 +10,7 @@ import SwiftUI
 struct DoList: View {
     var body: some View {
         
-        ExampleContainterView("List") {
+        ExampleContainerView("List") {
 
             doWithViewBuilder_Static
 

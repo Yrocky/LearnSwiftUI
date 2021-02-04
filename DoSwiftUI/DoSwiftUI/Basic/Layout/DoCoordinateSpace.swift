@@ -10,13 +10,15 @@ import SwiftUI
 struct DoCoordinateSpace: View {
     var body: some View {
         
-        ExampleContainterView("CoordinateSpace"){
+        ExampleContainerView("CoordinateSpace"){
             
             doCustomSize
             
-            doGlobalCoordinateSpace
+            doCoordinateSpace
             
             doCustomCoordinateSpace
+            
+            doDragView
         }
     }
     
@@ -45,17 +47,101 @@ struct DoCoordinateSpace: View {
         }
     }
     
-    var doGlobalCoordinateSpace: some View {
+    var doCoordinateSpace: some View {
         
-        VExampleView("global") {
+        VExampleView("CoordinateSpace") {
             /*:
              通过CoordinateSpace，我们拿到
              */
             
-            Rectangle()
-                .fill(Color.blue)
-                //: 通过这个modifer，可以设置一个坐标系统，
-                .coordinateSpace(name: CoordinateSpace.global)
+            VStack{
+                
+                Text("Hello world~")
+                    .foregroundColor(.green)
+                    .background(
+                        GeometryReader{ proxy in
+                            // local是当前组件位于父组件的坐标，在这里的父组件就是Text("Hello world~")
+                            let localBounds = proxy.frame(in: .local)
+                            // global是位于整个屏幕中的坐标
+                            let globalBounds = proxy.frame(in: .global)
+                            // 没有办法获取相对于兄弟组件的坐标，得到的仍然是屏幕的坐标
+                            let otherBounds = proxy.frame(in: CoordinateSpace.named("OtherText"))
+                            // 可以指定一个组件，查看组件相对于它内部的坐标，需要注意的是，这个容器必须是组件的某个父组件，不能是父组件的相邻组件，这里的
+                            let containerBounds = proxy.frame(in: CoordinateSpace.named("Container"))
+                            // 如果是父组件的某个相邻组件，最后获取的还是位于屏幕中的坐标
+                            let otherContainerBounds = proxy.frame(in: CoordinateSpace.named("OtherContainer"))
+                            
+//localBounds   (origin = (x = 0, y = 0), size = (width = 95.5, height = 20.5))
+//globalBounds   (origin = (x = 159.25, y = 353), size = (width = 95.5, height = 20.5))
+//otherBounds   (origin = (x = 159.25, y = 353), size = (width = 95.5, height = 20.5))
+//containerBounds   (origin = (x = 16.75, y = 0), size = (width = 95.5, height = 20.5))
+//otherContainerBounds    (origin = (x = 159.25, y = 353), size = (width = 95.5, height = 20.5))
+                            Color.orange
+                                .frame(
+                                    width: localBounds.size.width,
+                                    height: localBounds.size.height
+                                )
+                        }
+                    )
+                
+                Text("Hello world~")
+                    .foregroundColor(.green)
+                    .background(
+                        GeometryReader{ proxy in
+                            let localBounds = proxy.frame(in: .local)
+
+                            let otherBounds = proxy.frame(in: CoordinateSpace.named("OtherText"))
+                            
+                            Color.red
+                                .frame(
+                                    width: otherBounds.size.width,
+                                    height: otherBounds.size.height
+                                )
+                        }
+                    )
+                
+                Text("Hello world~")
+                    .foregroundColor(.blue)
+                    .background(
+                        GeometryReader{ proxy in
+                            let containerBounds = proxy.frame(in: CoordinateSpace.named("Container"))
+                            
+                            Color.purple
+                                .frame(
+                                    width: containerBounds.size.width,
+                                    height: containerBounds.size.height
+                                )
+                        }
+                    )
+                
+                Text("Other text")
+                    .foregroundColor(.pink)
+                    .font(.system(size: 30))
+                    //: 通过这个modifer，可以设置一个坐标系统，
+                    .coordinateSpace(name: CoordinateSpace.named("OtherText"))
+            }
+            .coordinateSpace(name: "Container")
+            .background(
+                GeometryReader{ proxy in
+                    let localBounds = proxy.frame(in: .local)
+                    let globalBounds = proxy.frame(in: .global)
+                    Color.gray
+                        .opacity(0.3)
+                        .frame(
+                            width: localBounds.size.width,
+                            height: localBounds.size.height
+                        )
+                }
+            )
+            
+            HStack{
+                Text("A")
+                    .font(.system(size: 18))
+                Text("B")
+                    .font(.system(size: 20))
+            }
+            .background(Color.red.opacity(0.3))
+            .coordinateSpace(name: "OtherContainer")
         }
     }
     
@@ -98,6 +184,29 @@ struct DoCoordinateSpace: View {
      这样在子View中就可以根据这个拿到上层View的尺寸。
      */
     
+    @State private var location = CGPoint.zero
+    
+    var doDragView: some View {
+        VExampleView("") {
+            VStack{
+                Color.red
+                    .frame(width: 100, height: 100)
+                    .overlay(
+                        Circle()
+                            .frame(width: 50, height: 50)
+                            .gesture(
+                                // 为手势指明一个坐标系，就可以获取到手势在该坐标系中的location
+                                DragGesture(coordinateSpace: .named("stack"))
+                                    .onChanged { info in location = info.location }
+                            )
+                    )
+                    .padding(5)
+                
+                Text("Location: \(Int(location.x)), \(Int(location.y))")
+            }
+            .coordinateSpace(name: "stack")
+        }
+    }
     /// Assigns a name to the view's coordinate space, so other code can operate
     /// on dimensions like points and sizes relative to the named space.
     ///
