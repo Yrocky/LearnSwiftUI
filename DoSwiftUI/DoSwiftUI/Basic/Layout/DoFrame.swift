@@ -174,7 +174,7 @@ struct DoFrame: View {
         VExampleView("设置minWidth，但是大于父View建议的尺寸，使用minWidth") {
             ContainerView(width: 300) {
                 /*:
-                 在使用父View建议尺寸的时候，如果对View没有水平、垂直方向上的限制，那么就会使用建议的大小，而如果有特殊限制，就要准守以下准则（以水平方向为例）：
+                 在使用父View建议尺寸的时候，如果对View没有水平、垂直方向上的限制，那么就会使用父View建议的大小，而如果有特殊限制，就要准守以下准则（以水平方向为例）：
                  * 如果设置了最小值（minWidth）
                      * minWidth小于父View建议的width，最终使用建议的width
                      * minWidth大于父View建议的width，最终使用minWidth
@@ -224,7 +224,7 @@ struct DoFrame: View {
             ContainerView(width: 300) {
                 /*:
                  如果修改red的maxWidth为80，由于小于父View建议的100，所以这里就不使用父View建议的大小，而会以maxWidth为准，
-                 最终显示red为80、green为110、orange为110。
+                 最终显示red为80，接着重新计算建议的大小，(300-80)/2=110，由于green与orange并没有设置灵活性，所以接受建议的大小，green为110，orange为110。
                  */
                 Color.red.frame(maxWidth: 80)
                 Color.green

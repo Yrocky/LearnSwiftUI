@@ -13,15 +13,17 @@ struct DoStepper: View {
         
         ExampleContainerView("Stepper"){
             
-            doBacisStepper
+//            doBacisStepper
+//
+//            doLabelStepper
+//
+//            doRangeStepper
+//
+//            doStepAndRnageStepper
+//
+//            doActionStepper
             
-            doLabelStepper
-            
-            doRangeStepper
-            
-            doStepAndRnageStepper
-            
-            doActionStepper
+            doCustomStepper
         }
     }
     
@@ -127,6 +129,153 @@ struct DoStepper: View {
         }
     }
     
+    @State private var customValue: Int = 1
+    
+    var doCustomStepper: some View {
+        VExampleView("Custom Stepper") {
+            /*:
+             SwiftUI并没有为我们提供Stepper的Style，如果有特殊需求的Stepper，就需要自定义了。
+             */
+            
+            CustomStepper(value: $customValue, in: 0...10) {
+                Text("counter \(customValue)")
+            }
+        }
+    }
+}
+
+struct CustomStepper<Label, V>: View where Label: View , V: Strideable {
+    
+    /*:
+     首先，一个Stepper需要具有value、step、range
+     */
+    private var value: Binding<V>
+    private var bounds: ClosedRange<V>
+    private var step: V.Stride
+    private var label: Label
+    
+//    fileprivate var onIncrement: (() -> Void)?
+//    fileprivate var onDecrement: (() -> Void)?
+//
+//    public init(
+//        onIncrement: (() -> Void)?,
+//        onDecrement: (() -> Void)?,
+//        onEditingChanged: @escaping (Bool) -> Void = { _ in },
+//        @ViewBuilder label: () -> Label
+//    ) {
+//        self.onIncrement = onIncrement
+//        self.onDecrement = onDecrement
+//        self.label = label()
+//    }
+
+    init(
+        value: Binding<V>,
+        in bounds: ClosedRange<V>,
+        step: V.Stride = 1,
+        @ViewBuilder label: () -> Label
+    ) {
+        self.value = value
+        self.bounds = bounds
+        self.step = step
+        self.label = label()
+    }
+    
+    var body: some View{
+        
+        HStack {
+            label
+                .lineLimit(1)
+            
+            Spacer()
+            
+            HStack{
+                
+                Button("－", action: decrease)
+                    .buttonStyle(
+                        StepperButtonStyle(.decrease, disabled: decreaseDisabled)
+                    )
+                    .disabled(decreaseDisabled)
+                    .frame(minWidth: 40, minHeight: 40)
+                
+//                Text("\(value.wrappedValue)")
+//                    .font(.system(size: 13, design: .rounded))
+//                    .foregroundColor(.pink)
+//                    .frame(minWidth: 20, maxWidth: 50)
+                
+                Button("＋", action: increase)
+                    .buttonStyle(
+                        StepperButtonStyle(.increase, disabled: increaseDisabled)
+                    )
+                    .disabled(increaseDisabled)
+                    .frame(minWidth: 40, minHeight: 40)
+            }
+        }
+    }
+    
+    private var decreaseDisabled: Bool {
+        value.wrappedValue <= bounds.lowerBound
+    }
+    
+    private var increaseDisabled: Bool {
+        value.wrappedValue >= bounds.upperBound
+    }
+    
+    private func decrease() {
+        print("decrease")
+        let result = value.wrappedValue.advanced(by: -step)
+        value.wrappedValue = max(result, bounds.lowerBound)
+    }
+    
+    private func increase() {
+        print("increase")
+        let result = value.wrappedValue.advanced(by: step)
+        value.wrappedValue = min(result, bounds.upperBound)
+    }
+    
+    enum `Type` {
+        case decrease
+        case increase
+    }
+    
+    struct StepperButtonStyle: ButtonStyle {
+        
+        private var type: Type
+        private var disabled: Bool
+        
+        init(_ type: Type, disabled: Bool = true) {
+            self.type = type
+            self.disabled = disabled
+        }
+        
+        func makeBody(configuration: Configuration) -> some View {
+            
+            configuration
+                .label
+                .frame(width: 30, height: 30, alignment: .center)
+                .font(.system(size: 22, design: .rounded))
+                .foregroundColor(Color.white)
+                .background(background(configuration.isPressed))
+        }
+        
+        func background(_ isPressed: Bool) -> some View {
+            
+            let fillColor = isPressed || disabled ?
+                Color(red: 0.83, green: 0.40, blue: 0.42) :
+                Color.pink
+            
+            return RoundedRectangle(cornerRadius: 4)
+                .fill(fillColor)
+        }
+        private var background: some View {
+            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                .fill(Color.pink)
+//            if type == .decrease { // -
+//
+//            } else { // +
+//
+//            }
+        }
+    }
 }
 
 struct DoStepper_Previews: PreviewProvider {

@@ -74,6 +74,7 @@
 		32A807452580EEFC0008358B /* DoSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A807442580EEFC0008358B /* DoSlider.swift */; };
 		32BBA6AE2595DE280001F244 /* DoDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBA6AD2595DE280001F244 /* DoDisclosureGroup.swift */; };
 		32BBA6B12595DE390001F244 /* DoOutlineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBA6B02595DE390001F244 /* DoOutlineGroup.swift */; };
+		32C4526825CBFC2200FC819C /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 32C4526725CBFC2200FC819C /* SwiftUIX */; };
 		32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA3F25885575008A0B4A /* DoTextField.swift */; };
 		32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA4225886AE0008A0B4A /* DoGradient.swift */; };
 		32D4EA6F258AF202008A0B4A /* DoPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA6E258AF202008A0B4A /* DoPreference.swift */; };
@@ -211,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3271847725A6AFB10093686F /* ToastUI in Frameworks */,
+				32C4526825CBFC2200FC819C /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +469,7 @@
 			name = DoSwiftUI;
 			packageProductDependencies = (
 				3271847625A6AFB10093686F /* ToastUI */,
+				32C4526725CBFC2200FC819C /* SwiftUIX */,
 			);
 			productName = DoSwiftUI;
 			productReference = 323545B125809A6A003A9828 /* DoSwiftUI.app */;
@@ -497,6 +500,7 @@
 			mainGroup = 323545A825809A6A003A9828;
 			packageReferences = (
 				3271847525A6AFB00093686F /* XCRemoteSwiftPackageReference "ToastUI" */,
+				32C4526625CBFC2000FC819C /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 323545B225809A6A003A9828 /* Products */;
 			projectDirPath = "";
@@ -814,6 +818,14 @@
 				minimumVersion = 1.3.1;
 			};
 		};
+		32C4526625CBFC2000FC819C /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -821,6 +833,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3271847525A6AFB00093686F /* XCRemoteSwiftPackageReference "ToastUI" */;
 			productName = ToastUI;
+		};
+		32C4526725CBFC2200FC819C /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32C4526625CBFC2000FC819C /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
