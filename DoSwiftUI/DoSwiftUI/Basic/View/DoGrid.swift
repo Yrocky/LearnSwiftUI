@@ -11,15 +11,17 @@ struct DoGrid: View {
     var body: some View {
         ExampleContainerView("Grid", version: "2.0") {
          
-            doBasic
+//            doBasic
+//
+//            doAdaptive
             
-            doAdaptive
+            doGridItem
             
-            doInScrollView
-            
-            doSection
-            
-            doPinnedScrollableViews
+//            doInScrollView
+//
+//            doSection
+//
+//            doPinnedScrollableViews
         }
     }
     
@@ -55,7 +57,7 @@ struct DoGrid: View {
             ) {
                 ForEach(0..<16) { index in
                     
-                    GrigItemView("NO.\(index * index)")
+                    GridItemView("NO.\(index * index)")
                 }
             }
         }
@@ -79,7 +81,20 @@ struct DoGrid: View {
             ) {
                 ForEach(words, id:\.self) { word in
                     
-                    GrigItemView(word)
+                    GridItemView(word)
+                }
+            }
+        }
+    }
+    
+    var doGridItem: some View {
+        VExampleView("GridItem") {
+         
+            LazyVGrid(columns: [
+                GridItem(.fixed(70))
+            ]) {
+                ForEach(words, id: \.self) {
+                    GridItemView($0)
                 }
             }
         }
@@ -104,7 +119,7 @@ struct DoGrid: View {
                         header: Text("Header \(section)"),
                         footer: Text("Footer \(section)")) {
                         ForEach(0..<10) { item in
-                            GrigItemView("{\(section),\(item)}")
+                            GridItemView("{\(section),\(item)}")
                         }
                     }
                 }
@@ -135,7 +150,7 @@ struct DoGrid: View {
                             header: Text("Header \(section)"),
                             footer: Text("Footer \(section)")) {
                             ForEach(0..<10) { item in
-                                GrigItemView("{\(section),\(item)}")
+                                GridItemView("{\(section),\(item)}")
                             }
                         }
                     }
@@ -168,7 +183,7 @@ struct DoGrid: View {
                             header: Text("Header \(section)"),
                             footer: Text("Footer \(section)")) {
                             ForEach(0..<10) { item in
-                                GrigItemView("{\(section),\(item)}")
+                                GridItemView("{\(section),\(item)}")
                             }
                         }
                     }
@@ -178,7 +193,7 @@ struct DoGrid: View {
         }
     }
     
-    struct GrigItemView: View {
+    struct GridItemView: View {
         
         let text: String
         

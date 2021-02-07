@@ -75,6 +75,10 @@
 		32BBA6AE2595DE280001F244 /* DoDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBA6AD2595DE280001F244 /* DoDisclosureGroup.swift */; };
 		32BBA6B12595DE390001F244 /* DoOutlineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BBA6B02595DE390001F244 /* DoOutlineGroup.swift */; };
 		32C4526825CBFC2200FC819C /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 32C4526725CBFC2200FC819C /* SwiftUIX */; };
+		32C4526B25CD21F400FC819C /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C4526A25CD21F400FC819C /* CustomStepper.swift */; };
+		32C4526E25CFE28300FC819C /* DoVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C4526D25CFE28300FC819C /* DoVideoPlayer.swift */; };
+		32C4527125CFE3E100FC819C /* BlurImageView.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 32C4527025CFE3E100FC819C /* BlurImageView.mp4 */; };
+		32C4527425CFEE8300FC819C /* DoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C4527325CFEE8300FC819C /* DoMap.swift */; };
 		32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA3F25885575008A0B4A /* DoTextField.swift */; };
 		32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA4225886AE0008A0B4A /* DoGradient.swift */; };
 		32D4EA6F258AF202008A0B4A /* DoPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA6E258AF202008A0B4A /* DoPreference.swift */; };
@@ -176,6 +180,10 @@
 		32A807442580EEFC0008358B /* DoSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSlider.swift; sourceTree = "<group>"; };
 		32BBA6AD2595DE280001F244 /* DoDisclosureGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoDisclosureGroup.swift; sourceTree = "<group>"; };
 		32BBA6B02595DE390001F244 /* DoOutlineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoOutlineGroup.swift; sourceTree = "<group>"; };
+		32C4526A25CD21F400FC819C /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
+		32C4526D25CFE28300FC819C /* DoVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoVideoPlayer.swift; sourceTree = "<group>"; };
+		32C4527025CFE3E100FC819C /* BlurImageView.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlurImageView.mp4; sourceTree = "<group>"; };
+		32C4527325CFEE8300FC819C /* DoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoMap.swift; sourceTree = "<group>"; };
 		32D4EA3F25885575008A0B4A /* DoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTextField.swift; sourceTree = "<group>"; };
 		32D4EA4225886AE0008A0B4A /* DoGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGradient.swift; sourceTree = "<group>"; };
 		32D4EA6E258AF202008A0B4A /* DoPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoPreference.swift; sourceTree = "<group>"; };
@@ -255,6 +263,7 @@
 				32D4EAD125931A27008A0B4A /* Helper */,
 				32A3DB6425A9762C00F38A5C /* Record */,
 				323545B825809A6D003A9828 /* Assets.xcassets */,
+				32C4527025CFE3E100FC819C /* BlurImageView.mp4 */,
 				323545BD25809A6D003A9828 /* Info.plist */,
 				323545BA25809A6D003A9828 /* Preview Content */,
 			);
@@ -388,6 +397,8 @@
 				32D4EA4225886AE0008A0B4A /* DoGradient.swift */,
 				32D4EA74258B4492008A0B4A /* DoGroupBox.swift */,
 				325A8F3A25C117ED00AF2ADD /* DoTabView.swift */,
+				32C4526D25CFE28300FC819C /* DoVideoPlayer.swift */,
+				32C4527325CFEE8300FC819C /* DoMap.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,6 +447,7 @@
 				32D4EAC32592EE79008A0B4A /* MySegmentControl.swift */,
 				3271847925A6B8710093686F /* InfiniteListView.swift */,
 				32282C6B25946FB500B30971 /* ExampleView.swift */,
+				32C4526A25CD21F400FC819C /* CustomStepper.swift */,
 				3271846F25A45F330093686F /* Dump.swift */,
 				3271847225A4622F0093686F /* Screenshot.swift */,
 				3281FE6825AEDF0E00030F29 /* Checkbox.swift */,
@@ -517,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				323545BC25809A6D003A9828 /* Preview Assets.xcassets in Resources */,
+				32C4527125CFE3E100FC819C /* BlurImageView.mp4 in Resources */,
 				323545B925809A6D003A9828 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +580,8 @@
 				32D4EAC42592EE79008A0B4A /* MySegmentControl.swift in Sources */,
 				32942EFB25972CD100AC8D96 /* DoActionSheetAlert.swift in Sources */,
 				32282C5425932B4B00B30971 /* DoStroke.swift in Sources */,
+				32C4526E25CFE28300FC819C /* DoVideoPlayer.swift in Sources */,
+				32C4527425CFEE8300FC819C /* DoMap.swift in Sources */,
 				3264C40A25958960002D31F6 /* DoList.swift in Sources */,
 				32D4EA9C258CA571008A0B4A /* DoShape.swift in Sources */,
 				323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */,
@@ -608,6 +623,7 @@
 				324A405F259B395300665879 /* DoGeometryEffect.swift in Sources */,
 				32942EEB2595F3FE00AC8D96 /* DoList_2.swift in Sources */,
 				32942EF5259719B300AC8D96 /* DoSecureField.swift in Sources */,
+				32C4526B25CD21F400FC819C /* CustomStepper.swift in Sources */,
 				3281FEA925B9856800030F29 /* TreeNode.swift in Sources */,
 				32D4EA7B258B8B1B008A0B4A /* DoScrollView.swift in Sources */,
 				32282C6925946DEE00B30971 /* DoTrim.swift in Sources */,

@@ -12,13 +12,13 @@ struct DoProgressView: View {
         
         ExampleContainerView("ProgressView"){
             
-            doLoading
-            
-            doProgress
-            
+//            doLoading
+//
+//            doProgress
+//
             doDynamicProgress
-            
-            doProgressStyle
+//
+//            doProgressStyle
             
             doCustomProgressStyle
         }
@@ -163,10 +163,59 @@ struct DoProgressView: View {
                 .progressViewStyle(MyProgressViewStyle())
             }
             
-            VExampleView("一个复杂点儿的自定义ProgressViewStyle", height: 100) {
+            VExampleView("另一个自定义的ProgressViewStyle") {
+                ProgressView(value: progressValue)
+                    .progressViewStyle(MyOtherProgressStyle())
+            }
+            
+            VExampleView("一个复杂点儿的自定义ProgressViewStyle") {
                 
                 ProgressView(value: progressValue, total: 1)
+                    .frame(height: 100)
                     .progressViewStyle(MyGradientProgressViewStyle())
+            }
+        }
+    }
+    
+    struct MyOtherProgressStyle: ProgressViewStyle {
+        
+        let cornerRadius: CGFloat = 10
+        
+        /*:
+         将alignmentGuide运用到ProgressViewStyle中，
+         
+         使用overlay不行，会被切割，不仅会被Rectangle切割，还会被ZStack切割，
+         
+         ```swift
+         Rectangle().overlay(
+             Image(systemName: "figure.walk")
+                 .foregroundColor(.green),
+             alignment: .trailing
+         )
+         ```
+         
+         虽然可以单独将cornerRadius在背景Color上设置，但是Rectangle就又没有圆角了，所以还是需要将Image与Rectangle放在同一层。
+         使用一个ZStack将Rectangle与Image进行嵌套，但是结果并不是很好，第一ProgressView的尺寸变得不正常，第二Image的中线并没有与Rectangle的右边线对齐。这个时候就需要将Color、Rectangle、Image放在同一层，使用自定义alignmentGuide来完成
+         
+         */
+        func makeBody(configuration: Configuration) -> some View {
+    
+            GeometryReader{ proxy in
+                ZStack(alignment: .leading){
+                    Color
+                        .progressBackgroundColor
+                        .cornerRadius(cornerRadius)
+                    Rectangle()
+                        .fill(Color.pink)
+                        .frame(
+                            width: proxy.size.width * CGFloat(configuration.fractionCompleted ?? 0)
+                        )
+                        .cornerRadius(cornerRadius)
+//                    Image(systemName: "figure.walk")
+//                        .resizable()
+//                        .frame(width: proxy.size.height, height: proxy.size.height)
+//                        .foregroundColor(.green)
+                }
             }
         }
     }
@@ -208,22 +257,39 @@ struct DoProgressView: View {
             ZStack{
     
                 Circle()
-                    .stroke(gradient, lineWidth: 10)
-                    .rotationEffect(Angle(degrees: -90))
+                    .trim(from: 0.1, to: 0.9)
+                    .stroke(Color.progressBackgroundColor, style: strokeStyle())
+                    .rotationEffect(Angle(degrees: 90))
                 
-                Text("\(progressText(with: configuration))")
+                Circle()
+                    .trim(from: 0.1, to: progress(with: configuration))
+                    .stroke(Color.pink, style: strokeStyle())
+                    .rotationEffect(Angle(degrees: 90))
+                
+                Text("\(text(with: configuration))")
+                    .foregroundColor(.pink)
             }
         }
         
+        func strokeStyle() -> StrokeStyle {
+            StrokeStyle(lineWidth: 10, lineCap: .round)
+        }
+        
         var gradient: AngularGradient {
-            AngularGradient(gradient: Gradient(colors: [.green, .orange]),
-                            center: .center,
-                            startAngle: Angle(degrees: -180),
-                            endAngle: Angle(degrees: 180)
+            AngularGradient(
+                gradient: Gradient(colors: [.green, .orange, .red]),
+                center: .center,
+                startAngle: Angle(degrees: 0),
+                endAngle: Angle(degrees: 45)
             )
         }
         
-        func progressText(with configuration: Configuration) -> String{
+        func progress(with configuration: Configuration) -> CGFloat {
+            let fraction = configuration.fractionCompleted ?? 0
+            return CGFloat(0.1 + (0.9 - 0.1) * fraction)
+        }
+        
+        func text(with configuration: Configuration) -> String{
             let fraction = configuration.fractionCompleted ?? 0
             let percentageFormatter = NumberFormatter()
             percentageFormatter.numberStyle = .percent
@@ -238,6 +304,11 @@ struct DoProgressView: View {
     }
 }
 
+extension Color {
+    static var progressBackgroundColor: Color {
+        Color(red: 0.83, green: 0.87, blue: 0.89)
+    }
+}
 struct DoProgressView_Previews: PreviewProvider {
     static var previews: some View {
         DoProgressView()

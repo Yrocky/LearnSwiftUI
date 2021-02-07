@@ -14,14 +14,16 @@ struct DoGroup: View {
         ExampleContainerView("Group") {
             
             doBasic_1
-            
+
             doBasic_2
-            
+
             doDiffWithStack
-            
+
             doGroupWithOptional
-            
+
             doGroupWithSwitch
+            
+            doGroupOrder
         }
     }
     
@@ -230,6 +232,87 @@ struct DoGroup: View {
             .foregroundColor(.green)
             .padding()
             .background(Color.gray.opacity(0.2))
+        }
+    }
+    
+    var doGroupOrder: some View {
+        VExampleView("顺序") {
+            /*:
+             从上面我们知道，通过Group添加的modifer，会作用到其内部的所有View上，并且如果某个View有特殊的需求，设置了外部modif中存在的modif，那么优先级会比较高。所以，Group是将其添加的modifer加到了内部View的最外层还是最内层？毕竟有一些modifer是有先后顺序的区别的。
+             
+             从结果上看，是添加在最外层的，比如这个例子中，`I'm Rocky`会首先有一个blue的背景色，然后有一个pink的背景色：
+             
+             ```swift
+             Group{
+                 Text("Hello")
+                 Text("I'm Rocky")
+                     .background(Color.blue)
+                     .padding()
+                 Text(".")
+             }
+             .background(Color.pink)
+             ```
+             
+             但是，如果不要padding，我们会发现，`I'm Rocky`的背景颜色是blue，而其他的文本为pink：
+             
+             ```swift
+             Group{
+                 Text("Hello")
+                 Text("I'm Rocky")
+                     .background(Color.blue)
+                 Text(".")
+             }
+             .background(Color.pink)
+             ```
+             
+             按照Group会将modifer添加到最外层的观点来看，上面代码等同于：
+             ```swift
+             Text("Hello")
+                 .background(Color.pink)
+             Text("I'm Rocky")
+                 .background(Color.blue)
+                 .background(Color.pink)
+             Text(".")
+                 .background(Color.pink)
+             ```
+             
+             结论是对的，因为background就是将View添加到最后面，所以后面添加的会看不到，换个例子。
+             
+             我们使用`来foregroundColor`，应该是如果同时连续的使用同一个modifer作用一个View，第二个将不起作用
+             */
+            HStack{
+                Group{
+                    Text("Hello")
+                    Text("I'm Rocky")
+                        .font(.system(size: 20))
+                        .foregroundColor(Color.blue)
+                    Text(".")
+                }
+//                .foregroundColor(Color.pink)
+                .font(.system(size: 12))
+            }
+            
+            HStack{
+                Text("Hello")
+//                    .foregroundColor(Color.pink)
+                    .font(.system(size: 12))
+                Text("I'm Rocky")
+                    .foregroundColor(Color.blue)
+                    .font(.system(size: 12))
+                    .foregroundColor(Color.pink)
+                    .font(.system(size: 20))
+                Text(".")
+//                    .foregroundColor(Color.pink)
+                    .font(.system(size: 12))
+            }
+            
+            HStack{
+                Group{
+                    Text("你好")
+                    Text("我是洛奇")
+                    Text("。")
+                }
+            }
         }
     }
 }
