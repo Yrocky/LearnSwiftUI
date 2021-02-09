@@ -79,6 +79,7 @@
 		32C4526E25CFE28300FC819C /* DoVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C4526D25CFE28300FC819C /* DoVideoPlayer.swift */; };
 		32C4527125CFE3E100FC819C /* BlurImageView.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 32C4527025CFE3E100FC819C /* BlurImageView.mp4 */; };
 		32C4527425CFEE8300FC819C /* DoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C4527325CFEE8300FC819C /* DoMap.swift */; };
+		32C4527925D11FAE00FC819C /* DoGestureState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C4527825D11FAE00FC819C /* DoGestureState.swift */; };
 		32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA3F25885575008A0B4A /* DoTextField.swift */; };
 		32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA4225886AE0008A0B4A /* DoGradient.swift */; };
 		32D4EA6F258AF202008A0B4A /* DoPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA6E258AF202008A0B4A /* DoPreference.swift */; };
@@ -184,6 +185,8 @@
 		32C4526D25CFE28300FC819C /* DoVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoVideoPlayer.swift; sourceTree = "<group>"; };
 		32C4527025CFE3E100FC819C /* BlurImageView.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlurImageView.mp4; sourceTree = "<group>"; };
 		32C4527325CFEE8300FC819C /* DoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoMap.swift; sourceTree = "<group>"; };
+		32C4527625D0D52D00FC819C /* DoJsonWithFunctionBuilder.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DoJsonWithFunctionBuilder.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		32C4527825D11FAE00FC819C /* DoGestureState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGestureState.swift; sourceTree = "<group>"; };
 		32D4EA3F25885575008A0B4A /* DoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTextField.swift; sourceTree = "<group>"; };
 		32D4EA4225886AE0008A0B4A /* DoGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGradient.swift; sourceTree = "<group>"; };
 		32D4EA6E258AF202008A0B4A /* DoPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoPreference.swift; sourceTree = "<group>"; };
@@ -232,6 +235,7 @@
 			children = (
 				327AE3E92599A6050062BD67 /* DoBasicGesture.swift */,
 				324A4056259B320400665879 /* DoGestureViewModifer.swift */,
+				32C4527825D11FAE00FC819C /* DoGestureState.swift */,
 				327AE3EC2599A61F0062BD67 /* DoComposingGesture.swift */,
 			);
 			path = Gesture;
@@ -459,6 +463,7 @@
 				3281FE9C25B8363A00030F29 /* ActivityGraph */,
 				3281FE6B25AFDA5500030F29 /* DoCustomStateAndBinding.playground */,
 				325A8F3525C01D6700AF2ADD /* DoSomeSwiftFeature.playground */,
+				32C4527625D0D52D00FC819C /* DoJsonWithFunctionBuilder.playground */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				3271847325A4622F0093686F /* Screenshot.swift in Sources */,
 				32A3DB6225A9762300F38A5C /* RecordList.swift in Sources */,
 				32D4EACD2592F7F4008A0B4A /* DoSpacer.swift in Sources */,
+				32C4527925D11FAE00FC819C /* DoGestureState.swift in Sources */,
 				3281FEAE25B985FA00030F29 /* DiagramSimple.swift in Sources */,
 				32282C652594466700B30971 /* DoProgressView.swift in Sources */,
 				32D4EAC42592EE79008A0B4A /* MySegmentControl.swift in Sources */,

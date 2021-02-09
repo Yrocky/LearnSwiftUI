@@ -12,7 +12,7 @@ struct DoSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             
-            DoMap()
+            DoTabView()
 //            InfiniteListContainer()
 //            DoStateAndBinding()
 //            ExampleScreenshot()

@@ -209,6 +209,23 @@ struct DoBasicGesture: View {
         
         VExampleView("DragGesture") {
             
+            /*:
+             DragGesture的Value如下，里面有手势移动的时候会引起变化的数据，我们一般常用的是`translation`，也就是手势从开始到目前移动的距离。
+             
+             ```swift
+             public struct Value : Equatable {
+
+                 public var time: Date
+
+                 public var location: CGPoint
+                 public var startLocation: CGPoint
+                 public var translation: CGSize { get }
+
+                 public var predictedEndLocation: CGPoint { get }
+                 public var predictedEndTranslation: CGSize { get }
+             }
+             ```
+             */
             HStack {
             
                 Circle()

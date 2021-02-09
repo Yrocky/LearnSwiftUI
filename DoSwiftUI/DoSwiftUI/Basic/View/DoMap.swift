@@ -89,11 +89,11 @@ struct DoMap: View {
 //                    Text("")
 //                }
 //            }
-            Map(coordinateRegion: $coordinateRegion, annotationItems: locations) { (local) -> MapAnnotationProtocol in
-                MapAnnotation.init(coordinate: local.coordinate) {
-                    Text("")
-                }
-            }
+//            Map(coordinateRegion: $coordinateRegion, annotationItems: locations) { (local) -> MapAnnotationProtocol in
+//                MapAnnotation.init(coordinate: local.coordinate) {
+//                    Text("")
+//                }
+//            }
         }
     }
 }

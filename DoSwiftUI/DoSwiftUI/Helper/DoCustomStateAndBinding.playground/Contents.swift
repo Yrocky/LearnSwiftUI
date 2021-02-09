@@ -2,6 +2,8 @@ import UIKit
 
 var str = "Hello, playground"
 
+// https://www.appcoda.com/state-management-ios/
+
 @propertyWrapper
 struct Binding<Value> {
     
