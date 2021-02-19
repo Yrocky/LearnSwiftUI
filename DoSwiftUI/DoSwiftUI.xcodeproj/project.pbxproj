@@ -80,6 +80,7 @@
 		32C4527125CFE3E100FC819C /* BlurImageView.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 32C4527025CFE3E100FC819C /* BlurImageView.mp4 */; };
 		32C4527425CFEE8300FC819C /* DoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C4527325CFEE8300FC819C /* DoMap.swift */; };
 		32C4527925D11FAE00FC819C /* DoGestureState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C4527825D11FAE00FC819C /* DoGestureState.swift */; };
+		32C4527C25D2506300FC819C /* Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C4527B25D2506200FC819C /* Unwrap.swift */; };
 		32D4EA4025885575008A0B4A /* DoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA3F25885575008A0B4A /* DoTextField.swift */; };
 		32D4EA4325886AE0008A0B4A /* DoGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA4225886AE0008A0B4A /* DoGradient.swift */; };
 		32D4EA6F258AF202008A0B4A /* DoPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4EA6E258AF202008A0B4A /* DoPreference.swift */; };
@@ -187,6 +188,7 @@
 		32C4527325CFEE8300FC819C /* DoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoMap.swift; sourceTree = "<group>"; };
 		32C4527625D0D52D00FC819C /* DoJsonWithFunctionBuilder.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DoJsonWithFunctionBuilder.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		32C4527825D11FAE00FC819C /* DoGestureState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGestureState.swift; sourceTree = "<group>"; };
+		32C4527B25D2506200FC819C /* Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwrap.swift; sourceTree = "<group>"; };
 		32D4EA3F25885575008A0B4A /* DoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTextField.swift; sourceTree = "<group>"; };
 		32D4EA4225886AE0008A0B4A /* DoGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGradient.swift; sourceTree = "<group>"; };
 		32D4EA6E258AF202008A0B4A /* DoPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoPreference.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				3271847925A6B8710093686F /* InfiniteListView.swift */,
 				32282C6B25946FB500B30971 /* ExampleView.swift */,
 				32C4526A25CD21F400FC819C /* CustomStepper.swift */,
+				32C4527B25D2506200FC819C /* Unwrap.swift */,
 				3271846F25A45F330093686F /* Dump.swift */,
 				3271847225A4622F0093686F /* Screenshot.swift */,
 				3281FE6825AEDF0E00030F29 /* Checkbox.swift */,
@@ -591,6 +594,7 @@
 				3264C40A25958960002D31F6 /* DoList.swift in Sources */,
 				32D4EA9C258CA571008A0B4A /* DoShape.swift in Sources */,
 				323545B525809A6A003A9828 /* DoSwiftUIApp.swift in Sources */,
+				32C4527C25D2506300FC819C /* Unwrap.swift in Sources */,
 				32D4EA75258B4495008A0B4A /* DoGroupBox.swift in Sources */,
 				3271847A25A6B8710093686F /* InfiniteListView.swift in Sources */,
 				32D4EA6F258AF202008A0B4A /* DoPreference.swift in Sources */,

@@ -20,7 +20,8 @@ extension JSON {
         case int(Int)
         case double(Double)
         case string(String)
-        case group([JSON])
+        case group([JSON])// 用于字典
+        //case list([JSON])// 用于数组
     }
 }
 
@@ -141,6 +142,26 @@ let json_3 = makeJSON {
 }
 
 struct JSONGroup {
+    var name: String
+    var jsons: [JSON]
+    
+    // 便利初始化方法
+    init(_ name: String, _ jsons: [JSON]) {
+        self.name = name
+        self.jsons = jsons
+    }
+    
+    init(_ name: String, _ jsons: [JSONConvertible]) {
+        self.init(name, jsons.flatMap{ $0.asJSON() })
+    }
+    
+    init(_ name: String, @JSONBuilder builder: () -> [JSONConvertible]) {
+        self.init(name, builder())
+    }
+}
+
+struct JSONList {
+
     var name: String
     var jsons: [JSON]
     

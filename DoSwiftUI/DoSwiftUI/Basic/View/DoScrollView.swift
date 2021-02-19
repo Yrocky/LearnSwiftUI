@@ -14,8 +14,6 @@ struct DoScrollView: View {
             doVScrollView
             
             doHScrollView
-            
-//            https://www.jianshu.com/p/47d0b3a8960d
         }
     }
     
