@@ -9,12 +9,14 @@ import SwiftUI
 
 struct DoScrollView: View {
     var body: some View {
-        ExampleContainerView("ScrollView") {
+//        ExampleContainerView("ScrollView") {
+//
+//            doVScrollView
+//
+//            doHScrollView
             
-            doVScrollView
-            
-            doHScrollView
-        }
+            doStickyHeader
+//        }
     }
     
     var doVScrollView: some View {
@@ -67,6 +69,72 @@ struct DoScrollView: View {
                 }
             }
             .border(Color.green ,width: 1)
+        }
+    }
+    
+    var doStickyHeader: some View {
+//        VExampleView("StickyHeader", height: 400) {
+            ScrollView(.vertical, showsIndicators: false) {
+                StickyHeader(minHeight: 200) {
+                    ZStack {
+                        Color(red: 35/255, green: 45/255, blue: 50/255)
+                        VStack {
+                            Text("Learn SwiftUI")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Step by Step")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                        }
+                    }
+                }
+                
+                VStack{
+                    ForEach(0..<20) {
+                        Text("NO.\($0)")
+                            .font(.system(size: 60))
+                            .foregroundColor(.white)
+                    }
+                }
+            }
+            .background(Color.green)
+            .edgesIgnoringSafeArea(.vertical)
+//        }
+    }
+    
+    struct StickyHeader<Content: View>: View {
+        
+        var minHeight: CGFloat
+        var content: Content
+        
+        init(minHeight: CGFloat = 100, @ViewBuilder content: () -> Content) {
+            self.minHeight = minHeight
+            self.content = content()
+        }
+        
+        var body: some View{
+            GeometryReader{ proxy in
+                
+                let offsetY = proxy.frame(in: .global).minY
+                if offsetY <= 0 {
+                    content
+                        .frame(
+                            width: proxy.size.width,
+                            height: proxy.size.height
+                        )
+                } else {
+                    content
+                        .offset(y: -offsetY)
+                        .frame(
+                            width: proxy.size.width,
+                            height: proxy.size.height + offsetY
+                        )
+                }
+            }
+            .frame(minHeight: minHeight)
+            .edgesIgnoringSafeArea(.vertical)
         }
     }
     

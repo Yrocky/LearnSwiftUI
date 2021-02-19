@@ -33,14 +33,14 @@ struct DoVideoPlayer: View {
              ```swift
              struct VideoPlayer<VideoOverlay> : View where VideoOverlay : View {
              
-             public init(player: AVPlayer?, @ViewBuilder videoOverlay: () -> VideoOverlay)
-             
-             public var body: some View { get }
-             public typealias Body = some View
+                 public init(player: AVPlayer?, @ViewBuilder videoOverlay: () -> VideoOverlay)
+                 
+                 public var body: some View { get }
+                 public typealias Body = some View
              }
              
              VideoPlayer where VideoOverlay == EmptyView {
-             public init(player: AVPlayer?)
+                 public init(player: AVPlayer?)
              }
              ```
              我们唯一要做的就是，使用AVPlayer来加载视频资源，然后交给VideoPlayer即可。
