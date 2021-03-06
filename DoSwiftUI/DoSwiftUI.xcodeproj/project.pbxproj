@@ -127,6 +127,7 @@
 		323545BB25809A6D003A9828 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		323545BD25809A6D003A9828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		323545C525809AE9003A9828 /* Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basic.swift; sourceTree = "<group>"; };
+		323DDDA925DFC4740010C791 /* DoDataStructure.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DoDataStructure.playground; sourceTree = "<group>"; };
 		324A4056259B320400665879 /* DoGestureViewModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGestureViewModifer.swift; sourceTree = "<group>"; };
 		324A405B259B392200665879 /* DoVectorArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoVectorArithmetic.swift; sourceTree = "<group>"; };
 		324A405E259B395300665879 /* DoGeometryEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGeometryEffect.swift; sourceTree = "<group>"; };
@@ -297,6 +298,14 @@
 			path = Basic;
 			sourceTree = "<group>";
 		};
+		323DDDA825DFC4740010C791 /* Algorithms&DataStructure */ = {
+			isa = PBXGroup;
+			children = (
+				323DDDA925DFC4740010C791 /* DoDataStructure.playground */,
+			);
+			path = "Algorithms&DataStructure";
+			sourceTree = "<group>";
+		};
 		3256C2CC2597A58900225B55 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +459,7 @@
 		32D4EAD125931A27008A0B4A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				323DDDA825DFC4740010C791 /* Algorithms&DataStructure */,
 				32D4EAC32592EE79008A0B4A /* MySegmentControl.swift */,
 				3271847925A6B8710093686F /* InfiniteListView.swift */,
 				32282C6B25946FB500B30971 /* ExampleView.swift */,

@@ -11,19 +11,21 @@ struct DoTabView: View {
     var body: some View {
         ExampleContainerView("TabView") {
             
-            doNormal
-
-            doHashable
-
-            doSelection
-
-            doTabViewStyle
-
-            doIndexViewStyle
+//            doNormal
+//
+//            doHashable
+//
+//            doSelection
+//
+//            doTabViewStyle
+//
+//            doIndexViewStyle
+            
+            doCustomPageIndex
             
 //            doCustomTabView
             
-            doCreateWithArray
+//            doCreateWithArray
         }
     }
     
@@ -155,6 +157,22 @@ struct DoTabView: View {
         }
     }
 
+    var doCustomPageIndex: some View {
+        VExampleView("custom page index", version:"2.0", height: 200) {
+            /*:
+             TabView的`PageTabViewStyle`可以为我们提供分页效果，但是并没有提供隐藏pageControl控件的方法，
+             另外，通过`.onAppear`会发现其Appear以及Disappear并不是想象中的效果。
+             */
+            TabView() {
+                PageView(text: "A", color: .orange)
+                PageView(text: "B", color: .green)
+                PageView(text: "C", color: .pink)
+            }
+            .tabViewStyle(PageTabViewStyle())
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
+        }
+    }
+    
     var doCustomTabView: some View {
         VExampleView("custom TabView", height: 200) {
             /*:
@@ -239,6 +257,12 @@ struct PageView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 20))
             )
+            .onAppear {
+                print("appear \(text)")
+            }
+            .onDisappear {
+                print("disappear \(text)")
+            }
     }
 }
 

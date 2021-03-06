@@ -404,11 +404,11 @@ extension AccountController {
     }
     
     var code: JSONConvertible {
-        JSON("code", .int(checkUid() ? 200 : 1309))// 1309: uis is illegal
+        JSON("code", .int(checkUid() ? 200 : 1309))// 1309: uid is illegal
     }
     
     var message: JSONConvertible {
-        JSON("message", .string(checkUid() ? "success" : "uis is illegal"))
+        JSON("message", .string(checkUid() ? "success" : "uid is illegal"))
     }
     
     var data: JSONConvertible {
